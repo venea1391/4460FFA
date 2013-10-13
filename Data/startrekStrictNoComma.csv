@@ -1,0 +1,698 @@
+series,season,episode,title,url,rating,votes,date,stardate,director,writer,exact
+TOS,1,0,The Cage,http://www.imdb.com/title/tt0059753/,7.6,"2,327",1-Jan-65,Unknown,Robert Butler,Gene Roddenberry,1
+TOS,1,1,The Man Trap,http://www.imdb.com/title/tt0708469/,7.3,"1,135",8-Sep-66,1513.1,Marc Daniels,George Clayton Johnson,2
+TOS,1,2,Charlie X,http://www.imdb.com/title/tt0708424/,7.2,"1,050",15-Sep-66,1533.6,Lawrence Dobkin,Gene Roddenberry,3
+TOS,1,3,Where No Man Has Gone Before,http://www.imdb.com/title/tt0061027/,7.8,"1,930",22-Sep-66,1312.9,James Goldstone,Samuel A. Peeples,4
+TOS,1,4,The Naked Time,http://www.imdb.com/title/tt0708473/,7.9,977,29-Sep-66,1704.2,Marc Daniels,John D. F. Black,5
+TOS,1,5,The Enemy Within,http://www.imdb.com/title/tt0708463/,7.7,935,6-Oct-66,1672.1,Leo Penn,Richard Matheson,6
+TOS,1,6,Mudd's Women,http://www.imdb.com/title/tt0708439/,7,899,13-Oct-66,1329.8,Harvey Hart,Gene Roddenberry,7
+TOS,1,7,What Are Little Girls Made Of?,http://www.imdb.com/title/tt0708486/,7.6,862,20-Oct-66,2712.4,James Goldstone,Robert Bloch,8
+TOS,1,8,Miri,http://www.imdb.com/title/tt0394905/,7.2,869,27-Oct-66,2713.5,Vincent McEveety,Adrian Spies,9
+TOS,1,9,Dagger of the Mind,http://www.imdb.com/title/tt0708426/,7.5,801,3-Nov-66,2715.1,Vincent McEveety,S. Bar-David,10
+TOS,1,10,The Corbomite Maneuver,http://www.imdb.com/title/tt0708458/,8.1,939,10-Nov-66,1512.2,Joseph Sargent,Jerry Sohl,11
+TOS,1,11,The Menagerie: Part I,http://www.imdb.com/title/tt0394904/,8.3,908,17-Nov-66,3012.4,Marc Daniels,Gene Roddenberry,12
+TOS,1,12,The Menagerie: Part II,http://www.imdb.com/title/tt0708472/,8.3,856,24-Nov-66,3013.1,Robert Butler,Gene Roddenberry,13
+TOS,1,13,The Conscience of the King,http://www.imdb.com/title/tt0394903/,7.2,810,8-Dec-66,2817.6,Gerd Oswald,Barry Trivers,14
+TOS,1,14,Balance of Terror,http://www.imdb.com/title/tt0708420/,8.6,"1,111",15-Dec-66,1709.2,Vincent McEveety,Paul Schneider,15
+TOS,1,15,Shore Leave,http://www.imdb.com/title/tt0708446/,7.6,842,29-Dec-66,3025.3,Robert Sparr,Theodore Sturgeon,16
+TOS,1,16,The Galileo Seven,http://www.imdb.com/title/tt0708465/,7.6,808,5-Jan-67,2821.5,Robert Gist,Oliver Crawford,17
+TOS,1,17,The Squire of Gothos,http://www.imdb.com/title/tt0708478/,7.6,803,12-Jan-67,2124.5,Don McDougall,Paul Schneider,18
+TOS,1,18,Arena,http://www.imdb.com/title/tt0708418/,8,861,19-Jan-67,3045.6,Joseph Pevney,Fredric Brown,19
+TOS,1,19,Tomorrow Is Yesterday,http://www.imdb.com/title/tt0708484/,7.9,809,26-Jan-67,3113.2,Michael O'Herlihy,D. C. Fontana,20
+TOS,1,20,Court Martial,http://www.imdb.com/title/tt0708425/,7.3,753,2-Feb-67,2947.3,Marc Daniels,Don M. Mankiewicz,21
+TOS,1,21,The Return of the Archons,http://www.imdb.com/title/tt0708476/,7.2,731,9-Feb-67,3156.2,Joseph Pevney,Gene Roddenberry,22
+TOS,1,22,Space Seed,http://www.imdb.com/title/tt0708447/,8.6,"1,160",16-Feb-67,3141.9,Marc Daniels,Carey Wilber,23
+TOS,1,23,A Taste of Armageddon,http://www.imdb.com/title/tt0708414/,8,791,23-Feb-67,3192.1,Joseph Pevney,Robert Hamner,24
+TOS,1,24,This Side of Paradise,http://www.imdb.com/title/tt0708483/,7.9,777,2-Mar-67,3417.3_3417.7,Ralph Senensky,Nathan Butler,25
+TOS,1,25,The Devil in the Dark,http://www.imdb.com/title/tt0708460/,8.3,849,9-Mar-67,3196.1,Joseph Pevney,Gene L. Coon,26
+TOS,1,26,Errand of Mercy,http://www.imdb.com/title/tt0708429/,8.1,770,23-Mar-67,3198.4,John Newland,Gene L. Coon,27
+TOS,1,27,The Alternative Factor,http://www.imdb.com/title/tt0708451/,6,758,30-Mar-67,3087.6,Gerd Oswald,Don Ingalls,28
+TOS,1,28,The City on the Edge of Forever,http://www.imdb.com/title/tt0708455/,8.7,"1,408",6-Apr-67,3134,Joseph Pevney,Harlan Ellison,29
+TOS,1,29,Operation - Annihilate!,http://www.imdb.com/title/tt0708441/,7.5,682,13-Apr-67,3287.2,Herschel Daugherty,Steven W. Carabatsos,30
+TOS,2,1,Amok Time,http://www.imdb.com/title/tt0708416/,8.6,935,15-Sep-67,3372.7,Joseph Pevney,Theodore Sturgeon,31
+TOS,2,2,Who Mourns for Adonais?,http://www.imdb.com/title/tt0708488/,7,750,22-Sep-67,3468.1,Marc Daniels,Gilbert Ralston,32
+TOS,2,3,The Changeling,http://www.imdb.com/title/tt0708454/,7.7,675,29-Sep-67,3541.9,Marc Daniels,John Meredyth Lucas,33
+TOS,2,4,Mirror Mirror,http://www.imdb.com/title/tt0708438/,8.6,"1,044",6-Oct-67,Unknown,Marc Daniels,Jerome Bixby,34
+TOS,2,5,The Apple,http://www.imdb.com/title/tt0708452/,6.4,654,13-Oct-67,3715.3,Joseph Pevney,Max Ehrlich,35
+TOS,2,6,The Doomsday Machine,http://www.imdb.com/title/tt0708461/,8.7,907,20-Oct-67,4202.9,Marc Daniels,Norman Spinrad,36
+TOS,2,7,Catspaw,http://www.imdb.com/title/tt0708423/,6.3,651,27-Oct-67,3018.2,Joseph Pevney,Robert Bloch,37
+TOS,2,8,I Mudd,http://www.imdb.com/title/tt0708432/,7.5,695,3-Nov-67,4513.3,Marc Daniels,Stephen Kandel,38
+TOS,2,9,Metamorphosis,http://www.imdb.com/title/tt0708436/,7.3,665,10-Nov-67,3219.4,Ralph Senensky,Gene L. Coon,39
+TOS,2,10,Journey to Babel,http://www.imdb.com/title/tt0708434/,8.5,737,17-Nov-67,3842.3,Joseph Pevney,D. C. Fontana,40
+TOS,2,11,Friday's Child,http://www.imdb.com/title/tt0708431/,6.9,620,1-Dec-67,3497.2,Joseph Pevney,D. C. Fontana,41
+TOS,2,12,The Deadly Years,http://www.imdb.com/title/tt0708459/,7.3,624,8-Dec-67,3478.2,Joseph Pevney,David P. Harmon,42
+TOS,2,13,Obsession,http://www.imdb.com/title/tt0708440/,7.3,577,15-Dec-67,3619.2,Ralph Senensky,Art Wallace,43
+TOS,2,14,Wolf in the Fold,http://www.imdb.com/title/tt0708491/,7.4,646,22-Dec-67,3614.9,Joseph Pevney,Robert Bloch,44
+TOS,2,15,The Trouble with Tribbles,http://www.imdb.com/title/tt0708480/,8.6,"1,019",29-Dec-67,4523.3,Joseph Pevney,David Gerrold,45
+TOS,2,16,The Gamesters of Triskelion,http://www.imdb.com/title/tt0708466/,6.8,633,5-Jan-68,3211.7,Gene Nelson,Margaret Armen,46
+TOS,2,17,A Piece of the Action,http://www.imdb.com/title/tt0708412/,7.8,712,12-Jan-68,4598,James Komack,David P. Harmon,47
+TOS,2,18,The Immunity Syndrome,http://www.imdb.com/title/tt0708467/,7.4,596,19-Jan-68,4307.1,Joseph Pevney,Robert Sabaroff,48
+TOS,2,19,A Private Little War,http://www.imdb.com/title/tt0708413/,6.9,571,2-Feb-68,4211.4,Marc Daniels,Jud Crucis,49
+TOS,2,20,Return to Tomorrow,http://www.imdb.com/title/tt0708445/,7.5,584,9-Feb-68,4768.3,Ralph Senensky,John Kingsbridge,50
+TOS,2,21,Patterns of Force,http://www.imdb.com/title/tt0708442/,7.5,649,16-Feb-68,2534,Vincent McEveety,John Meredyth Lucas,51
+TOS,2,22,By Any Other Name,http://www.imdb.com/title/tt0708422/,7.6,631,23-Feb-68,4657.5,Marc Daniels,Jerome Bixby,52
+TOS,2,23,The Omega Glory,http://www.imdb.com/title/tt0708474/,6.5,617,1-Mar-68,Unknown,Vincent McEveety,Gene Roddenberry,53
+TOS,2,24,The Ultimate Computer,http://www.imdb.com/title/tt0708481/,7.9,624,8-Mar-68,4729.4,John Meredyth Lucas,Laurence N. Wolfe,54
+TOS,2,25,Bread and Circuses,http://www.imdb.com/title/tt0708421/,7.2,626,15-Mar-68,4040.7,Ralph Senensky,Gene Roddenberry,55
+TOS,2,26,Assignment: Earth,http://www.imdb.com/title/tt0708419/,7.6,691,29-Mar-68,Unknown,Marc Daniels,Gene Roddenberry,56
+TOS,3,1,Spock's Brain,http://www.imdb.com/title/tt0708449/,5.6,668,20-Sep-68,5431.4,Marc Daniels,Lee Cronin,57
+TOS,3,2,The Enterprise Incident,http://www.imdb.com/title/tt0708464/,8.4,715,27-Sep-68,5027.3,John Meredyth Lucas,D. C. Fontana,58
+TOS,3,3,The Paradise Syndrome,http://www.imdb.com/title/tt0708475/,6.8,599,4-Oct-68,4842.6,Jud Taylor,Margaret Armen,59
+TOS,3,4,And the Children Shall Lead,http://www.imdb.com/title/tt0708417/,5.4,618,11-Oct-68,5029.5,Marvin Chomsky,Edward J. Lakso,60
+TOS,3,5,Is There in Truth No Beauty?,http://www.imdb.com/title/tt0708433/,7,583,18-Oct-68,5630.7,Ralph Senensky,Jean Lisette Aroeste,61
+TOS,3,6,Spectre of the Gun,http://www.imdb.com/title/tt0708448/,7.4,625,25-Oct-68,4385.3,Vincent McEveety,Lee Cronin,62
+TOS,3,7,Day of the Dove,http://www.imdb.com/title/tt0708427/,7.9,631,1-Nov-68,Unknown,Marvin Chomsky,Jerome Bixby,63
+TOS,3,8,For the World Is Hollow and I Have Touched the Sky,http://www.imdb.com/title/tt0708430/,6.9,561,8-Nov-68,5476.3,Tony Leader,Rik Vollaerts,64
+TOS,3,9,The Tholian Web,http://www.imdb.com/title/tt0708479/,7.9,626,15-Nov-68,5693.2,Herb Wallerstein,Judy Burns,65
+TOS,3,10,Plato's Stepchildren,http://www.imdb.com/title/tt0708443/,6.7,568,22-Nov-68,5784.2,David Alexander,Meyer Dolinsky,66
+TOS,3,11,Wink of an Eye,http://www.imdb.com/title/tt0708490/,7.4,542,29-Nov-68,5710.5,Jud Taylor,Lee Cronin,67
+TOS,3,12,The Empath,http://www.imdb.com/title/tt0708462/,6.7,588,6-Dec-68,5121.5,John Erman,Joyce Muskat,68
+TOS,3,13,Elaan of Troyius,http://www.imdb.com/title/tt0708428/,7.1,558,20-Dec-68,4372.5,John Meredyth Lucas,John Meredyth Lucas,69
+TOS,3,14,Whom Gods Destroy,http://www.imdb.com/title/tt0708489/,6.9,533,3-Jan-69,5718.3,Herb Wallerstein,Lee Erwin,70
+TOS,3,15,Let That Be Your Last Battlefield,http://www.imdb.com/title/tt0708435/,7.2,594,10-Jan-69,5730.2,Jud Taylor,Lee Cronin,71
+TOS,3,16,The Mark of Gideon,http://www.imdb.com/title/tt0708470/,6.7,521,17-Jan-69,5423.4,Jud Taylor,George F. Slavin,72
+TOS,3,17,That Which Survives,http://www.imdb.com/title/tt0708450/,6.6,508,24-Jan-69,Unknown,Herb Wallerstein,Michael Richards,73
+TOS,3,18,The Lights of Zetar,http://www.imdb.com/title/tt0708468/,6.2,500,31-Jan-69,5725.3,Herb Kenwith,Jeremy Tarcher,74
+TOS,3,19,Requiem for Methuselah,http://www.imdb.com/title/tt0708444/,7.7,586,14-Feb-69,5843.7,Murray Golden,Jerome Bixby,75
+TOS,3,20,The Way to Eden,http://www.imdb.com/title/tt0708482/,5.5,616,21-Feb-69,5832.3,David Alexander,Michael Richards,76
+TOS,3,21,The Cloud Minders,http://www.imdb.com/title/tt0708456/,6.8,516,28-Feb-69,5818.4,Jud Taylor,David Gerrold,77
+TOS,3,22,The Savage Curtain,http://www.imdb.com/title/tt0708477/,6.9,532,7-Mar-69,5906.4,Herschel Daugherty,Gene Roddenberry,78
+TOS,3,23,All Our Yesterdays,http://www.imdb.com/title/tt0708415/,8.1,613,14-Mar-69,5943.7,Marvin Chomsky,Jean Lisette Aroeste,79
+TOS,3,24,Turnabout Intruder,http://www.imdb.com/title/tt0708485/,6.9,554,3-Jun-69,5928.5,Herb Wallerstein,Gene Roddenberry,80
+TNG,1,1,Encounter at Farpoint,http://www.imdb.com/title/tt0094030/,6.9,"2,650",28-Sep-87,41153.7,Corey Allen,D. C. Fontana,81
+TNG,1,2,The Naked Now,http://www.imdb.com/title/tt0708810/,6.6,867,5-Oct-87,41209.2,Paul Lynch,John D. F. Black,82
+TNG,1,3,Code of Honor,http://www.imdb.com/title/tt0708689/,5.3,779,12-Oct-87,41235.25,Russ Mayberry,Katharyn Powers,83
+TNG,1,4,The Last Outpost,http://www.imdb.com/title/tt0708804/,6.4,727,19-Oct-87,41386.4,Richard Colla,Richard Krzmeien,84
+TNG,1,5,Where No One Has Gone Before,http://www.imdb.com/title/tt0708842/,7.5,780,26-Oct-87,41263.1,Rob Bowman,Diane Duane,85
+TNG,1,6,Lonely Among Us,http://www.imdb.com/title/tt0708743/,6.4,652,2-Nov-87,41249.3,Cliff Bole,Michael Halperin,86
+TNG,1,7,Justice,http://www.imdb.com/title/tt0708739/,6.1,728,9-Nov-87,41255.6,James L. Conway,Ralph Willis,87
+TNG,1,8,The Battle,http://www.imdb.com/title/tt0708784/,7,658,16-Nov-87,41723.9,Rob Bowman,Larry Forrester,88
+TNG,1,9,Hide and Q,http://www.imdb.com/title/tt0708728/,7,699,23-Nov-87,41590.5,Cliff Bole,C.J. Holland,89
+TNG,1,10,Haven,http://www.imdb.com/title/tt0708725/,6.3,646,30-Nov-87,41294.5,Richard Compton,Tracy Torm,90
+TNG,1,11,The Big Goodbye,http://www.imdb.com/title/tt0708787/,7.6,721,11-Jan-88,41997.7,Joseph L. Scanlan,Tracy Torm,91
+TNG,1,12,Datalore,http://www.imdb.com/title/tt0708698/,7.7,721,18-Jan-88,41242.4,Rob Bowman,Robert Lewin,92
+TNG,1,13,Angel One,http://www.imdb.com/title/tt0708676/,5.6,656,25-Jan-88,41636.9,Michael Rhoades,Patrick Barry,93
+TNG,1,14,11001001,http://www.imdb.com/title/tt0708668/,7.6,714,1-Feb-88,41365.9,Paul Lynch,Maurice Hurley,94
+TNG,1,15,Too Short a Season,http://www.imdb.com/title/tt0708832/,6.1,637,8-Feb-88,41309.5,Rob Bowman,Michael Michaelian,95
+TNG,1,16,When the Bough Breaks,http://www.imdb.com/title/tt0708841/,6.3,623,15-Feb-88,41509.1,Kim Manners,Hannah Louise Shearer,96
+TNG,1,17,Home Soil,http://www.imdb.com/title/tt0708730/,6.8,600,22-Feb-88,41463.9,Corey Allen,Karl Geurs,97
+TNG,1,18,Coming of Age,http://www.imdb.com/title/tt0708690/,7,620,14-Mar-88,41416.2,Mike Vejar,Sandy Fries,98
+TNG,1,19,Heart of Glory,http://www.imdb.com/title/tt0708726/,7.4,601,21-Mar-88,41503.7,Rob Bowman,Maurice Hurley,99
+TNG,1,20,The Arsenal of Freedom,http://www.imdb.com/title/tt0708783/,7.1,652,11-Apr-88,41798.2,Les Landau,Maurice Hurley,100
+TNG,1,21,Symbiosis,http://www.imdb.com/title/tt0708781/,6.9,622,18-Apr-88,Unknown,Win Phelps,Robert Lewin,101
+TNG,1,22,Skin of Evil,http://www.imdb.com/title/tt0708776/,6.9,692,25-Apr-88,41601.3,Joseph L. Scanlan,Joseph Stefano,102
+TNG,1,23,We'll Always Have Paris,http://www.imdb.com/title/tt0708840/,6.8,598,2-May-88,41697.9,Robert Becker,Deborah Dean Davis,103
+TNG,1,24,Conspiracy,http://www.imdb.com/title/tt0708691/,8.1,714,9-May-88,41775.5,Cliff Bole,Robert Sabaroff,104
+TNG,1,25,The Neutral Zone,http://www.imdb.com/title/tt0708811/,7.4,654,16-May-88,41986,James L. Conway,Deborah McIntyre,105
+TNG,2,1,The Child,http://www.imdb.com/title/tt0708790/,5.8,667,21-Nov-88,42073.1,Rob Bowman,Jaron Summers,106
+TNG,2,2,Where Silence Has Lease,http://www.imdb.com/title/tt0708843/,7,650,28-Nov-88,42193.6,Winrich Kolbe,Jack B. Sowards,107
+TNG,2,3,Elementary Dear Data,http://www.imdb.com/title/tt0708704/,8.1,758,5-Dec-88,42286.3,Rob Bowman,Brian Alan Lane,108
+TNG,2,4,The Outrageous Okona,http://www.imdb.com/title/tt0708816/,6.3,671,12-Dec-88,42402.7,Robert Becker,Les Menchen,109
+TNG,2,5,Loud as a Whisper,http://www.imdb.com/title/tt0708744/,6.5,600,9-Jan-89,42477.2,Larry Shaw,Jacqueline Zambrano,110
+TNG,2,6,The Schizoid Man,http://www.imdb.com/title/tt0708822/,6.8,610,23-Jan-89,42437.5,Les Landau,Richard Manning,111
+TNG,2,7,Unnatural Selection,http://www.imdb.com/title/tt0708837/,6.4,589,30-Jan-89,42494.8,Paul Lynch,John Mason,112
+TNG,2,8,A Matter of Honor,http://www.imdb.com/title/tt0708670/,8,659,6-Feb-89,42506.5,Rob Bowman,Wanda M. Haight,113
+TNG,2,9,The Measure of a Man,http://www.imdb.com/title/tt0708807/,8.7,962,13-Feb-89,42523.7,Robert Scheerer,Melinda M. Snodgrass,114
+TNG,2,10,The Dauphin,http://www.imdb.com/title/tt0708791/,6.1,634,20-Feb-89,42568.8,Rob Bowman,Scott Rubenstein,115
+TNG,2,11,Contagion,http://www.imdb.com/title/tt0708692/,7.6,599,20-Mar-89,42609.1,Joseph L. Scanlan,Steve Gerber,116
+TNG,2,12,The Royale,http://www.imdb.com/title/tt0708821/,6.7,657,27-Mar-89,42625.4,Cliff Bole,Keith Mills,117
+TNG,2,13,Time Squared,http://www.imdb.com/title/tt0708827/,7.5,642,3-Apr-89,42679.2,Joseph L. Scanlan,Kurt Michael Bensmiller,118
+TNG,2,14,The Icarus Factor,http://www.imdb.com/title/tt0708802/,6.3,552,24-Apr-89,42686.4,Robert Iscove,David Assael,119
+TNG,2,15,Pen Pals,http://www.imdb.com/title/tt0708754/,6.8,598,1-May-89,42695.3,Winrich Kolbe,Hannah Louise Shearer,120
+TNG,2,16,Q Who?,http://www.imdb.com/title/tt0708758/,8.5,897,8-May-89,42761.3,Rob Bowman,Maurice Hurley,121
+TNG,2,17,Samaritan Snare,http://www.imdb.com/title/tt0708768/,6.5,564,15-May-89,42779.1,Les Landau,Robert L. McCullough,122
+TNG,2,18,Up the Long Ladder,http://www.imdb.com/title/tt0708838/,6.5,570,22-May-89,42823.2,Winrich Kolbe,Melinda M. Snodgrass,123
+TNG,2,19,Manhunt,http://www.imdb.com/title/tt0708747/,6.1,563,19-Jun-89,42859.2,Rob Bowman,Terry Devereaux,124
+TNG,2,20,The Emissary,http://www.imdb.com/title/tt0708794/,7.5,588,29-Jun-89,42901.3,Cliff Bole,Richard Mannin,125
+TNG,2,21,Peak Performance,http://www.imdb.com/title/tt0708753/,7.7,591,10-Jul-89,42923.4,Robert Scheerer,David Kemper,126
+TNG,2,22,Shades of Gray,http://www.imdb.com/title/tt0708772/,3.8,702,17-Jul-89,42976.1,Rob Bowman,Maurice Hurley,127
+TNG,3,1,Evolution,http://www.imdb.com/title/tt0708710/,6.6,601,25-Sep-89,43125.8,Winrich Kolbe,Michael Piller,128
+TNG,3,2,The Ensigns of Command,http://www.imdb.com/title/tt0708796/,7.4,633,2-Oct-89,43133.3,Cliff Bole,Melinda M. Snodgrass,129
+TNG,3,3,The Survivors,http://www.imdb.com/title/tt0708823/,7.6,683,9-Oct-89,43152.4,Les Landau,Michael Wagner,130
+TNG,3,4,Who Watches the Watchers,http://www.imdb.com/title/tt0708844/,7.9,751,16-Oct-89,43173.5,Robert Wiemer,Richard Manning,131
+TNG,3,5,The Bonding,http://www.imdb.com/title/tt0708788/,6.6,587,23-Oct-89,43198.7,Winrich Kolbe,Ronald D. Moore,132
+TNG,3,6,Booby Trap,http://www.imdb.com/title/tt0708682/,7.5,612,30-Oct-89,43205.6,Gabrielle Beaumont,Michael Wagner,133
+TNG,3,7,The Enemy,http://www.imdb.com/title/tt0708795/,7.6,592,6-Nov-89,43349.2,David Carson,David Kemper,134
+TNG,3,8,The Price,http://www.imdb.com/title/tt0708819/,6.4,564,13-Nov-89,43385.6,Robert Scheerer,Hannah Louise Shearer,135
+TNG,3,9,The Vengeance Factor,http://www.imdb.com/title/tt0708824/,6.6,558,20-Nov-89,43421.9,Timothy Bond,Sam Rolfe,136
+TNG,3,10,The Defector,http://www.imdb.com/title/tt0708792/,8.2,692,1-Jan-90,43462.5,Robert Scheerer,Ronald D. Moore,137
+TNG,3,11,The Hunted,http://www.imdb.com/title/tt0708801/,7.4,595,8-Jan-90,43489.2,Cliff Bole,Robin Bernheim,138
+TNG,3,12,The High Ground,http://www.imdb.com/title/tt0708799/,6.8,578,29-Jan-90,43510.7,Gabrielle Beaumont,Melinda M. Snodgrass,139
+TNG,3,13,D_jˆ Q,http://www.imdb.com/title/tt0708699/,8.4,748,5-Feb-90,43539.1,Les Landau,Richard Danus,140
+TNG,3,14,A Matter of Perspective,http://www.imdb.com/title/tt0708671/,6.8,558,12-Feb-90,43610.4,Cliff Bole,Ed Zuckerman,141
+TNG,3,15,Yesterday's Enterprise,http://www.imdb.com/title/tt0708845/,8.6,"1,097",19-Feb-90,43625.2,David Carson,Trent Christopher Ganino,142
+TNG,3,16,The Offspring,http://www.imdb.com/title/tt0708814/,8.1,762,12-Mar-90,43657,Jonathan Frakes,Rene Echevarria,143
+TNG,3,17,Sins of the Father,http://www.imdb.com/title/tt0708775/,8.1,621,19-Mar-90,43685.2,Les Landau,Drew Deighan,144
+TNG,3,18,Allegiance,http://www.imdb.com/title/tt0708675/,7.4,593,26-Mar-90,43714.1,Winrich Kolbe,Richard Manning,145
+TNG,3,19,Captain's Holiday,http://www.imdb.com/title/tt0708684/,7.2,609,2-Apr-90,43745.2,Chip Chalmers,Ira Steven Behr,146
+TNG,3,20,Tin Man,http://www.imdb.com/title/tt0708831/,7.3,587,23-Apr-90,43779.3,Robert Scheerer,Dennis Putman Bailey,147
+TNG,3,21,Hollow Pursuits,http://www.imdb.com/title/tt0708729/,7.8,625,30-Apr-90,43807.4,Cliff Bole,Sally Caves,148
+TNG,3,22,The Most Toys,http://www.imdb.com/title/tt0708809/,7.6,614,7-May-90,43872.2,Timothy Bond,Shari Goodhartz,149
+TNG,3,23,Sarek,http://www.imdb.com/title/tt0708769/,8.1,636,14-May-90,43917.4,Les Landau,Marc Cushman,150
+TNG,3,24,M_nage ˆ Troi,http://www.imdb.com/title/tt0708749/,6.8,552,28-May-90,43930.7,Robert Legato,Fred Bronson,151
+TNG,3,25,Transfigurations,http://www.imdb.com/title/tt0708833/,7,534,4-Jun-90,43957.2,Tom Benko,Rene Echevarria,152
+TNG,3,26,The Best of Both Worlds: Part 1,http://www.imdb.com/title/tt0708785/,8.6,"1,158",18-Jun-90,43989.1,Cliff Bole,Michael Piller,153
+TNG,4,1,The Best of Both Worlds: Part 2,http://www.imdb.com/title/tt0708786/,8.6,"1,035",24-Sep-90,44001.4,Cliff Bole,Michael Piller,154
+TNG,4,2,Family,http://www.imdb.com/title/tt0708713/,7.9,717,1-Oct-90,44012.3,Les Landau,Ronald D. Moore,155
+TNG,4,3,Brothers,http://www.imdb.com/title/tt0708683/,7.7,582,8-Oct-90,44085.7,Rob Bowman,Ralph Phillips,156
+TNG,4,4,Suddenly Human,http://www.imdb.com/title/tt0708779/,6.5,549,15-Oct-90,Unknown,Gabrielle Beaumont,Ralph Phillips,157
+TNG,4,5,Remember Me,http://www.imdb.com/title/tt0708765/,7.8,638,22-Oct-90,44161.2,Cliff Bole,Lee Sheldon,158
+TNG,4,6,Legacy,http://www.imdb.com/title/tt0708740/,6.8,551,29-Oct-90,44215.2,Robert Scheerer,Joe Menosky,159
+TNG,4,7,Reunion,http://www.imdb.com/title/tt0708766/,8.3,618,5-Nov-90,44246.3,Jonathan Frakes,Drew Deighan,160
+TNG,4,8,Future Imperfect,http://www.imdb.com/title/tt0708719/,7.8,612,12-Nov-90,44286.5,Les Landau,J. Larry Carroll,161
+TNG,4,9,Final Mission,http://www.imdb.com/title/tt0708714/,6.9,550,19-Nov-90,44307.3,Corey Allen,Kacey Arnold-Ince,162
+TNG,4,10,The Loss,http://www.imdb.com/title/tt0708805/,6.2,518,31-Dec-90,44356.9,Chip Chalmers,Hilary J. Bader,163
+TNG,4,11,Data's Day,http://www.imdb.com/title/tt0708697/,8.1,629,7-Jan-91,44390.1,Robert Wiemer,Harold Apter,164
+TNG,4,12,The Wounded,http://www.imdb.com/title/tt0708825/,8,592,28-Jan-91,44429.6,Chip Chalmers,Stuart Charno,165
+TNG,4,13,Devil's Due,http://www.imdb.com/title/tt0708702/,7.2,585,4-Feb-91,44474.5,Tom Benko,Philip LaZebnik,166
+TNG,4,14,Clues,http://www.imdb.com/title/tt0708688/,8.2,653,11-Feb-91,44502.7,Les Landau,Bruce D. Arthurs,167
+TNG,4,15,First Contact,http://www.imdb.com/title/tt0708715/,7.9,591,18-Feb-91,44575.2,Cliff Bole,Marc Scott Zicree,168
+TNG,4,16,Galaxy's Child,http://www.imdb.com/title/tt0708720/,7.2,550,11-Mar-91,44614.6,Winrich Kolbe,Thomas Kartozian,169
+TNG,4,17,Night Terrors,http://www.imdb.com/title/tt0708751/,7.2,567,18-Mar-91,44631.2,Les Landau,Shari Goodhartz,170
+TNG,4,18,Identity Crisis,http://www.imdb.com/title/tt0708733/,6.7,529,25-Mar-91,44664.5,Winrich Kolbe,Timothy DeHaas,171
+TNG,4,19,The Nth Degree,http://www.imdb.com/title/tt0708813/,7.9,597,1-Apr-91,44704.2,Robert Legato,Joe Menosky,172
+TNG,4,20,Qpid,http://www.imdb.com/title/tt0708759/,7.4,590,22-Apr-91,44741.9,Cliff Bole,Randee Russell,173
+TNG,4,21,The Drumhead,http://www.imdb.com/title/tt0708793/,8.1,661,29-Apr-91,44769.2,Jonathan Frakes,Jeri Taylor,174
+TNG,4,22,Half a Life,http://www.imdb.com/title/tt0708724/,7.2,531,6-May-91,44805.3,Les Landau,Ted Roberts,175
+TNG,4,23,The Host,http://www.imdb.com/title/tt0708800/,6.7,508,13-May-91,44821.3,Marvin V. Rush,Michel Horvat,176
+TNG,4,24,The Mind's Eye,http://www.imdb.com/title/tt0708808/,7.7,520,27-May-91,44885.5,David Livingston,Ken Schafer,177
+TNG,4,25,In Theory,http://www.imdb.com/title/tt0708735/,7.2,544,3-Jun-91,44932.3,Patrick Stewart,Joe Menosky,178
+TNG,4,26,Redemption,http://www.imdb.com/title/tt0708762/,8.3,582,17-Jun-91,44995.3,Cliff Bole,Ronald D. Moore,179
+TNG,5,1,Redemption II,http://www.imdb.com/title/tt0170501/,8.2,573,23-Sep-91,45021.3,David Carson,Ronald D. Moore,180
+TNG,5,2,Darmok,http://www.imdb.com/title/tt0708696/,8.4,819,30-Sep-91,45047.2,Winrich Kolbe,Philip LaZebnik,181
+TNG,5,3,Ensign Ro,http://www.imdb.com/title/tt0708708/,7.8,544,7-Oct-91,45076.3,Les Landau,Rick Berman,182
+TNG,5,4,Silicon Avatar,http://www.imdb.com/title/tt0708774/,7.2,513,14-Oct-91,45122.3,Cliff Bole,Lawrence V. Conley,183
+TNG,5,5,Disaster,http://www.imdb.com/title/tt0708703/,7.7,596,21-Oct-91,45156.1,Gabrielle Beaumont,Ron Jarvis,184
+TNG,5,6,The Game,http://www.imdb.com/title/tt0708798/,7.4,620,28-Oct-91,45208.2,Corey Allen,Susan Sackett,185
+TNG,5,7,Unification I,http://www.imdb.com/title/tt0708835/,8.2,591,4-Nov-91,45233.1,Les Landau,Rick Berman,186
+TNG,5,8,Unification II,http://www.imdb.com/title/tt0708836/,8.3,582,11-Nov-91,45245.8,Cliff Bole,Rick Berman,187
+TNG,5,9,A Matter of Time,http://www.imdb.com/title/tt0708672/,7.3,531,18-Nov-91,45349.1,Paul Lynch,Rick Berman,188
+TNG,5,10,New Ground,http://www.imdb.com/title/tt0708750/,6.6,468,6-Jan-92,45376.3,Robert Scheerer,Sara Charno,189
+TNG,5,11,Hero Worship,http://www.imdb.com/title/tt0708727/,6.6,504,27-Jan-92,45397.3,Patrick Stewart,Hilary J. Bader,190
+TNG,5,12,Violations,http://www.imdb.com/title/tt0708839/,6.5,468,3-Feb-92,45429.3,Robert Wiemer,Shari Goodhartz,191
+TNG,5,13,The Masterpiece Society,http://www.imdb.com/title/tt0708806/,6.9,481,10-Feb-92,45470.1,Winrich Kolbe,James Kahn,192
+TNG,5,14,Conundrum,http://www.imdb.com/title/tt0708693/,8.2,593,17-Feb-92,45494.2,Les Landau,Paul Schiffer,193
+TNG,5,15,Power Play,http://www.imdb.com/title/tt0708756/,7.5,502,24-Feb-92,45571.2,David Livingston,Paul Ruben,194
+TNG,5,16,Ethics,http://www.imdb.com/title/tt0708709/,7.3,513,2-Mar-92,45587.3,Chip Chalmers,Sara Charno,195
+TNG,5,17,The Outcast,http://www.imdb.com/title/tt0708815/,6.7,526,16-Mar-92,45614.6,Robert Scheerer,Jeri Taylor,196
+TNG,5,18,Cause and Effect,http://www.imdb.com/title/tt0162905/,8.7,813,23-Mar-92,45652.1,Jonathan Frakes,Brannon Braga,197
+TNG,5,19,The First Duty,http://www.imdb.com/title/tt0708797/,7.6,550,30-Mar-92,45703.9,Paul Lynch,Ronald D. Moore,198
+TNG,5,20,Cost of Living,http://www.imdb.com/title/tt0708694/,6.3,461,20-Apr-92,45733.6,Winrich Kolbe,Peter Allan Fields,199
+TNG,5,21,The Perfect Mate,http://www.imdb.com/title/tt0708818/,7.3,571,27-Apr-92,45761.3,Cliff Bole,Rene Echevarria,200
+TNG,5,22,Imaginary Friend,http://www.imdb.com/title/tt0708734/,6.2,486,4-May-92,45852.1,Gabrielle Beaumont,Jean Louise Matthias,201
+TNG,5,23,I Borg,http://www.imdb.com/title/tt0708732/,8.5,702,11-May-92,45854.2,Robert Lederman,Rene Echevarria,202
+TNG,5,24,The Next Phase,http://www.imdb.com/title/tt0708812/,8.1,561,18-May-92,45892.4,David Carson,Ronald D. Moore,203
+TNG,5,25,The Inner Light,http://www.imdb.com/title/tt0708803/,8.6,"1,549",1-Jun-92,45944.1,Peter Lauritson,Morgan Gendel,204
+TNG,5,26,Time's Arrow: Part 1,http://www.imdb.com/title/tt0708828/,8.3,606,15-Jun-92,45959.1,Les Landau,Joe Menosky,205
+TNG,6,1,Time's Arrow: Part 2,http://www.imdb.com/title/tt0708829/,8.2,616,21-Sep-92,46001.3,Les Landau,Joe Menosky,206
+TNG,6,2,Realm of Fear,http://www.imdb.com/title/tt0708761/,7.2,485,28-Sep-92,46041.1,Cliff Bole,Brannon Braga,207
+TNG,6,3,Man of the People,http://www.imdb.com/title/tt0708746/,6,459,5-Oct-92,46071.6,Winrich Kolbe,Frank Abatemarco,208
+TNG,6,4,Relics,http://www.imdb.com/title/tt0708764/,8.4,651,12-Oct-92,46125.3,Alexander Singer,Ronald D. Moore,209
+TNG,6,5,Schisms,http://www.imdb.com/title/tt0708770/,7.6,525,19-Oct-92,46154.2,Robert Wiemer,Jean Louise Matthias,210
+TNG,6,6,True Q,http://www.imdb.com/title/tt0708834/,7.5,526,26-Oct-92,46192.3,Robert Scheerer,Rene Echevarria,211
+TNG,6,7,Rascals,http://www.imdb.com/title/tt0708760/,7.3,536,2-Nov-92,46235.7,Adam Nimoy,Ward Botsford,212
+TNG,6,8,A Fistful of Datas,http://www.imdb.com/title/tt0708669/,7.5,547,9-Nov-92,46271.5,Patrick Stewart,Robert Hewitt Wolfe,213
+TNG,6,9,The Quality of Life,http://www.imdb.com/title/tt0708820/,7.3,465,16-Nov-92,46307.2,Jonathan Frakes,L.J. Scott,214
+TNG,6,10,Chain of Command: Part 1,http://www.imdb.com/title/tt0708686/,8.2,617,14-Dec-92,46357.4,Robert Scheerer,Frank Abatemarco,215
+TNG,6,11,Chain of Command: Part 2,http://www.imdb.com/title/tt0708687/,8.6,641,21-Dec-92,46360.8,Les Landau,Frank Abatemarco,216
+TNG,6,12,Ship in a Bottle,http://www.imdb.com/title/tt0708773/,8.5,624,25-Jan-93,46424.1,Alexander Singer,Rene Echevarria,217
+TNG,6,13,Aquiel,http://www.imdb.com/title/tt0708677/,6.3,476,1-Feb-93,46461.3,Cliff Bole,Jeri Taylor,218
+TNG,6,14,Face of the Enemy,http://www.imdb.com/title/tt0708712/,7.8,512,8-Feb-93,46519.1,Gabrielle Beaumont,Rene Echevarria,219
+TNG,6,15,Tapestry,http://www.imdb.com/title/tt0708782/,8.6,734,15-Feb-93,Unknown,Les Landau,Ronald D. Moore,220
+TNG,6,16,Birthright: Part 1,http://www.imdb.com/title/tt0708679/,7.6,493,22-Feb-93,46578.4,Winrich Kolbe,Brannon Braga,221
+TNG,6,17,Birthright: Part 2,http://www.imdb.com/title/tt0708680/,7.4,487,1-Mar-93,46579.2,Dan Curry,Rene Echevarria,222
+TNG,6,18,Starship Mine,http://www.imdb.com/title/tt0708777/,7.9,554,29-Mar-93,46682.4,Cliff Bole,Morgan Gendel,223
+TNG,6,19,Lessons,http://www.imdb.com/title/tt0708741/,7.4,516,5-Apr-93,46693.1,Robert Wiemer,Ron Wilkerson,224
+TNG,6,20,The Chase,http://www.imdb.com/title/tt0708789/,7.8,545,26-Apr-93,46731.5,Jonathan Frakes,Ronald D. Moore,225
+TNG,6,21,Frame of Mind,http://www.imdb.com/title/tt0708718/,8.2,567,3-May-93,46778.1,James L. Conway,Brannon Braga,226
+TNG,6,22,Suspicions,http://www.imdb.com/title/tt0708780/,7,460,10-May-93,46830.1,Cliff Bole,Joe Menosky,227
+TNG,6,23,Rightful Heir,http://www.imdb.com/title/tt0708767/,7.4,444,17-May-93,46852.2,Winrich Kolbe,James E. Brooks,228
+TNG,6,24,Second Chances,http://www.imdb.com/title/tt0708771/,7.7,480,24-May-93,46915.2,LeVar Burton,Michael Medlock,229
+TNG,6,25,Timescape,http://www.imdb.com/title/tt0708830/,8.5,582,14-Jun-93,46944.2,Adam Nimoy,Brannon Braga,230
+TNG,6,26,Descent: Part 1,http://www.imdb.com/title/tt0708700/,8.2,533,21-Jun-93,46982.1,Alexander Singer,Jeri Taylor,231
+TNG,7,1,Descent: Part 2,http://www.imdb.com/title/tt0708701/,7.8,530,20-Sep-93,47025.4,Alexander Singer,Rene Echevarria,232
+TNG,7,2,Liaisons,http://www.imdb.com/title/tt0708742/,6.7,453,27-Sep-93,Unknown,Cliff Bole,Roger Eschbacher,233
+TNG,7,3,Interface,http://www.imdb.com/title/tt0708737/,6.4,449,4-Oct-93,47215.5,Robert Wiemer,Joe Menosky,234
+TNG,7,4,Gambit: Part 1,http://www.imdb.com/title/tt0708721/,7.8,508,11-Oct-93,47135.2,Peter Lauritson,Christopher Hatton,235
+TNG,7,5,Gambit: Part 2,http://www.imdb.com/title/tt0708722/,7.9,492,18-Oct-93,47160.1,Alexander Singer,Naren Shankar,236
+TNG,7,6,Phantasms,http://www.imdb.com/title/tt0708755/,7.6,479,25-Oct-93,47225.7,Patrick Stewart,Brannon Braga,237
+TNG,7,7,Dark Page,http://www.imdb.com/title/tt0708695/,6.4,479,1-Nov-93,47254.1,Les Landau,Hilary J. Bader,238
+TNG,7,8,Attached,http://www.imdb.com/title/tt0708678/,7.4,483,8-Nov-93,47304.2,Jonathan Frakes,Nicholas Sagan,239
+TNG,7,9,Force of Nature,http://www.imdb.com/title/tt0708717/,6.6,445,15-Nov-93,47310.2,Robert Lederman,Naren Shankar,240
+TNG,7,10,Inheritance,http://www.imdb.com/title/tt0708736/,7.4,460,22-Nov-93,47410.2,Robert Scheerer,Dan Koeppel,241
+TNG,7,11,Parallels,http://www.imdb.com/title/tt0708752/,8.6,635,29-Nov-93,47391.2,Robert Wiemer,Brannon Braga,242
+TNG,7,12,The Pegasus,http://www.imdb.com/title/tt0708817/,8.2,547,10-Jan-94,47457.1,LeVar Burton,Ronald D. Moore,243
+TNG,7,13,Homeward,http://www.imdb.com/title/tt0708731/,7.2,444,17-Jan-94,47423.9,Alexander Singer,Spike Steingasser,244
+TNG,7,14,Sub Rosa,http://www.imdb.com/title/tt0708778/,5.3,525,31-Jan-94,Unknown,Jonathan Frakes,Jeri Taylor,245
+TNG,7,15,Lower Decks,http://www.imdb.com/title/tt0708745/,8.3,618,7-Feb-94,47566.7,Gabrielle Beaumont,Ron Wilkerson,246
+TNG,7,16,Thine Own Self,http://www.imdb.com/title/tt0708826/,7.7,475,14-Feb-94,47611.2,Winrich Kolbe,Christopher Hatton,247
+TNG,7,17,Masks,http://www.imdb.com/title/tt0708748/,6.4,490,21-Feb-94,47615.2,Robert Wiemer,Joe Menosky,248
+TNG,7,18,Eye of the Beholder,http://www.imdb.com/title/tt0708711/,6.8,445,28-Feb-94,47622.1,Cliff Bole,Brannon Braga,249
+TNG,7,19,Genesis,http://www.imdb.com/title/tt0708723/,7.4,519,21-Mar-94,47653.2,Gates McFadden,Brannon Braga,250
+TNG,7,20,Journey's End,http://www.imdb.com/title/tt0708738/,6.6,475,28-Mar-94,47751.2,Corey Allen,Shawn Piller,251
+TNG,7,21,Firstborn,http://www.imdb.com/title/tt0708716/,6.9,424,25-Apr-94,47779.4,Jonathan West,Mark Kalbfeld,252
+TNG,7,22,Bloodlines,http://www.imdb.com/title/tt0708681/,6.6,421,2-May-94,47829.1,Les Landau,Nicholas Sagan,253
+TNG,7,23,Emergence,http://www.imdb.com/title/tt0708705/,6.7,434,9-May-94,47869.2,Cliff Bole,Brannon Braga,254
+TNG,7,24,Preemptive Strike,http://www.imdb.com/title/tt0708757/,7.9,464,16-May-94,47941.7,Patrick Stewart,Naren Shankar,255
+TNG,7,25,All Good Things...,http://www.imdb.com/title/tt0111281/,8.4,"4,973",23-May-94,47988,Winrich Kolbe,Ronald D. Moore,256
+DS9,1,1,Emissary,http://www.imdb.com/title/tt0108214/,7.3,"1,736",3-Jan-93,46379.1,David Carson,Rick Berman,257
+DS9,1,2,Past Prologue,http://www.imdb.com/title/tt0708576/,7,419,10-Jan-93,46397.3,Winrich Kolbe,Katharyn Powers,258
+DS9,1,3,A Man Alone,http://www.imdb.com/title/tt0708494/,6.9,402,17-Jan-93,46421.5,Paul Lynch,Gerald Sanford,259
+DS9,1,4,Babel,http://www.imdb.com/title/tt0708501/,6.9,394,24-Jan-93,46423.7,Paul Lynch,Sally Caves,260
+DS9,1,5,Captive Pursuit,http://www.imdb.com/title/tt0708513/,7.6,408,31-Jan-93,46477.5,Corey Allen,Jill Sherman Donner,261
+DS9,1,6,Q-Less,http://www.imdb.com/title/tt0708586/,7,404,7-Feb-93,46531.2,Paul Lynch,Hannah Louise Shearer,262
+DS9,1,7,Dax,http://www.imdb.com/title/tt0708523/,7,383,14-Feb-93,46910.1,David Carson,Peter Allan Fields,263
+DS9,1,8,The Passenger,http://www.imdb.com/title/tt0708633/,6.4,361,21-Feb-93,465570.8,Paul Lynch,Morgan Gendel,264
+DS9,1,9,Move Along Home,http://www.imdb.com/title/tt0708569/,6.2,385,14-Mar-93,46612.4,David Carson,Michael Piller,265
+DS9,1,10,The Nagus,http://www.imdb.com/title/tt0708632/,7.3,357,21-Mar-93,46657,David Livingston,David Livingston,266
+DS9,1,11,Vortex,http://www.imdb.com/title/tt0708659/,6.9,342,18-Apr-93,46689.6,Winrich Kolbe,Sam Rolfe,267
+DS9,1,12,Battle Lines,http://www.imdb.com/title/tt0708504/,6.6,354,25-Apr-93,46715.2,Paul Lynch,Hilary J. Bader,268
+DS9,1,13,The Storyteller,http://www.imdb.com/title/tt0708643/,6.2,351,2-May-93,46729.1,David Livingston,Kurt Michael Bensmiller,269
+DS9,1,14,Progress,http://www.imdb.com/title/tt0708584/,6.7,355,9-May-93,46844.3,Les Landau,Peter Allan Fields,270
+DS9,1,15,If Wishes Were Horses,http://www.imdb.com/title/tt0708551/,6.5,354,16-May-93,46853.2,Robert Legato,Nell McCue Crawford,271
+DS9,1,16,The Forsaken,http://www.imdb.com/title/tt0708624/,6.8,338,23-May-93,46925.1,Les Landau,Jim Trombetta,272
+DS9,1,17,Dramatis Personae,http://www.imdb.com/title/tt0708528/,7,343,30-May-93,46922.3,Cliff Bole,Joe Menosky,273
+DS9,1,18,Duet,http://www.imdb.com/title/tt0708529/,8.6,539,13-Jun-93,46933.4,James L. Conway,Lisa Rich,274
+DS9,1,19,In the Hands of the Prophets,http://www.imdb.com/title/tt0708556/,7.8,351,20-Jun-93,46951.7,David Livingston,Robert Hewitt Wolfe,275
+DS9,2,1,The Homecoming,http://www.imdb.com/title/tt0708625/,7.7,330,26-Sep-93,47101.2,Winrich Kolbe,Jeri Taylor,276
+DS9,2,2,The Circle,http://www.imdb.com/title/tt0708618/,7.8,325,3-Oct-93,47125.7,Corey Allen,Peter Allan Fields,277
+DS9,2,3,The Siege,http://www.imdb.com/title/tt0708639/,7.9,334,10-Oct-93,47143.9,Winrich Kolbe,Michael Piller,278
+DS9,2,4,Invasive Procedures,http://www.imdb.com/title/tt0708561/,7,320,17-Oct-93,47182.1,Les Landau,John Whelpley,279
+DS9,2,5,Cardassians,http://www.imdb.com/title/tt0708514/,7.3,329,24-Oct-93,47177.2,Cliff Bole,Gene Wolande,280
+DS9,2,6,Melora,http://www.imdb.com/title/tt0708567/,6.3,338,31-Oct-93,47229.1,Cliff Bole,Evan Carlos Somers,281
+DS9,2,7,Rules of Acquisition,http://www.imdb.com/title/tt0708593/,7.4,324,7-Nov-93,47261.7,David Livingston,Hilary J. Bader,282
+DS9,2,8,Necessary Evil,http://www.imdb.com/title/tt0708570/,8.1,362,14-Nov-93,47282.5,James L. Conway,Peter Allan Fields,283
+DS9,2,9,Second Sight,http://www.imdb.com/title/tt0708597/,6.2,320,21-Nov-93,47329.4,Alexander Singer,Mark Gehred-O'Connell,284
+DS9,2,10,Sanctuary,http://www.imdb.com/title/tt0708596/,6.7,319,28-Nov-93,47391.2,Les Landau,Gabe Essoe,285
+DS9,2,11,Rivals,http://www.imdb.com/title/tt0708591/,6.8,296,2-Jan-94,47349.2,David Livingston,Jim Trombetta,286
+DS9,2,12,The Alternate,http://www.imdb.com/title/tt0708613/,6.8,289,9-Jan-94,47352.1,David Carson,Jim Trombetta,287
+DS9,2,13,Armageddon Game,http://www.imdb.com/title/tt0708500/,7.5,314,30-Jan-94,47444.8,Winrich Kolbe,Morgan Gendel,288
+DS9,2,14,Whispers,http://www.imdb.com/title/tt0708664/,8.2,360,6-Feb-94,47581.2,Les Landau,Paul Robert Coyle,289
+DS9,2,15,Paradise,http://www.imdb.com/title/tt0708574/,7,331,13-Feb-94,47573.1,Corey Allen,Jim Trombetta,290
+DS9,2,16,Shadowplay,http://www.imdb.com/title/tt0708599/,7.2,301,20-Feb-94,47603.3,Robert Scheerer,Robert Hewitt Wolfe,291
+DS9,2,17,Playing God,http://www.imdb.com/title/tt0708580/,6.6,298,27-Feb-94,47678.3,David Livingston,Jim Trombetta,292
+DS9,2,18,Profit and Loss,http://www.imdb.com/title/tt0708583/,7.1,313,20-Mar-94,47701.5,Robert Wiemer,Flip Kobler,293
+DS9,2,19,Blood Oath,http://www.imdb.com/title/tt0708507/,7.9,347,27-Mar-94,47789.8,Winrich Kolbe,Peter Allan Fields,294
+DS9,2,20,The Maquis: Part 1,http://www.imdb.com/title/tt0708629/,7.8,322,24-Apr-94,47802.3,David Livingston,Rick Berman,295
+DS9,2,21,The Maquis: Part 2,http://www.imdb.com/title/tt0708630/,7.9,312,1-May-94,47805.1,Corey Allen,Rick Berman,296
+DS9,2,22,The Wire,http://www.imdb.com/title/tt0708648/,8,338,8-May-94,47849.8,Kim Friedman,Robert Hewitt Wolfe,297
+DS9,2,23,Crossover,http://www.imdb.com/title/tt0708522/,8,337,15-May-94,47879.2,David Livingston,Peter Allan Fields,298
+DS9,2,24,The Collaborator,http://www.imdb.com/title/tt0708619/,7,298,22-May-94,47921.5,Cliff Bole,Gary Holland,299
+DS9,2,25,Tribunal,http://www.imdb.com/title/tt0708656/,7.5,301,5-Jun-94,47944.2,Avery Brooks,Bill Dial,300
+DS9,2,26,The Jem'Hadar,http://www.imdb.com/title/tt0708627/,8.5,347,12-Jun-94,47987.5,Kim Friedman,Ira Steven Behr,301
+DS9,3,1,The Search: Part 1,http://www.imdb.com/title/tt0708636/,8.2,341,26-Sep-94,48213.1,Kim Friedman,Ira Steven Behr,302
+DS9,3,2,The Search: Part 2,http://www.imdb.com/title/tt0708637/,7.9,334,3-Oct-94,48213.1,Jonathan Frakes,Ira Steven Behr,303
+DS9,3,3,The House of Quark,http://www.imdb.com/title/tt0708626/,7.8,336,16-Oct-94,48224.2,Les Landau,Tom Benko,304
+DS9,3,4,Equilibrium,http://www.imdb.com/title/tt0708533/,6.7,288,23-Oct-94,48231.7,Cliff Bole,Christopher Teague,305
+DS9,3,5,Second Skin,http://www.imdb.com/title/tt0708598/,7.6,316,30-Oct-94,48244.5,Les Landau,Robert Hewitt Wolfe,306
+DS9,3,6,The Abandoned,http://www.imdb.com/title/tt0708611/,6.9,288,6-Nov-94,48301.1,Avery Brooks,D. Thomas Maio,307
+DS9,3,7,Civil Defense,http://www.imdb.com/title/tt0708519/,7.7,337,13-Nov-94,48388.8,Reza Badiyi,Mike Krohn,308
+DS9,3,8,Meridian,http://www.imdb.com/title/tt0708568/,5.8,311,20-Nov-94,48423.2,Jonathan Frakes,Hilary J. Bader,309
+DS9,3,9,Defiant,http://www.imdb.com/title/tt0708524/,8,333,27-Nov-94,48467.3,Cliff Bole,Ronald D. Moore,310
+DS9,3,10,Fascination,http://www.imdb.com/title/tt0708539/,6.2,308,4-Dec-94,48441.6,Avery Brooks,Ira Steven Behr,311
+DS9,3,11,Past Tense: Part 1,http://www.imdb.com/title/tt0708577/,7.8,347,8-Jan-95,48481.2,Reza Badiyi,Ira Steven Behr,312
+DS9,3,12,Past Tense: Part 2,http://www.imdb.com/title/tt0708578/,7.8,341,15-Jan-95,48481.2,Jonathan Frakes,Ira Steven Behr,313
+DS9,3,13,Life Support,http://www.imdb.com/title/tt0708564/,6.6,297,5-Feb-95,48498.4,Reza Badiyi,Christian Ford,314
+DS9,3,14,Heart of Stone,http://www.imdb.com/title/tt0708546/,7.1,298,12-Feb-95,48521.5,Alexander Singer,Ira Steven Behr,315
+DS9,3,15,Destiny,http://www.imdb.com/title/tt0708525/,7.4,297,19-Feb-95,48543.2,Les Landau,David S. Cohen,316
+DS9,3,16,Prophet Motive,http://www.imdb.com/title/tt0708585/,6.8,283,26-Feb-95,48555.5,Ren_ Auberjonois,Ira Steven Behr,317
+DS9,3,17,Visionary,http://www.imdb.com/title/tt0708658/,7.6,307,5-Mar-95,48576.7,Reza Badiyi,Ethan H. Calk,318
+DS9,3,18,Distant Voices,http://www.imdb.com/title/tt0708526/,6.6,296,16-Apr-95,48592.2,Alexander Singer,Joe Menosky,319
+DS9,3,19,Through the Looking Glass,http://www.imdb.com/title/tt0708650/,7.6,296,23-Apr-95,48601.1,Winrich Kolbe,Ira Steven Behr,320
+DS9,3,20,Improbable Cause,http://www.imdb.com/title/tt0708553/,8.5,361,7-May-95,48620.3,Avery Brooks,Robert Lederman,321
+DS9,3,21,The Die Is Cast,http://www.imdb.com/title/tt0708621/,8.6,367,7-May-95,48622.5,David Livingston,Ronald D. Moore,322
+DS9,3,22,Explorers,http://www.imdb.com/title/tt0708534/,7.1,315,14-May-95,48699.9,Cliff Bole,Hilary J. Bader,323
+DS9,3,23,Family Business,http://www.imdb.com/title/tt0708537/,6.9,296,21-May-95,48731.2,Ren_ Auberjonois,Ira Steven Behr,324
+DS9,3,24,Shakaar,http://www.imdb.com/title/tt0708601/,6.9,276,28-May-95,48764.8,Jonathan West,Gordon Dawson,325
+DS9,3,25,Facets,http://www.imdb.com/title/tt0708536/,7,291,18-Jun-95,48959.1,Cliff Bole,Rene Echevarria,326
+DS9,3,26,The Adversary,http://www.imdb.com/title/tt0708612/,8.2,319,25-Jun-95,48962.5,Alexander Singer,Ira Steven Behr,327
+DS9,4,1,The Way of the Warrior,http://www.imdb.com/title/tt0394906/,8.6,456,2-Oct-95,49011.4,James L. Conway,Ira Steven Behr,328
+DS9,4,2,The Visitor,http://www.imdb.com/title/tt0708645/,8.6,697,9-Oct-95,49037.7,David Livingston,Michael Taylor,329
+DS9,4,3,Hippocratic Oath,http://www.imdb.com/title/tt0708547/,7.7,321,16-Oct-95,49066.5,Ren_ Auberjonois,Nicholas Corea,330
+DS9,4,4,Indiscretion,http://www.imdb.com/title/tt0708558/,7.6,313,23-Oct-95,49122.4,LeVar Burton,Toni Marberry,331
+DS9,4,5,Rejoined,http://www.imdb.com/title/tt0708588/,6.9,331,30-Oct-95,49195.5,Avery Brooks,Rene Echevarria,332
+DS9,4,6,Starship Down,http://www.imdb.com/title/tt0708605/,7.6,308,6-Nov-95,49263.5,Alexander Singer,David Mack,333
+DS9,4,7,Little Green Men,http://www.imdb.com/title/tt0708565/,8.3,405,13-Nov-95,49201.3,James L. Conway,Toni Marberry,334
+DS9,4,8,The Sword of Kahless,http://www.imdb.com/title/tt0708644/,7.1,298,20-Nov-95,49263.5,LeVar Burton,Richard Danus,335
+DS9,4,9,Our Man Bashir,http://www.imdb.com/title/tt0708573/,7.9,351,27-Nov-95,49300.7,Winrich Kolbe,Robert Gillan,336
+DS9,4,10,Homefront,http://www.imdb.com/title/tt0708549/,8.1,322,1-Jan-96,49370,David Livingston,Ira Steven Behr,337
+DS9,4,11,Paradise Lost,http://www.imdb.com/title/tt0708575/,7.9,319,8-Jan-96,49482.3,Reza Badiyi,Ronald D. Moore,338
+DS9,4,12,Crossfire,http://www.imdb.com/title/tt0708521/,7.2,310,29-Jan-96,49517.3,Les Landau,Rene Echevarria,339
+DS9,4,13,Return to Grace,http://www.imdb.com/title/tt0708590/,7.8,287,5-Feb-96,49534.2,Jonathan West,Tom Benko,340
+DS9,4,14,Sons of Mogh,http://www.imdb.com/title/tt0708641/,7.3,293,12-Feb-96,49556.2,David Livingston,Ronald D. Moore,341
+DS9,4,15,Bar Association,http://www.imdb.com/title/tt0708503/,7.2,297,19-Feb-96,49565.1,LeVar Burton,Barbara J. Lee,342
+DS9,4,16,Accession,http://www.imdb.com/title/tt0708497/,7.2,277,26-Feb-96,49600.7,Les Landau,Jane Espenson,343
+DS9,4,17,Rules of Engagement,http://www.imdb.com/title/tt0708594/,7.1,299,8-Apr-96,49665.3,LeVar Burton,David Weddle,344
+DS9,4,18,Hard Time,http://www.imdb.com/title/tt0708545/,7.9,341,15-Apr-96,49680.5,Alexander Singer,Daniel Keys Moran,345
+DS9,4,19,Shattered Mirror,http://www.imdb.com/title/tt0708602/,7.2,294,22-Apr-96,49699.1,James L. Conway,Ira Steven Behr,346
+DS9,4,20,The Muse,http://www.imdb.com/title/tt0708631/,5.7,285,29-Apr-96,49702.2,David Livingston,Daniel Keys Moran,347
+DS9,4,21,For the Cause,http://www.imdb.com/title/tt0708543/,7.7,294,6-May-96,49729.8,James L. Conway,Mark Gehred-O'Connell,348
+DS9,4,22,To the Death,http://www.imdb.com/title/tt0708653/,8,308,13-May-96,49904.2,LeVar Burton,Ira Steven Behr,349
+DS9,4,23,The Quickening,http://www.imdb.com/title/tt0708634/,7.5,286,20-May-96,49909.7,Ren_ Auberjonois,Naren Shankar,350
+DS9,4,24,Body Parts,http://www.imdb.com/title/tt0708508/,7.5,283,10-Jun-96,49930.3,Avery Brooks,Louis P. DeSantis,351
+DS9,4,25,Broken Link,http://www.imdb.com/title/tt0708509/,8.1,303,17-Jun-96,49962.4,Les Landau,George A. Brozak,352
+DS9,5,1,Apocalypse Rising,http://www.imdb.com/title/tt0708499/,8.1,309,30-Sep-96,Unknown,James L. Conway,Ira Steven Behr,353
+DS9,5,2,The Ship,http://www.imdb.com/title/tt0708638/,8,294,7-Oct-96,50049.3,Kim Friedman,Pam Wigginton,354
+DS9,5,3,Looking for par'Mach in All the Wrong Places,http://www.imdb.com/title/tt0708566/,7.6,314,14-Oct-96,Unknown,Andrew J. Robinson,Ronald D. Moore,355
+DS9,5,4,...Nor the Battle to the Strong,http://www.imdb.com/title/tt0708493/,7.4,294,21-Oct-96,Unknown,Kim Friedman,Brice R. Parker,356
+DS9,5,5,The Assignment,http://www.imdb.com/title/tt0708615/,7,277,28-Oct-96,Unknown,Allan Kroeker,David R. Long,357
+DS9,5,6,Trials and Tribble-ations,http://www.imdb.com/title/tt0708655/,8.4,659,4-Nov-96,4523.7,Jonathan West,Ira Steven Behr,358
+DS9,5,7,Let He Who Is Without Sin...,http://www.imdb.com/title/tt0708563/,5.7,293,11-Nov-96,Unknown,Ren_ Auberjonois,Robert Hewitt Wolfe,359
+DS9,5,8,Things Past,http://www.imdb.com/title/tt0708649/,7.5,286,18-Nov-96,Unknown,LeVar Burton,Michael Taylor,360
+DS9,5,9,The Ascent,http://www.imdb.com/title/tt0708614/,7.4,272,25-Nov-96,Unknown,Allan Kroeker,Ira Steven Behr,361
+DS9,5,10,Rapture,http://www.imdb.com/title/tt0708587/,7.3,278,30-Dec-96,Unknown,Jonathan West,L.J. Strom,362
+DS9,5,11,The Darkness and the Light,http://www.imdb.com/title/tt0708620/,7,276,6-Jan-97,50416.2,Mike Vejar,Bryan Fuller,363
+DS9,5,12,The Begotten,http://www.imdb.com/title/tt0708616/,7.6,269,27-Jan-97,Unknown,Jesœs Salvador Trevi–o,Rene Echevarria,364
+DS9,5,13,For the Uniform,http://www.imdb.com/title/tt0708544/,7.7,301,3-Feb-97,50485.2,Victor Lobl,Peter Allan Fields,365
+DS9,5,14,In Purgatory's Shadow,http://www.imdb.com/title/tt0708554/,8.5,333,10-Feb-97,Unknown,Gabrielle Beaumont,Robert Hewitt Wolfe,366
+DS9,5,15,By Inferno's Light,http://www.imdb.com/title/tt0708511/,8.5,333,17-Feb-97,50564.2,Les Landau,Ira Steven Behr,367
+DS9,5,16,Doctor Bashir I Presume?,http://www.imdb.com/title/tt0708527/,7.6,297,24-Feb-97,Unknown,David Livingston,Jimmy Diggs,368
+DS9,5,17,A Simple Investigation,http://www.imdb.com/title/tt0708495/,6.7,263,31-Mar-97,Unknown,John T. Kretchmer,Rene Echevarria,369
+DS9,5,18,Business as Usual,http://www.imdb.com/title/tt0708510/,7.3,269,7-Apr-97,Unknown,Siddig El Fadil,Bradley Thompson,370
+DS9,5,19,Ties of Blood and Water,http://www.imdb.com/title/tt0708651/,7.1,262,14-Apr-97,50712.5,Avery Brooks,Edmund Newton,371
+DS9,5,20,Ferengi Love Songs,http://www.imdb.com/title/tt0708541/,6.7,268,21-Apr-97,Unknown,Ren_ Auberjonois,Ira Steven Behr,372
+DS9,5,21,Soldiers of the Empire,http://www.imdb.com/title/tt0708603/,7.5,279,28-Apr-97,Unknown,LeVar Burton,Ronald D. Moore,373
+DS9,5,22,Children of Time,http://www.imdb.com/title/tt0708516/,7.7,320,5-May-97,50814.2,Allan Kroeker,Gary Holland,374
+DS9,5,23,Blaze of Glory,http://www.imdb.com/title/tt0708506/,7.6,265,12-May-97,Unknown,Kim Friedman,Robert Hewitt Wolfe,375
+DS9,5,24,Empok Nor,http://www.imdb.com/title/tt0708532/,7.6,291,19-May-97,Unknown,Mike Vejar,Bryan Fuller,376
+DS9,5,25,In the Cards,http://www.imdb.com/title/tt0708555/,7.8,291,9-Jun-97,50929.4,Michael Dorn,Truly Barr Clark,377
+DS9,5,26,Call to Arms,http://www.imdb.com/title/tt0708512/,8.6,358,16-Jun-97,50975.2,Allan Kroeker,Ira Steven Behr,378
+DS9,6,1,A Time to Stand,http://www.imdb.com/title/tt0708496/,8.3,319,29-Sep-97,Unknown,Allan Kroeker,Ira Steven Behr,379
+DS9,6,2,Rocks and Shoals,http://www.imdb.com/title/tt0708592/,8.5,328,6-Oct-97,51107.2,Mike Vejar,Ronald D. Moore,380
+DS9,6,3,Sons and Daughters,http://www.imdb.com/title/tt0708604/,7,282,13-Oct-97,Unknown,Jesœs Salvador Trevi–o,Bradley Thompson,381
+DS9,6,4,Behind the Lines,http://www.imdb.com/title/tt0708505/,7.9,282,20-Oct-97,51149.5,LeVar Burton,Rene Echevarria,382
+DS9,6,5,Favor the Bold,http://www.imdb.com/title/tt0708540/,8.3,306,27-Oct-97,Unknown,Winrich Kolbe,Ira Steven Behr,383
+DS9,6,6,Sacrifice of Angels,http://www.imdb.com/title/tt0708595/,8.6,358,3-Nov-97,Unknown,Allan Kroeker,Ira Steven Behr,384
+DS9,6,7,You Are Cordially Invited...,http://www.imdb.com/title/tt0708667/,7.4,291,10-Nov-97,51247.5,David Livingston,Ronald D. Moore,385
+DS9,6,8,Resurrection,http://www.imdb.com/title/tt0708589/,6.1,267,17-Nov-97,Unknown,LeVar Burton,Michael Taylor,386
+DS9,6,9,Statistical Probabilities,http://www.imdb.com/title/tt0708606/,7.6,293,24-Nov-97,Unknown,Anson Williams,Pam Pietroforte,387
+DS9,6,10,The Magnificent Ferengi,http://www.imdb.com/title/tt0708628/,7.9,323,1-Jan-98,Unknown,Chip Chalmers,Ira Steven Behr,388
+DS9,6,11,Waltz,http://www.imdb.com/title/tt0708660/,7.6,285,8-Jan-98,51413.6,Ren_ Auberjonois,Ronald D. Moore,389
+DS9,6,12,Who Mourns for Morn?,http://www.imdb.com/title/tt0708665/,7.5,287,4-Feb-98,Unknown,Victor Lobl,Mark Gehred-O'Connell,390
+DS9,6,13,Far Beyond the Stars,http://www.imdb.com/title/tt0708538/,8.5,576,11-Feb-98,Unknown,Avery Brooks,Marc Scott Zicree,391
+DS9,6,14,One Little Ship,http://www.imdb.com/title/tt0708572/,7.5,299,18-Feb-98,51474.2,Allan Kroeker,David Weddle,392
+DS9,6,15,Honor Among Thieves,http://www.imdb.com/title/tt0708550/,7.3,288,25-Feb-98,Unknown,Allan Eastman,Philip Kim,393
+DS9,6,16,Change of Heart,http://www.imdb.com/title/tt0708515/,7,268,4-Mar-98,51597.2,David Livingston,Ronald D. Moore,394
+DS9,6,17,Wrongs Darker Than Death or Night,http://www.imdb.com/title/tt0708666/,6.9,268,1-Apr-98,Unknown,Jonathan West,Ira Steven Behr,395
+DS9,6,18,Inquisition,http://www.imdb.com/title/tt0708559/,8.1,300,8-Apr-98,Unknown,Michael Dorn,Bradley Thompson,396
+DS9,6,19,In the Pale Moonlight,http://www.imdb.com/title/tt0708557/,8.3,688,15-Apr-98,51721.3,Victor Lobl,Peter Allan Fields,397
+DS9,6,20,His Way,http://www.imdb.com/title/tt0708548/,7.4,307,22-Apr-98,Unknown,Allan Kroeker,Ira Steven Behr,398
+DS9,6,21,The Reckoning,http://www.imdb.com/title/tt0708635/,7.2,262,29-Apr-98,Unknown,Jesœs Salvador Trevi–o,Harry M. Werksman,399
+DS9,6,22,Valiant,http://www.imdb.com/title/tt0708657/,7,298,6-May-98,51825.4,Mike Vejar,Ronald D. Moore,400
+DS9,6,23,Profit and Lace,http://www.imdb.com/title/tt0708582/,6.1,293,13-May-98,Unknown,Alexander Siddig,Ira Steven Behr,401
+DS9,6,24,Time's Orphan,http://www.imdb.com/title/tt0708652/,6.5,272,20-May-98,Unknown,Allan Kroeker,Joe Menosky,402
+DS9,6,25,The Sound of Her Voice,http://www.imdb.com/title/tt0708642/,7.3,279,10-Jun-98,51948.3,Winrich Kolbe,Pam Pietroforte,403
+DS9,6,26,Tears of the Prophets,http://www.imdb.com/title/tt0708610/,8.1,287,17-Jun-98,Unknown,Allan Kroeker,Ira Steven Behr,404
+DS9,7,1,Image in the Sand,http://www.imdb.com/title/tt0708552/,7.5,288,30-Sep-98,Unknown,Les Landau,Ira Steven Behr,405
+DS9,7,2,Shadows and Symbols,http://www.imdb.com/title/tt0708600/,7.8,288,7-Oct-98,52152.6,Allan Kroeker,Ira Steven Behr,406
+DS9,7,3,Afterimage,http://www.imdb.com/title/tt0708498/,7.2,262,14-Oct-98,Unknown,Les Landau,Rene Echevarria,407
+DS9,7,4,Take Me Out to the Holosuite,http://www.imdb.com/title/tt0708609/,7.6,323,21-Oct-98,Unknown,Chip Chalmers,Ronald D. Moore,408
+DS9,7,5,Chrysalis,http://www.imdb.com/title/tt0708518/,7.3,283,28-Oct-98,Unknown,Jonathan West,Rene Echevarria,409
+DS9,7,6,Treachery Faith and the Great River,http://www.imdb.com/title/tt0708654/,8,268,4-Nov-98,Unknown,Steve Posey,Philip Kim,410
+DS9,7,7,Once More Unto the Breach,http://www.imdb.com/title/tt0708571/,7.5,274,11-Nov-98,Unknown,Allan Kroeker,Ronald D. Moore,411
+DS9,7,8,The Siege of AR-558,http://www.imdb.com/title/tt0708640/,8.4,358,18-Nov-98,Unknown,Winrich Kolbe,Ira Steven Behr,412
+DS9,7,9,Covenant,http://www.imdb.com/title/tt0708520/,6.8,254,25-Nov-98,Unknown,John Kretchmer,Rene Echevarria,413
+DS9,7,10,It's Only a Paper Moon,http://www.imdb.com/title/tt0708562/,7.7,297,30-Dec-98,52235.7,Anson Williams,David Mack,414
+DS9,7,11,Prodigal Daughter,http://www.imdb.com/title/tt0708581/,6.5,251,6-Jan-99,Unknown,Victor Lobl,David Weddle,415
+DS9,7,12,The Emperor's New Cloak,http://www.imdb.com/title/tt0708623/,6.6,255,3-Feb-99,Unknown,LeVar Burton,Ira Steven Behr,416
+DS9,7,13,Field of Fire,http://www.imdb.com/title/tt0708542/,6.8,258,10-Feb-99,Unknown,Tony Dow,Robert Hewitt Wolfe,417
+DS9,7,14,Chimera,http://www.imdb.com/title/tt0708517/,7.1,245,17-Feb-99,Unknown,Steve Posey,Rene Echevarria,418
+DS9,7,15,Badda-Bing Badda-Bang,http://www.imdb.com/title/tt0708502/,7.6,309,24-Feb-99,Unknown,Mike Vejar,Ira Steven Behr,419
+DS9,7,16,Inter Arma Enim Silent Leges,http://www.imdb.com/title/tt0708560/,8.1,297,3-Mar-99,Unknown,David Livingston,Ronald D. Moore,420
+DS9,7,17,Penumbra,http://www.imdb.com/title/tt0708579/,7.6,241,7-Apr-99,52576.2,Steve Posey,Rene Echevarria,421
+DS9,7,18,'Til Death Do Us Part,http://www.imdb.com/title/tt0708492/,7.6,237,14-Apr-99,Unknown,Winrich Kolbe,Bradley Thompson,422
+DS9,7,19,Strange Bedfellows,http://www.imdb.com/title/tt0708607/,7.8,248,21-Apr-99,Unknown,Ren_ Auberjonois,Ronald D. Moore,423
+DS9,7,20,The Changing Face of Evil,http://www.imdb.com/title/tt0708617/,8.4,264,28-Apr-99,Unknown,Mike Vejar,Ira Steven Behr,424
+DS9,7,21,When It Rains...,http://www.imdb.com/title/tt0708663/,8,250,5-May-99,Unknown,Michael Dorn,Rene Echevarria,425
+DS9,7,22,Tacking Into the Wind,http://www.imdb.com/title/tt0708608/,8.4,268,12-May-99,Unknown,Mike Vejar,Ronald D. Moore,426
+DS9,7,23,Extreme Measures,http://www.imdb.com/title/tt0708535/,7.3,260,19-May-99,52645.7,Steve Posey,David Weddle,427
+DS9,7,24,The Dogs of War,http://www.imdb.com/title/tt0708622/,8.2,274,26-May-99,52861.3,Avery Brooks,Peter Allan Fields,428
+DS9,7,25,What You Leave Behind,http://www.imdb.com/title/tt0394907/,8.4,462,2-Jun-99,Unknown,Allan Kroeker,Ira Steven Behr,429
+VOY,1,1,Caretaker,http://www.imdb.com/title/tt0114530/,7.1,"1,769",16-Jan-95,48315.6,Winrich Kolbe,Rick Berman,430
+VOY,1,2,Parallax,http://www.imdb.com/title/tt0708943/,7,385,23-Jan-95,48439.7,Kim Friedman,Jim Trombetta,431
+VOY,1,3,Time and Again,http://www.imdb.com/title/tt0708996/,7.1,372,30-Jan-95,Unknown,Les Landau,David Kemper,432
+VOY,1,4,Phage,http://www.imdb.com/title/tt0708946/,7.1,343,6-Feb-95,48532.4,Winrich Kolbe,Timothy DeHaas,433
+VOY,1,5,The Cloud,http://www.imdb.com/title/tt0708978/,6.6,329,13-Feb-95,48546.2,David Livingston,Brannon Braga,434
+VOY,1,6,Eye of the Needle,http://www.imdb.com/title/tt0708891/,8.1,372,20-Feb-95,48579.4,Winrich Kolbe,Hilary J. Bader,435
+VOY,1,7,Ex Post Facto,http://www.imdb.com/title/tt0708889/,6.7,329,27-Feb-95,Unknown,LeVar Burton,Evan Carlos Somers,436
+VOY,1,8,Emanations,http://www.imdb.com/title/tt0708884/,6.8,314,13-Mar-95,48623.5,David Livingston,Brannon Braga,437
+VOY,1,9,Prime Factors,http://www.imdb.com/title/tt0708948/,7.4,320,20-Mar-95,48642.5,Les Landau,David R. George III,438
+VOY,1,10,State of Flux,http://www.imdb.com/title/tt0708973/,7.6,303,10-Apr-95,48658.2,Robert Scheerer,Paul Robert Coyle,439
+VOY,1,11,Heroes and Demons,http://www.imdb.com/title/tt0708906/,6.8,327,24-Apr-95,48693.2,Les Landau,Naren Shankar,440
+VOY,1,12,Cathexis,http://www.imdb.com/title/tt0708863/,6.8,296,1-May-95,48734.2,Kim Friedman,Brannon Braga,441
+VOY,1,13,Faces,http://www.imdb.com/title/tt0708892/,7.3,313,8-May-95,48784.2,Winrich Kolbe,Jonathan Glassner,442
+VOY,1,14,Jetrel,http://www.imdb.com/title/tt0708918/,7.2,301,15-May-95,48832.1,Kim Friedman,James Thornton,443
+VOY,1,15,Learning Curve,http://www.imdb.com/title/tt0708921/,7.1,301,22-May-95,48846.5,David Livingston,Ronald Wilkerson,444
+VOY,2,1,The 37's,http://www.imdb.com/title/tt0708976/,7.4,359,28-Aug-95,48975.1,James L. Conway,Jeri Taylor,445
+VOY,2,2,Initiations,http://www.imdb.com/title/tt0708914/,6.8,280,4-Sep-95,49005.3,Winrich Kolbe,Kenneth Biller,446
+VOY,2,3,Projections,http://www.imdb.com/title/tt0708949/,7.9,326,11-Sep-95,48892.1,Jonathan Frakes,Brannon Braga,447
+VOY,2,4,Elogium,http://www.imdb.com/title/tt0708883/,6.3,282,18-Sep-95,48921.3,Winrich Kolbe,Jimmy Diggs,448
+VOY,2,5,Non Sequitur,http://www.imdb.com/title/tt0708938/,6.9,308,25-Sep-95,49011,David Livingston,Brannon Braga,449
+VOY,2,6,Twisted,http://www.imdb.com/title/tt0709001/,7,296,2-Oct-95,48945.8,Kim Friedman,Arnold Rudnick,450
+VOY,2,7,Parturition,http://www.imdb.com/title/tt0777529/,6.5,270,9-Oct-95,49068.5,Jonathan Frakes,Tom Szollosi,451
+VOY,2,8,Persistence of Vision,http://www.imdb.com/title/tt0708945/,7,277,30-Oct-95,49037.2,James L. Conway,Jeri Taylor,452
+VOY,2,9,Tattoo,http://www.imdb.com/title/tt0708975/,6.4,282,6-Nov-95,49211.5,Alexander Singer,Larry Brody,453
+VOY,2,10,Cold Fire,http://www.imdb.com/title/tt0708866/,7.4,272,13-Nov-95,49164.8,Cliff Bole,Anthony Williams,454
+VOY,2,11,Maneuvers,http://www.imdb.com/title/tt0708928/,7.3,261,20-Nov-95,49208.5,David Livingston,Kenneth Biller,455
+VOY,2,12,Resistance,http://www.imdb.com/title/tt0708960/,7.1,275,27-Nov-95,Unknown,Winrich Kolbe,Michael Jan Friedman,456
+VOY,2,13,Prototype,http://www.imdb.com/title/tt0708951/,7.5,299,15-Jan-96,Unknown,Jonathan Frakes,Nicholas Corea,457
+VOY,2,14,Alliances,http://www.imdb.com/title/tt0708848/,7.3,273,22-Jan-96,49337.4,Les Landau,Jeri Taylor,458
+VOY,2,15,Threshold,http://www.imdb.com/title/tt0708995/,5.8,369,29-Jan-96,49373.4,Alexander Singer,Michael De Luca,459
+VOY,2,16,Meld,http://www.imdb.com/title/tt0708929/,7.9,319,5-Feb-96,Unknown,Cliff Bole,Michael Sussman,460
+VOY,2,17,Dreadnought,http://www.imdb.com/title/tt0708880/,7.7,289,12-Feb-96,49447,LeVar Burton,Gary Holland,461
+VOY,2,18,Death Wish,http://www.imdb.com/title/tt0708875/,8.3,354,19-Feb-96,49301.2,James L. Conway,Shawn Piller,462
+VOY,2,19,Lifesigns,http://www.imdb.com/title/tt0708923/,7.5,291,26-Feb-96,49504.3,Cliff Bole,Kenneth Biller,463
+VOY,2,20,Investigations,http://www.imdb.com/title/tt0708917/,7.4,293,13-Mar-96,49485.2,Les Landau,Jeff Schnaufer,464
+VOY,2,21,Deadlock,http://www.imdb.com/title/tt0708874/,8.1,317,18-Mar-96,49548.7,David Livingston,Brannon Braga,465
+VOY,2,22,Innocence,http://www.imdb.com/title/tt0708915/,6.6,278,8-Apr-96,49578.2,James L. Conway,Anthony Williams,466
+VOY,2,23,The Thaw,http://www.imdb.com/title/tt0708990/,7.5,352,29-Apr-96,Unknown,Marvin V. Rush,Richard Gadas,467
+VOY,2,24,Tuvix,http://www.imdb.com/title/tt0709000/,7.5,378,6-May-96,49655.2,Cliff Bole,Andrew Shepard Price,468
+VOY,2,25,Resolutions,http://www.imdb.com/title/tt0708961/,7.3,283,13-May-96,49690.1,Alexander Singer,Jeri Taylor,469
+VOY,2,26,Basics: Part 1,http://www.imdb.com/title/tt0708853/,8,301,20-May-96,Unknown,Winrich Kolbe,Michael Piller,470
+VOY,3,1,Basics: Part 2,http://www.imdb.com/title/tt0708854/,8,291,4-Sep-96,50023.4,Winrich Kolbe,Michael Piller,471
+VOY,3,2,Flashback,http://www.imdb.com/title/tt0708897/,7.8,321,11-Sep-96,50126.4,David Livingston,Brannon Braga,472
+VOY,3,3,The Chute,http://www.imdb.com/title/tt0708977/,6.9,270,18-Sep-96,50156.2,Les Landau,Clayvon C. Harris,473
+VOY,3,4,The Swarm,http://www.imdb.com/title/tt0708989/,7.1,255,25-Sep-96,50252.3,Alexander Singer,Michael Sussman,474
+VOY,3,5,False Profits,http://www.imdb.com/title/tt0708895/,6.9,277,2-Oct-96,50074.3,Cliff Bole,George Brozak,475
+VOY,3,6,Remember,http://www.imdb.com/title/tt0708956/,7.3,256,9-Oct-96,50203.1,Winrich Kolbe,Brannon Braga,476
+VOY,3,7,Sacred Ground,http://www.imdb.com/title/tt0394915/,6.2,281,30-Oct-96,50063.2,Robert Duncan McNeill,Geo Cameron,477
+VOY,3,8,Future's End: Part 1,http://www.imdb.com/title/tt0708902/,8.2,364,6-Nov-96,Unknown,David Livingston,Brannon Braga,478
+VOY,3,9,Future's End: Part 2,http://www.imdb.com/title/tt0708903/,8.2,333,13-Nov-96,50312.6,Cliff Bole,Brannon Braga,479
+VOY,3,10,Warlord,http://www.imdb.com/title/tt0709010/,6.9,264,20-Nov-96,50348.1,David Livingston,Andrew Shepard Price,480
+VOY,3,11,The Q and the Grey,http://www.imdb.com/title/tt0708987/,7.3,286,27-Nov-96,50384.2,Cliff Bole,Shawn Piller,481
+VOY,3,12,Macrocosm,http://www.imdb.com/title/tt0708927/,7.1,270,11-Dec-96,50425.1,Alexander Singer,Brannon Braga,482
+VOY,3,13,Fair Trade,http://www.imdb.com/title/tt0708894/,6.7,243,8-Jan-97,Unknown,Jesœs Salvador Trevi–o,Ronald Wilkerson,483
+VOY,3,14,Alter Ego,http://www.imdb.com/title/tt0708849/,6.8,246,15-Jan-97,50460.3,Robert Picardo,Joe Menosky,484
+VOY,3,15,Coda,http://www.imdb.com/title/tt0708865/,7.3,266,29-Jan-97,50518.6,Nancy Malone,Jeri Taylor,485
+VOY,3,16,Blood Fever,http://www.imdb.com/title/tt0394908/,7.4,269,5-Feb-97,50537.2,Andrew Robinson,Lisa Klink,486
+VOY,3,17,Unity,http://www.imdb.com/title/tt0709005/,7.8,272,12-Feb-97,50614.2,Robert Duncan McNeill,Kenneth Biller,487
+VOY,3,18,Darkling,http://www.imdb.com/title/tt0708979/,6.7,240,19-Feb-97,50693.2,Alex Singer,Brannon Braga,488
+VOY,3,19,Rise,http://www.imdb.com/title/tt0708965/,6.9,238,26-Feb-97,Unknown,Robert Scheerer,Jimmy Diggs,489
+VOY,3,20,Favorite Son,http://www.imdb.com/title/tt0708896/,6.3,252,19-Mar-97,50732.4,Marvin V. Rush,Lisa Klink,490
+VOY,3,21,Before and After,http://www.imdb.com/title/tt0708855/,8,284,9-Apr-97,Unknown,Allan Kroeker,Kenneth Biller,491
+VOY,3,22,Real Life,http://www.imdb.com/title/tt0708954/,7.3,281,23-Apr-97,50836.2,Anson Williams,Harry 'Doc' Kloor,492
+VOY,3,23,Distant Origin,http://www.imdb.com/title/tt0708878/,8.4,334,30-Apr-97,Unknown,David Livingston,Brannon Braga,493
+VOY,3,24,Displaced,http://www.imdb.com/title/tt0708877/,7.4,238,7-May-97,50912.4,Allan Kroeker,Lisa Klink,494
+VOY,3,25,Worst Case Scenario,http://www.imdb.com/title/tt0709013/,8,278,14-May-97,50953.4,Alexander Singer,Kenneth Biller,495
+VOY,3,26,Scorpion: Part 1,http://www.imdb.com/title/tt0708968/,8.4,418,21-May-97,50984.3,David Livingston,Brannon Braga,496
+VOY,4,1,Scorpion: Part 2,http://www.imdb.com/title/tt0708969/,8.6,389,3-Sep-97,51003.7,Winrich Kolbe,Brannon Braga,497
+VOY,4,2,The Gift,http://www.imdb.com/title/tt0708982/,7.8,295,10-Sep-97,51008,Anson Williams,Joe Menosky,498
+VOY,4,3,Day of Honor,http://www.imdb.com/title/tt0708873/,7.4,261,17-Sep-97,Unknown,Jesœs Salvador Trevi–o,Jeri Taylor,499
+VOY,4,4,Nemesis,http://www.imdb.com/title/tt0708935/,6.9,269,24-Sep-97,51082.4,Alexander Singer,Kenneth Biller,500
+VOY,4,5,Revulsion,http://www.imdb.com/title/tt0708963/,7.4,252,1-Oct-97,51186.2,Kenneth Biller,Lisa Klink,501
+VOY,4,6,The Raven,http://www.imdb.com/title/tt0708988/,7.2,261,8-Oct-97,Unknown,LeVar Burton,Bryan Fuller,502
+VOY,4,7,Scientific Method,http://www.imdb.com/title/tt0708967/,7.8,267,29-Oct-97,51244.3,David Livingston,Sherry Klein,503
+VOY,4,8,Year of Hell: Part 1,http://www.imdb.com/title/tt0709014/,8.6,380,5-Nov-97,51268.4,Allan Kroeker,Brannon Braga,504
+VOY,4,9,Year of Hell: Part 2,http://www.imdb.com/title/tt0709015/,8.4,348,12-Nov-97,51425.4,Mike Vejar,Brannon Braga,505
+VOY,4,10,Random Thoughts,http://www.imdb.com/title/tt0708953/,7,247,19-Nov-97,51367.2,Alexander Singer,Kenneth Biller,506
+VOY,4,11,Concerning Flight,http://www.imdb.com/title/tt0708868/,6.9,246,26-Nov-97,51386.4,Jesœs Salvador Trevi–o,Jimmy Digg,507
+VOY,4,12,Mortal Coil,http://www.imdb.com/title/tt0708932/,6.7,248,17-Dec-97,51449.2,Allan Kroeker,Bryan Fuller,508
+VOY,4,13,Waking Moments,http://www.imdb.com/title/tt0709008/,7.6,250,14-Jan-98,51471.3,Alexander Singer,Andre Bormanis,509
+VOY,4,14,Message in a Bottle,http://www.imdb.com/title/tt0708931/,8.6,382,21-Jan-98,51462,Nancy Malone,Rick Williams,510
+VOY,4,15,Hunters,http://www.imdb.com/title/tt0708910/,7.9,246,11-Feb-98,51501.4,David Livingston,Jeri Taylor,511
+VOY,4,16,Prey,http://www.imdb.com/title/tt0708947/,8.2,260,18-Feb-98,51652.3,Allan Eastman,Brannon Braga,512
+VOY,4,17,Retrospect,http://www.imdb.com/title/tt0708962/,7.1,243,25-Feb-98,51658.2,Jesœs Salvador Trevi–o,Andrew Shepard Price,513
+VOY,4,18,The Killing Game: Part 1,http://www.imdb.com/title/tt0394913/,7.8,294,4-Mar-98,Unknown,David Livingston,Brannon Braga,514
+VOY,4,19,The Killing Game: Part 2,http://www.imdb.com/title/tt0708985/,7.7,271,4-Mar-98,51715.2,Victor Lobl,Brannon Braga,515
+VOY,4,20,Vis ˆ Vis,http://www.imdb.com/title/tt0709007/,6.7,224,8-Apr-98,51762.4,Jesœs Salvador Trevi–o,Robert J. Doherty,516
+VOY,4,21,The Omega Directive,http://www.imdb.com/title/tt0708986/,7.4,284,15-Apr-98,51781.2,Victor Lobl,Jimmy Diggs,517
+VOY,4,22,Unforgettable,http://www.imdb.com/title/tt0709002/,6.6,256,22-Apr-98,51813.4,Andrew Robinson,Greg Elliot,518
+VOY,4,23,Living Witness,http://www.imdb.com/title/tt0708926/,8.6,351,29-Apr-98,Unknown,Tim Russ,Brannon Braga,519
+VOY,4,24,Demon,http://www.imdb.com/title/tt0708876/,7,248,6-May-98,Unknown,Anson Williams,Andre Bormanis,520
+VOY,4,25,One,http://www.imdb.com/title/tt0708941/,8,285,13-May-98,51929.3,Kenneth Biller,Jeri Taylor,521
+VOY,4,26,Hope and Fear,http://www.imdb.com/title/tt0708908/,8.1,269,20-May-98,51978.2,Winrich Kolbe,Rick Berman,522
+VOY,5,1,Night,http://www.imdb.com/title/tt0708936/,7.6,284,14-Oct-98,52081.2,David Livingston,Brannon Braga,523
+VOY,5,2,Drone,http://www.imdb.com/title/tt0708882/,8.3,364,21-Oct-98,Unknown,Les Landau,Bryan Fuller,524
+VOY,5,3,Extreme Risk,http://www.imdb.com/title/tt0708890/,6.8,248,28-Oct-98,Unknown,Cliff Bole,Kenneth Biller,525
+VOY,5,4,In the Flesh,http://www.imdb.com/title/tt0708912/,7.8,304,4-Nov-98,52136.4,David Livingston,Nick Sagan,526
+VOY,5,5,Once Upon a Time,http://www.imdb.com/title/tt0708940/,6.7,249,11-Nov-98,Unknown,John Kretchmer,Michael Taylor,527
+VOY,5,6,Timeless,http://www.imdb.com/title/tt0708997/,8.6,373,18-Nov-98,52143.6,LeVar Burton,Rick Berman,528
+VOY,5,7,Infinite Regress,http://www.imdb.com/title/tt0708913/,7.6,264,25-Nov-98,52356.2,David Livingston,Bryan Fuller,529
+VOY,5,8,Nothing Human,http://www.imdb.com/title/tt0708939/,7,260,2-Dec-98,Unknown,David Livingston,Jeri Taylor,530
+VOY,5,9,Thirty Days,http://www.imdb.com/title/tt0708994/,7.1,255,9-Dec-98,52179.4,Winrich Kolbe,Scott Miller,531
+VOY,5,10,Counterpoint,http://www.imdb.com/title/tt0394909/,7.7,291,16-Dec-98,Unknown,Les Landau,Michael Taylor,532
+VOY,5,11,Latent Image,http://www.imdb.com/title/tt0708920/,8.1,310,20-Jan-99,Unknown,Mike Vejar,Eileen Connors,533
+VOY,5,12,Bride of Chaotica!,http://www.imdb.com/title/tt0708860/,7.5,312,27-Jan-99,Unknown,Allan Kroeker,Bryan Fuller,534
+VOY,5,13,Gravity,http://www.imdb.com/title/tt0708905/,7.3,268,3-Feb-99,52438.9,Terry Windell,Jimmy Diggs,535
+VOY,5,14,Bliss,http://www.imdb.com/title/tt0708857/,7.4,270,10-Feb-99,52542.3,Cliff Bole,Bill Prady,536
+VOY,5,15,Dark Frontier: Part 1,http://www.imdb.com/title/tt0394910/,8.2,304,17-Feb-99,52619.2,Cliff Bole,Brannon Braga,537
+VOY,5,16,Dark Frontier: Part 2,http://www.imdb.com/title/tt0708872/,8.2,282,17-Feb-99,52619.2,Terry Windell,Brannon Braga,538
+VOY,5,17,The Disease,http://www.imdb.com/title/tt0708980/,6.7,245,24-Feb-99,Unknown,David Livingston,Kenneth Biller,539
+VOY,5,18,Course: Oblivion,http://www.imdb.com/title/tt0795288/,7.6,301,3-Mar-99,52586.3,Anson Williams,Bryan Fuller,540
+VOY,5,19,The Fight,http://www.imdb.com/title/tt0708981/,5.8,259,24-Mar-99,Unknown,Winrich Kolbe,Michael Taylor,541
+VOY,5,20,Think Tank,http://www.imdb.com/title/tt0708993/,7.6,267,31-Mar-99,Unknown,Terrence O'Hara,Rick Berman,542
+VOY,5,21,Juggernaut,http://www.imdb.com/title/tt0708919/,6.9,228,26-Apr-99,Unknown,Allan Kroeker,Bryan Fuller,543
+VOY,5,22,Someone to Watch Over Me,http://www.imdb.com/title/tt0708971/,8.1,299,28-Apr-99,52647,Robert Duncan McNeill,Brannon Braga,544
+VOY,5,23,"""11:59""",http://www.imdb.com/title/tt0708846/,6.9,257,5-May-99,Unknown,David Livingston,Brannon Braga,545
+VOY,5,24,Relativity,http://www.imdb.com/title/tt0708955/,8.4,312,12-May-99,52861.274,Allan Eastman,Nick Sagan,546
+VOY,5,25,Warhead,http://www.imdb.com/title/tt0709009/,7.1,234,19-May-99,Unknown,John Kretchmer,Brannon Braga,547
+VOY,5,26,Equinox: Part 1,http://www.imdb.com/title/tt0708887/,8.3,292,26-May-99,Unknown,David Livingston,Rick Berman,548
+VOY,6,1,Equinox: Part 2,http://www.imdb.com/title/tt0708888/,8,309,22-Sep-99,Unknown,David Livingston,Rick Berman,549
+VOY,6,2,Survival Instinct,http://www.imdb.com/title/tt0708974/,7.5,265,29-Sep-99,53049.2,Terry Windell,Ronald D. Moore,550
+VOY,6,3,Barge of the Dead,http://www.imdb.com/title/tt0708852/,7,273,6-Oct-99,Unknown,Mike Vejar,Ronald D. Moore,551
+VOY,6,4,Tinker Tenor Doctor Spy,http://www.imdb.com/title/tt0708998/,8.3,338,13-Oct-99,Unknown,John Bruno,Bill Vallely,552
+VOY,6,5,Alice,http://www.imdb.com/title/tt0708847/,6.8,241,20-Oct-99,Unknown,David Livingston,Juliann deLayne,553
+VOY,6,6,Riddles,http://www.imdb.com/title/tt0708964/,7.2,248,3-Nov-99,53263.2,Roxann Dawson,Andre Bormanis,554
+VOY,6,7,Dragon's Teeth,http://www.imdb.com/title/tt0708879/,7.6,256,10-Nov-99,53167.9,Winrich Kolbe,Michael Taylor,555
+VOY,6,8,One Small Step,http://www.imdb.com/title/tt0708942/,7.7,269,17-Nov-99,53292.7,Robert Picardo,Mike Wollaeger,556
+VOY,6,9,The Voyager Conspiracy,http://www.imdb.com/title/tt0708992/,7.6,260,24-Nov-99,Unknown,Terry Windell,Joe Menosky,557
+VOY,6,10,Pathfinder,http://www.imdb.com/title/tt0708944/,8.2,302,1-Dec-99,Unknown,Mike Vejar,David Zabel,558
+VOY,6,11,Fair Haven,http://www.imdb.com/title/tt0708893/,6.5,263,12-Jan-00,Unknown,Allan Kroeker,Robin Burger,559
+VOY,6,12,Blink of an Eye,http://www.imdb.com/title/tt0708856/,8.6,421,19-Jan-00,Unknown,Gabrielle Beaumont,Michael Taylor,560
+VOY,6,13,Virtuoso,http://www.imdb.com/title/tt0709006/,7.1,265,26-Jan-00,53556.4,Les Landau,Raf Green,561
+VOY,6,14,Memorial,http://www.imdb.com/title/tt0708930/,7,242,2-Feb-00,Unknown,Allan Kroeker,Brannon Braga,562
+VOY,6,15,Tsunkatse,http://www.imdb.com/title/tt0708999/,7.3,260,9-Feb-00,53447.2,Mike Vejar,Gannon Kenney,563
+VOY,6,16,Collective,http://www.imdb.com/title/tt0708867/,7.4,239,16-Feb-00,Unknown,Allison Liddi,Andrew Shepard Price,564
+VOY,6,17,Spirit Folk,http://www.imdb.com/title/tt0708972/,6.6,232,23-Feb-00,Unknown,David Livingston,Bryan Fuller,565
+VOY,6,18,Ashes to Ashes,http://www.imdb.com/title/tt0708850/,7.1,243,1-Mar-00,53679.4,Terry Windell,Ronald Wilkerson,566
+VOY,6,19,Child's Play,http://www.imdb.com/title/tt0708864/,7.4,238,8-Mar-00,Unknown,Mike Vejar,Paul Brown,567
+VOY,6,20,Good Shepherd,http://www.imdb.com/title/tt0708904/,7.3,241,15-Mar-00,53753.2,Winrich Kolbe,Dianna Gitto,568
+VOY,6,21,Live Fast and Prosper,http://www.imdb.com/title/tt0708925/,7.4,228,19-Apr-00,53849.2,LeVar Burton,Robin Burger,569
+VOY,6,22,Muse,http://www.imdb.com/title/tt0708933/,6.9,225,26-Apr-00,53896,Mike Vejar,Joe Menosky,570
+VOY,6,23,Fury,http://www.imdb.com/title/tt0708901/,6.8,242,3-May-00,Unknown,John Bruno,Rick Berman,571
+VOY,6,24,Life Line,http://www.imdb.com/title/tt0708922/,8.2,275,10-May-00,Unknown,Terry Windell,John Bruno,572
+VOY,6,25,The Haunting of Deck Twelve,http://www.imdb.com/title/tt0708983/,7.2,236,17-May-00,Unknown,David Livingston,Mike Sussman,573
+VOY,6,26,Unimatrix Zero: Part 1,http://www.imdb.com/title/tt0709003/,8,259,24-May-00,Unknown,Allan Kroeker,Mike Sussman,574
+VOY,7,1,Unimatrix Zero: Part 2,http://www.imdb.com/title/tt0709004/,7.9,257,4-Oct-00,54014.4,Mike Vejar,Mike Sussman,575
+VOY,7,2,Imperfection,http://www.imdb.com/title/tt0708911/,7.3,246,11-Oct-00,54058.6,David Livingston,Andre Bormanis,576
+VOY,7,3,Drive,http://www.imdb.com/title/tt0708881/,6.9,236,18-Oct-00,54090.4,Winrich Kolbe,Michael Taylor,577
+VOY,7,4,Repression,http://www.imdb.com/title/tt0708959/,6.8,229,25-Oct-00,54129.4,Winrich Kolbe,Kenneth Biller,578
+VOY,7,5,Critical Care,http://www.imdb.com/title/tt0708870/,7.6,263,1-Nov-00,Unknown,Terry Windell,Kenneth Biller,579
+VOY,7,6,Inside Man,http://www.imdb.com/title/tt0708916/,7.4,239,8-Nov-00,54208.3,Allan Kroeker,Robert Doherty,580
+VOY,7,7,Body and Soul,http://www.imdb.com/title/tt0708859/,7.6,267,15-Nov-00,54238.3,Robert Duncan McNeill,Michael Taylor,581
+VOY,7,8,Nightingale,http://www.imdb.com/title/tt0708937/,6.7,226,22-Nov-00,54274.7,LeVar Burton,Robert Lederman,582
+VOY,7,9,Flesh and Blood,http://www.imdb.com/title/tt0394912/,7.5,257,29-Nov-00,54337.5,Pt 1:ÊMike Vejar,Jack Monaco,583
+VOY,7,10,Flesh and Blood: Part 2,http://www.imdb.com/title/tt1288527/,7.3,172,29-Nov-00,54337.5,Pt 2:David Livingston,Bryan Fuller,584
+VOY,7,11,Shattered,http://www.imdb.com/title/tt0708970/,8,293,17-Jan-01,Unknown,Terry Windell,Michael Sussman,585
+VOY,7,12,Lineage,http://www.imdb.com/title/tt0394914/,7,245,24-Jan-01,54452.6,Peter Lauritson,James Kahn,586
+VOY,7,13,Repentance,http://www.imdb.com/title/tt0708958/,7.2,240,31-Jan-01,Unknown,Mike Vejar,Michael Sussman,587
+VOY,7,14,Prophecy,http://www.imdb.com/title/tt0708950/,7.3,238,7-Feb-01,54518.2,Terry Windell,Larry Nemecek,588
+VOY,7,15,The Void,http://www.imdb.com/title/tt0708991/,7.9,256,14-Feb-01,54553.4,Mike Vejar,Raf Green,589
+VOY,7,16,Workforce: Part 1,http://www.imdb.com/title/tt0394916/,7.5,251,21-Feb-01,54584.3,Allan Kroeker,Kenneth Biller,590
+VOY,7,17,Workforce: Part 2,http://www.imdb.com/title/tt0709012/,7.7,249,28-Feb-01,54622.4,Roxann Dawson,Kenneth Biller,591
+VOY,7,18,Human Error,http://www.imdb.com/title/tt0708909/,7.2,228,7-Mar-01,Unknown,Allan Kroeker,Andre Bormanis,592
+VOY,7,19,Q2,http://www.imdb.com/title/tt0708952/,7.5,269,11-Apr-01,54704.5,LeVar Burton,Kenneth Biller,593
+VOY,7,20,Author Author,http://www.imdb.com/title/tt0708851/,7.7,259,18-Apr-01,54732.3,David Livingston,Brannon Braga,594
+VOY,7,21,Friendship One,http://www.imdb.com/title/tt0708900/,7,236,25-Apr-01,54775.4,Mike Vejar,Michael Taylor,595
+VOY,7,22,Natural Law,http://www.imdb.com/title/tt0708934/,7.2,231,2-May-01,54827.7,Terry Windell,Kenneth Biller,596
+VOY,7,23,Homestead,http://www.imdb.com/title/tt0708907/,7.4,260,9-May-01,54868.6,LeVar Burton,Raf Green,597
+VOY,7,24,Renaissance Man,http://www.imdb.com/title/tt0708957/,7.7,249,16-May-01,54890.7,Mike Vejar,Andrew Shepard Price,598
+VOY,7,25,Endgame,http://www.imdb.com/title/tt0394911/,8.4,565,23-May-01,54973.4,Allan Kroeker,Rick Berman,599
+ENT,1,1,Broken Bow: Part 1,http://www.imdb.com/title/tt0286610/,6.8,"2,580",26-Sep-01,Unknown,James L. Conway,Rick Berman,600
+ENT,1,2,Broken Bow: Part 2,http://www.imdb.com/title/tt0572184/,7.9,771,26-Sep-01,Unknown,James L. Conway,Rick Berman,601
+ENT,1,3,Fight or Flight,http://www.imdb.com/title/tt0572209/,7,310,3-Oct-01,Unknown,Allan Kroeker,Rick Berman,602
+ENT,1,4,Strange New World,http://www.imdb.com/title/tt0572242/,7.2,302,10-Oct-01,Unknown,David Livingston,Rick Berman,603
+ENT,1,5,Unexpected,http://www.imdb.com/title/tt0572263/,7.3,310,17-Oct-01,Unknown,Mike Vejar,Rick Berman,604
+ENT,1,6,Terra Nova,http://www.imdb.com/title/tt0572244/,6.6,301,24-Oct-01,Unknown,LeVar Burton,Rick Berman,605
+ENT,1,7,The Andorian Incident,http://www.imdb.com/title/tt0572247/,7.9,311,31-Oct-01,Unknown,Roxann Dawson,Rick Berman,606
+ENT,1,8,Breaking the Ice,http://www.imdb.com/title/tt0572182/,7.3,283,7-Nov-01,Unknown,Terry Windell,Maria Jaquemetton,607
+ENT,1,9,Civilization,http://www.imdb.com/title/tt0572190/,7.2,273,14-Nov-01,Unknown,Mike Vejar,Phyllis Strong,608
+ENT,1,10,Fortunate Son,http://www.imdb.com/title/tt0572211/,6.7,272,21-Nov-01,Unknown,LeVar Burton,James Duff,609
+ENT,1,11,Cold Front,http://www.imdb.com/title/tt0572192/,7.8,278,28-Nov-01,Unknown,Robert Duncan McNeill,Stephen Beck,610
+ENT,1,12,Silent Enemy,http://www.imdb.com/title/tt0572235/,7.6,272,16-Jan-02,Unknown,Winrich Kolbe,Andre Bormanis,611
+ENT,1,13,Dear Doctor,http://www.imdb.com/title/tt0572199/,7.9,295,23-Jan-02,Unknown,James A. Contner,Maria Jaquemetton,612
+ENT,1,14,Sleeping Dogs,http://www.imdb.com/title/tt0572238/,7.3,251,30-Jan-02,Unknown,Les Landau,Fred Dekker,613
+ENT,1,15,Shadows of P'Jem,http://www.imdb.com/title/tt0572232/,7.8,260,6-Feb-02,Unknown,Mike Vejar,Rick Berman,614
+ENT,1,16,Shuttlepod One,http://www.imdb.com/title/tt0763253/,7.5,281,13-Feb-02,Unknown,David Livingston,Rick Berman,615
+ENT,1,17,Fusion,http://www.imdb.com/title/tt0572212/,7,269,27-Feb-02,Unknown,Rob Hedden,Rick Berman,616
+ENT,1,18,Rogue Planet,http://www.imdb.com/title/tt0572231/,6.9,253,20-Mar-02,Unknown,Allan Kroeker,Rick Berman,617
+ENT,1,19,Acquisition,http://www.imdb.com/title/tt0572173/,7.7,282,27-Mar-02,Unknown,James Whitmore Jr.,Rick Berman,618
+ENT,1,20,Oasis,http://www.imdb.com/title/tt0572226/,7.3,244,3-Apr-02,Unknown,Jim Charleston,Rick Berman,619
+ENT,1,21,Detained,http://www.imdb.com/title/tt0572202/,7.4,245,24-Apr-02,Unknown,David Livingston,Rick Berman,620
+ENT,1,22,Vox Sola,http://www.imdb.com/title/tt0572266/,6.8,247,1-May-02,Unknown,Roxann Dawson,Rick Berman,621
+ENT,1,23,Fallen Hero,http://www.imdb.com/title/tt0572208/,8.1,252,8-May-02,Unknown,Patrick Norris,Rick Berman,622
+ENT,1,24,Desert Crossing,http://www.imdb.com/title/tt0572201/,7,240,8-May-02,Unknown,David Straiton,Rick Berman,623
+ENT,1,25,Two Days and Two Nights,http://www.imdb.com/title/tt0572262/,6.8,259,15-May-02,Unknown,Michael Dorn,Rick Berman,624
+ENT,1,26,Shockwave: Part 1,http://www.imdb.com/title/tt0572233/,8.5,259,22-May-02,Unknown,Allan Kroeker,Rick Berman,625
+ENT,2,1,Shockwave: Part 2,http://www.imdb.com/title/tt0572234/,8.5,676,18-Sep-02,Unknown,Allan Kroeker,Rick Berman,626
+ENT,2,2,Carbon Creek,http://www.imdb.com/title/tt0572186/,8.1,319,25-Sep-02,Unknown,James A. Contner,Rick Berman,627
+ENT,2,3,Minefield,http://www.imdb.com/title/tt0572224/,7.6,241,2-Oct-02,Unknown,James A. Contner,John Shiban,628
+ENT,2,4,Dead Stop,http://www.imdb.com/title/tt0572198/,8.1,239,9-Oct-02,Unknown,Roxann Dawson,Mike Sussman,629
+ENT,2,5,A Night in Sickbay,http://www.imdb.com/title/tt0572172/,7.1,250,16-Oct-02,Unknown,David Straiton,Rick Berman,630
+ENT,2,6,Marauders,http://www.imdb.com/title/tt0572223/,6.9,229,30-Oct-02,Unknown,Mike Vejar,Rick Berman,631
+ENT,2,7,The Seventh,http://www.imdb.com/title/tt0572257/,7.2,217,6-Nov-02,Unknown,David Livingston,Rick Berman,632
+ENT,2,8,The Communicator,http://www.imdb.com/title/tt0572251/,7.1,223,13-Nov-02,Unknown,James A. Contner,Rick Berman,633
+ENT,2,9,Singularity,http://www.imdb.com/title/tt0572237/,7.6,233,20-Nov-02,Unknown,Patrick Norris,Chris Black,634
+ENT,2,10,Vanishing Point,http://www.imdb.com/title/tt0572265/,7.3,233,27-Nov-02,Unknown,David Straiton,Rick Berman,635
+ENT,2,11,Precious Cargo,http://www.imdb.com/title/tt0572227/,7.2,240,11-Dec-02,Unknown,David Livingston,Rick Berman,636
+ENT,2,12,The Catwalk,http://www.imdb.com/title/tt0572250/,7.9,221,18-Dec-02,Unknown,Mike Vejar,Mike Sussman,637
+ENT,2,13,Dawn,http://www.imdb.com/title/tt0572197/,7.6,216,8-Jan-03,Unknown,Roxann Dawson,John Shiban,638
+ENT,2,14,Stigma,http://www.imdb.com/title/tt0572239/,7.5,227,5-Feb-03,Unknown,David Livingston,Rick Berman,639
+ENT,2,15,Cease Fire,http://www.imdb.com/title/tt0572188/,8,222,12-Feb-03,Unknown,David Straiton,Chris Black,640
+ENT,2,16,Future Tense,http://www.imdb.com/title/tt0572213/,8.2,227,19-Feb-03,Unknown,James Whitmore Jr.,Mike Sussman,641
+ENT,2,17,Canamar,http://www.imdb.com/title/tt0572185/,7.2,206,26-Feb-03,Unknown,Allan Kroeker,Allan Koeker,642
+ENT,2,18,The Crossing,http://www.imdb.com/title/tt0572253/,7.3,213,2-Apr-03,Unknown,David Livingston,Rick Berman,643
+ENT,2,19,Judgment,http://www.imdb.com/title/tt0572221/,7.8,229,9-Apr-03,Unknown,James L. Conway,David A. Goodman,644
+ENT,2,20,Horizon,http://www.imdb.com/title/tt0572217/,6.9,209,16-Apr-03,Unknown,James A. Contner,Andre Bormanis,645
+ENT,2,21,The Breach,http://www.imdb.com/title/tt0572249/,7,205,23-Apr-03,Unknown,Robert Duncan McNeill,Chris Black,646
+ENT,2,22,Cogenitor,http://www.imdb.com/title/tt0572191/,8.4,278,30-Apr-03,Unknown,LeVar Burton,Rick Berman,647
+ENT,2,23,Regeneration,http://www.imdb.com/title/tt0572230/,8.4,746,7-May-03,Unknown,David Livingston,Mike Sussman,648
+ENT,2,24,First Flight,http://www.imdb.com/title/tt0572210/,7.5,236,14-May-03,Unknown,LeVar Burton,John Shiban,649
+ENT,2,25,Bounty,http://www.imdb.com/title/tt0572181/,7.2,218,14-May-03,Unknown,Roxann Dawson,Rick Berman,650
+ENT,2,26,The Expanse,http://www.imdb.com/title/tt0572254/,8.3,231,21-May-03,Unknown,Allan Kroeker,Rick Berman,651
+ENT,3,1,The Xindi,http://www.imdb.com/title/tt0572259/,8.2,240,10-Sep-03,Unknown,Allan Kroeker,Rick Berman,652
+ENT,3,2,Anomaly,http://www.imdb.com/title/tt0572175/,8.1,209,17-Sep-03,Unknown,David Straiton,Mike Sussman,653
+ENT,3,3,Extinction,http://www.imdb.com/title/tt0572207/,6.6,216,24-Sep-03,Unknown,LeVar Burton,Andre Bormanis,654
+ENT,3,4,Rajiin,http://www.imdb.com/title/tt0572229/,7.5,218,1-Oct-03,Unknown,Mike Vejar,Paul Brown,655
+ENT,3,5,Impulse,http://www.imdb.com/title/tt0572218/,7.9,220,8-Oct-03,Unknown,David Livingston,Jonathan Fernandez,656
+ENT,3,6,Exile,http://www.imdb.com/title/tt0572206/,7.3,211,15-Oct-03,Unknown,Roxann Dawson,Phyllis Strong,657
+ENT,3,7,The Shipment,http://www.imdb.com/title/tt0572258/,7.7,210,29-Oct-03,Unknown,David Straiton,Chris Black,658
+ENT,3,8,Twilight,http://www.imdb.com/title/tt0572261/,8.6,330,5-Nov-03,Unknown,Robert Duncan McNeill,Mike Sussman,659
+ENT,3,9,North Star,http://www.imdb.com/title/tt0572225/,7.2,244,12-Nov-03,Unknown,David Straiton,David A. Goodman,660
+ENT,3,10,Similitude,http://www.imdb.com/title/tt0572236/,8.2,297,19-Nov-03,Unknown,LeVar Burton,Manny Coto,661
+ENT,3,11,Carpenter Street,http://www.imdb.com/title/tt0572187/,7.5,240,26-Nov-03,Unknown,Mike Vejar,Rick Berman,662
+ENT,3,12,Chosen Realm,http://www.imdb.com/title/tt0572189/,7.1,227,14-Jan-04,Unknown,Roxann Dawson,Manny Coto,663
+ENT,3,13,Proving Ground,http://www.imdb.com/title/tt0572228/,8.4,227,21-Jan-04,Unknown,David Livingston,Chris Black,664
+ENT,3,14,Stratagem,http://www.imdb.com/title/tt0572243/,8.2,219,4-Feb-04,Unknown,Mike Vejar,Terry Matalas,665
+ENT,3,15,Harbinger,http://www.imdb.com/title/tt0572214/,7.8,225,11-Feb-04,Unknown,David Livingston,Rick Berman,666
+ENT,3,16,Doctor's Orders,http://www.imdb.com/title/tt0572204/,7.8,220,18-Feb-04,Unknown,Roxann Dawson,Chris Black,667
+ENT,3,17,Hatchery,http://www.imdb.com/title/tt0572215/,7.1,215,25-Feb-04,Unknown,Michael Grossman,Andre Bormanis,668
+ENT,3,18,Azati Prime,http://www.imdb.com/title/tt0572177/,8.6,245,3-Mar-04,Unknown,Allan Kroeker,Rick Berman,669
+ENT,3,19,Damage,http://www.imdb.com/title/tt0572196/,8.4,216,21-Apr-04,Unknown,James L. Conway,Phyllis Strong,670
+ENT,3,20,The Forgotten,http://www.imdb.com/title/tt0572256/,8.1,217,28-Apr-04,Unknown,LeVar Burton,Chris Black,671
+ENT,3,21,E_,http://www.imdb.com/title/tt0572205/,8.1,238,5-May-04,Unknown,Roxann Dawson,Mike Sussman,672
+ENT,3,22,The Council,http://www.imdb.com/title/tt0572252/,8.6,212,12-May-04,Unknown,David Livingston,Manny Coto,673
+ENT,3,23,Countdown,http://www.imdb.com/title/tt0572194/,8.6,220,19-May-04,Unknown,Robert Duncan McNeill,Andre Bormanis,674
+ENT,3,24,Zero Hour,http://www.imdb.com/title/tt0572267/,8.7,242,26-May-04,Unknown,Allan Kroeker,Rick Berman,675
+ENT,4,1,Storm Front: Part 1,http://www.imdb.com/title/tt0572240/,7.7,231,8-Oct-04,Unknown,Allan Kroeker,Manny Coto,676
+ENT,4,2,Storm Front: Part 2,http://www.imdb.com/title/tt0572241/,7.8,210,15-Oct-04,Unknown,David Straiton,Manny Coto,677
+ENT,4,3,Home,http://www.imdb.com/title/tt0572216/,8.2,683,22-Oct-04,Unknown,Allan Kroeker,Michael Sussman,678
+ENT,4,4,Borderland,http://www.imdb.com/title/tt0572179/,8.4,231,29-Oct-04,Unknown,David Livingston,Ken LaZebnik,679
+ENT,4,5,Cold Station 12,http://www.imdb.com/title/tt0572193/,8.4,222,5-Nov-04,Unknown,Mike Vejar,Michael Bryant,680
+ENT,4,6,The Augments,http://www.imdb.com/title/tt0572248/,8.5,226,12-Nov-04,Unknown,LeVar Burton,Michael Sussman,681
+ENT,4,7,The Forge,http://www.imdb.com/title/tt0572255/,8.6,217,19-Nov-04,Unknown,Michael Grossman,Judith Reeves-Stevens,682
+ENT,4,8,Awakening,http://www.imdb.com/title/tt0572176/,8.6,209,26-Nov-04,Unknown,Roxann Dawson,Andre Bormanis,683
+ENT,4,9,Kir'Shara,http://www.imdb.com/title/tt0572222/,8.6,217,3-Dec-04,Unknown,David Livingston,Michael Sussman,684
+ENT,4,10,Daedalus,http://www.imdb.com/title/tt0572195/,6.9,196,14-Jan-05,Unknown,David Straiton,Ken LaZebnik,685
+ENT,4,11,Observer Effect,http://www.imdb.com/title/tt0765592/,8.1,217,21-Jan-05,Unknown,Mike Vejar,Judith Reeves-Stevens,686
+ENT,4,12,Babel One,http://www.imdb.com/title/tt0572178/,8.6,218,28-Jan-05,Unknown,David Straiton,Michael Sussman,687
+ENT,4,13,United,http://www.imdb.com/title/tt0572264/,8.6,205,4-Feb-05,Unknown,David Livingston,Manny Coto,688
+ENT,4,14,The Aenar,http://www.imdb.com/title/tt0572246/,8.6,209,11-Feb-05,Unknown,Mike Vejar,Manny Coto,689
+ENT,4,15,Affliction,http://www.imdb.com/title/tt0572174/,8.2,215,18-Feb-05,Unknown,Michael Grossman,Manny Coto,690
+ENT,4,16,Divergence,http://www.imdb.com/title/tt0572203/,8.3,204,25-Feb-05,Unknown,David Barrett,Judith Reeves-Stevens,691
+ENT,4,17,Bound,http://www.imdb.com/title/tt0572180/,7.2,224,15-Apr-05,Unknown,Allan Kroeker,Manny Coto,692
+ENT,4,18,In a Mirror Darkly: Part 1,http://www.imdb.com/title/tt0572219/,8.6,378,22-Apr-05,Unknown,James L. Conway,Michael Sussman,693
+ENT,4,19,In a Mirror Darkly: Part 2,http://www.imdb.com/title/tt0572220/,8.7,344,29-Apr-05,Unknown,Marvin V. Rush,Michael Sussman,694
+ENT,4,20,Demons,http://www.imdb.com/title/tt0572200/,8.2,216,6-May-05,Unknown,LeVar Burton,Manny Coto,695
+ENT,4,21,Terra Prime,http://www.imdb.com/title/tt0572245/,8.4,242,13-May-05,Unknown,Marvin V. Rush,Manny Coto,696
+ENT,4,22,These Are the Voyages...,http://www.imdb.com/title/tt0572260/,6.1,530,13-May-05,Unknown,Allan Kroeker,Rick Berman,697
