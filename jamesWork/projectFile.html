@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+text {
+  font: 10px sans-serif;
+}
+
+line {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<button type="button" onclick="render(1)">Click Me 1!</button>
+<button type="button" onclick="render(2)">Click Me 2!</button>
+<button type="button" onclick="render(3)">Click Me 3!</button>
+<button type="button" onclick="render(4)">Click Me 4!</button>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+
+function render(input){
+	d3.select("svg")
+       .remove(); ///removes old so you can add new
+	//nodes.forEach(function(d, i) { d.x = d.y = width / n * i; });
+	d3.json("data.json",function(error,data){
+		if (error) return console.warn(error);
+		
+		var width = 960,
+			height = 500;
+
+		var n = 5,
+			nodes = [], //d3.range(n).map(function() { return {}; }),
+			links = []; //d3.range(n).map(function(d) { return {source: 0, target: (d + input) % n}; });
+		
+		var force = d3.layout.force()
+			.nodes(nodes)
+			.links(links)
+			.linkDistance(120)
+			.size([width, height])
+	
+		console.log("nodes before");
+		console.log(nodes);
+		//will need to check what level we are on, in this case just assuming 0
+		nodes.push({"series":"StarTrek"});
+		console.log(nodes);
+		//push nodes into force layout
+		$.each(data.nodes, function(i,d){
+			console.log(i);
+			console.log(d);
+			nodes.push(d);
+			links.push({source: 0, target: i+1});
+		});
+		//nodes.push();//(data.nodes);
+		n = data.nodes.length;
+		
+		console.log("nodes after");
+		console.log(nodes);
+
+		var svg = d3.select("body").append("svg")
+			.attr("width", width)
+			.attr("height", height);
+
+		var loading = svg.append("text")
+			.attr("x", width / 2)
+			.attr("y", height / 2)
+			.attr("dy", ".35em")
+			.style("text-anchor", "middle")
+			.text("Simulating. One moment please…");
+
+		// Use a timeout to allow the rest of the page to load first.
+		setTimeout(function() {
+
+		  // Run the layout a fixed number of times.
+		  // The ideal number of times scales with graph complexity.
+		  // Of course, don't run too long—you'll hang the page!
+		  force.start();
+		  for (var i = n * n; i > 0; --i) force.tick();
+		  force.stop();
+
+		  svg.selectAll("line")
+			  .data(links)
+			.enter().append("line")
+			  .attr("x1", function(d) { return d.source.x; })
+			  .attr("y1", function(d) { return d.source.y; })
+			  .attr("x2", function(d) { return d.target.x; })
+			  .attr("y2", function(d) { return d.target.y; });
+
+		  svg.selectAll("circle")
+			  .data(nodes)
+			.enter().append("circle")
+			  .attr("class", "node")
+			  .attr("cx", function(d) { return d.x; })
+			  .attr("cy", function(d) { return d.y; })
+			  .attr("r", 10)
+			.on("mouseover", function(d,i){ 
+				console.log(d); 
+				console.log(i); 
+				console.log("Mouse over me baby!!!");
+			});
+
+		  loading.remove();
+		}, 10);
+	});
+}
+
+</script>
