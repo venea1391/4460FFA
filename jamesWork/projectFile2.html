@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-
 text {
   font: 10px sans-serif;
 }
@@ -14,6 +13,7 @@ line {
 circle {
   stroke: #fff;
   stroke-width: 1.5px;
+  cursor: pointer;
 }
 
 </style>
@@ -23,13 +23,22 @@ circle {
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
 var inData;
+var csvData;
+
+d3.csv("startrekStrictNoComma.csv",function(data){
+	console.log("Loading CSV Data");
+	console.log(data[696]);
+	csvData = data;
+});
 
 d3.json("data.json",function(error,data){
+	console.log("Loading JSON Data");
+	//console.log(data.nodes[0]);
 	inData = data;
 });
 
 function test(){
-	render(inData,0,null);
+	render(inData,0);
 }
 //method that takes in data and flag to determin amout of nodes that will be needed (plus 1 to account for root)
 function generateCount(data, flag){
@@ -45,125 +54,144 @@ function generateCount(data, flag){
 }
 
 //generates nodes based on inutt data
-function generateNodes(data, flag, parent){
+function generateNodes(data, flag){
 	var toRet = [];
-	if(flag==0){
+	if(flag==0){ //top level
 		toRet.push({"name":"Star Trek"});
 		
 		$.each(data.nodes, function(i,d){
 			toRet.push(d);
 		});
-		
+		return toRet;
+	}
+	else if(flag==1 || flag==2){ //series and season level
+		toRet.push(data);
+		$.each(data.children, function(i,d){
+			toRet.push(d);
+		});
+		return toRet;
+	}
+	else if(flag == 3){ //episode level
+		var episodeData = csvData[data.exact-1];
+		toRet.push({"name":episodeData.title+" Episode " +episodeData.episode});
+		toRet.push({"name":episodeData.director});
+		toRet.push({"name":episodeData.writer});
+		toRet.push({"name":"Season "+episodeData.season});
+		toRet.push({"name":"Series "+episodeData.series});
 		return toRet;
 	}
 }
 
-//function that takes in episode grain and returns information about that episode
-function episodeExpand(exactData){
-
-}
-
-function render(input, flag, parent){
+function render(input, flag){
 	d3.select("svg")
-       .remove(); ///removes old so you can add new
-	//nodes.forEach(function(d, i) { d.x = d.y = width / n * i; });
-	//d3.json("data.json",function(error,data){
-	//	if (error) return console.warn(error);
+		.remove(); ///removes old so you can add new
 		
-		
-		var width = 960,
-			height = 500;
+	var width = 960,
+		height = 500;
 
-		var n,
-			nodes = [], //d3.range(n).map(function() { return {}; }),
-			links = []; //d3.range(n).map(function(d) { return {source: 0, target: (d + input) % n}; });
-		
-		var force = d3.layout.force()
-			.nodes(nodes)
-			.links(links)
-			.linkDistance(100)
-			.size([width, height])
+	var n,
+		nodes = [], //d3.range(n).map(function() { return {}; }),
+		links = []; //d3.range(n).map(function(d) { return {source: 0, target: (d + input) % n}; });
 	
-		console.log("nodes before");
-		console.log(nodes);
-		//will need to check what level we are on, in this case just assuming 0
-		
-		
-		
-		var inputNodes = generateNodes(input, flag, parent);
-		n = generateCount(input, flag);
-		
-		//push nodes into force layout
-		$.each(inputNodes, function(i,d){
-			nodes.push(d);
-			if(i!=0){
-				links.push({source: 0, target: i});
-			}
-		});
-		
-		
-		//seting all the nodes to have specific X's and Y's still needs to be fixed
-		nodes.forEach(function(d, i) {
+	var force = d3.layout.force()
+		.nodes(nodes)
+		.links(links)
+		.linkDistance(100)
+		.size([width, height]);
+
+	//console.log("nodes before");
+	//console.log(nodes);
+	//will need to check what level we are on, in this case just assuming 0
+	
+	
+	
+	var inputNodes = generateNodes(input, flag, parent);
+	n = generateCount(input, flag);
+	
+	//push nodes into force layout
+	$.each(inputNodes, function(i,d){
+		nodes.push(d);
+		if(i!=0){
+			links.push({source: 0, target: i});
+		}
+	});
+	
+	
+	//seting all the nodes to have specific X's and Y's still needs to be fixed
+	nodes.forEach(function(d, i) {
+		if(i!=0){
+			d.x = d.x*i;
+			d.y = d.y*i;
+		}else{
+			d.x = width/2;
+			d.y = height/2;
 			d.fixed = true;
-			if(i!=0){
-				d.x = d.x*i;
-				d.y = d.y*i;
-			}else{
-				d.x = width/2;
-				d.y = height/2;
+		}
+	});
+	
+	
+	
+	//console.log("nodes after");
+	//console.log(nodes);
+
+	var svg = d3.select("body").append("svg")
+		.attr("width", width)
+		.attr("height", height);
+
+	var loading = svg.append("text")
+		.attr("x", width / 2)
+		.attr("y", height / 2)
+		.attr("dy", ".35em")
+		.style("text-anchor", "middle")
+		.text("Simulating. One moment please…");
+
+	// Use a timeout to allow the rest of the page to load first.
+	setTimeout(function() {
+
+	  // Run the layout a fixed number of times.
+	  // The ideal number of times scales with graph complexity.
+	  // Of course, don't run too long—you'll hang the page!
+	  force.start();
+	  for (var i = n * n*n; i > 0; --i) force.tick();
+	  force.stop();
+
+	  svg.selectAll("line")
+		  .data(links)
+		.enter().append("line")
+		  .attr("x1", function(d) { return d.source.x; })
+		  .attr("y1", function(d) { return d.source.y; })
+		  .attr("x2", function(d) { return d.target.x; })
+		  .attr("y2", function(d) { return d.target.y; });
+
+	  svg.selectAll("circle")
+		  .data(nodes)
+		.enter().append("circle")
+		  .attr("class", "node")
+		  .attr("cx", function(d) { return d.x; })
+		  .attr("cy", function(d) { return d.y; })
+		  .attr("r", 10)
+		.on("mouseover", function(d,i){
+			console.log(d);
+			console.log("Mouse over me baby!!!");
+		})
+		.on("click", function(d,i){
+			console.log("You clicked me baby!");
+			console.log("Flag: "+flag);
+			console.log("Index: "+i);
+			if(flag==0 && i==0){
+				return;
 			}
+			if(flag==3 && i==0){
+				return;
+			}
+			if(i==0){
+				return;
+			}
+			render(d, flag+1);
 		});
-		
-		
-		
-		console.log("nodes after");
-		console.log(nodes);
 
-		var svg = d3.select("body").append("svg")
-			.attr("width", width)
-			.attr("height", height);
-
-		var loading = svg.append("text")
-			.attr("x", width / 2)
-			.attr("y", height / 2)
-			.attr("dy", ".35em")
-			.style("text-anchor", "middle")
-			.text("Simulating. One moment please…");
-
-		// Use a timeout to allow the rest of the page to load first.
-		setTimeout(function() {
-
-		  // Run the layout a fixed number of times.
-		  // The ideal number of times scales with graph complexity.
-		  // Of course, don't run too long—you'll hang the page!
-		  force.start();
-		  for (var i = n * n*n; i > 0; --i) force.tick();
-		  force.stop();
-
-		  svg.selectAll("line")
-			  .data(links)
-			.enter().append("line")
-			  .attr("x1", function(d) { return d.source.x; })
-			  .attr("y1", function(d) { return d.source.y; })
-			  .attr("x2", function(d) { return d.target.x; })
-			  .attr("y2", function(d) { return d.target.y; });
-
-		  svg.selectAll("circle")
-			  .data(nodes)
-			.enter().append("circle")
-			  .attr("class", "node")
-			  .attr("cx", function(d) { return d.x; })
-			  .attr("cy", function(d) { return d.y; })
-			  .attr("r", 10)
-			.on("mouseover", function(d,i){
-				console.log(d); 
-				console.log(i); 
-				console.log("Mouse over me baby!!!");
-			});
-
-		  loading.remove();
-		}, 10);
-	//});
+	  loading.remove();
+	}, 10);
 }
 
 
