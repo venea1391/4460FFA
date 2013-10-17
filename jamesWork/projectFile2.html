@@ -27,15 +27,51 @@ var csvData;
 
 d3.csv("startrekStrictNoComma.csv",function(data){
 	console.log("Loading CSV Data");
-	console.log(data[696]);
 	csvData = data;
 });
 
 d3.json("data.json",function(error,data){
 	console.log("Loading JSON Data");
-	//console.log(data.nodes[0]);
 	inData = data;
 });
+
+function episodeRegrab(episodeNode, flag){
+	console.log("THIS IS THE EPISODE YOU ARE LOOKING AT (SHOULD BE)");
+	console.log(episodeNode);
+	console.log(csvData[episodeNode.exact-1]);
+	var epData = csvData[episodeNode.exact-1];
+	var seriesIndex;
+	if(epData.series=="TOS"){
+		seriesIndex = 0;
+	}
+	else if(epData.series=="TNG"){
+		seriesIndex = 1;
+	}
+	else if(epData.series=="DS9"){
+		seriesIndex = 2;
+	}
+	else if(epData.series=="VOY"){
+		seriesIndex = 3;
+	}
+	else if(epData.series=="ENT"){
+		seriesIndex = 4;
+	}
+	if(flag==1){
+		return inData.nodes[seriesIndex];
+	}
+	else if(flag==2){
+		return inData.nodes[seriesIndex].children[epData.season-1];
+	}
+}
+
+function dataRegrab(data,flag){
+	if(flag==0){
+		return inData;
+	}
+	else if(flag==1){
+		return inData.nodes[data.parentIndex-1];
+	}
+}
 
 function test(){
 	render(inData,0);
@@ -58,7 +94,6 @@ function generateNodes(data, flag){
 	var toRet = [];
 	if(flag==0){ //top level
 		toRet.push({"name":"Star Trek"});
-		
 		$.each(data.nodes, function(i,d){
 			toRet.push(d);
 		});
@@ -74,10 +109,10 @@ function generateNodes(data, flag){
 	else if(flag == 3){ //episode level
 		var episodeData = csvData[data.exact-1];
 		toRet.push({"name":episodeData.title+" Episode " +episodeData.episode});
+		toRet.push({"name":"Series "+episodeData.series});
+		toRet.push({"name":"Season "+episodeData.season});
 		toRet.push({"name":episodeData.director});
 		toRet.push({"name":episodeData.writer});
-		toRet.push({"name":"Season "+episodeData.season});
-		toRet.push({"name":"Series "+episodeData.series});
 		return toRet;
 	}
 }
@@ -105,7 +140,7 @@ function render(input, flag){
 	
 	
 	
-	var inputNodes = generateNodes(input, flag, parent);
+	var inputNodes = generateNodes(input, flag);
 	n = generateCount(input, flag);
 	
 	//push nodes into force layout
@@ -171,6 +206,7 @@ function render(input, flag){
 		  .attr("cy", function(d) { return d.y; })
 		  .attr("r", 10)
 		.on("mouseover", function(d,i){
+			console.log("Index: "+i);
 			console.log(d);
 			console.log("Mouse over me baby!!!");
 		})
@@ -178,16 +214,30 @@ function render(input, flag){
 			console.log("You clicked me baby!");
 			console.log("Flag: "+flag);
 			console.log("Index: "+i);
-			if(flag==0 && i==0){
+			if((flag==0 && i==0)||(flag==3 && i==0)){ //Does nothing at top and bottom of treee
 				return;
 			}
-			if(flag==3 && i==0){
+			if(flag==3){
+				if(i==1){ //Selected series to go back to
+					render(episodeRegrab(input,(1)),1);
+					return;
+				}
+				else if(i==2){ //Selected season to go back to
+					render(episodeRegrab(input,(2)),2);
+					return;
+				}
+				else if(i==3){//Selected director TODO
+					return;
+				}
+				else if(i==4){//Selected writer TODO
+					return;
+				}
+			}
+			if(i==0){ //Going back!
+				render(dataRegrab(d,(flag-1)),(flag-1));
 				return;
 			}
-			if(i==0){
-				return;
-			}
-			render(d, flag+1);
+			render(d, flag+1); //di deeper in a node
 		});
 
 	  loading.remove();
