@@ -24,6 +24,8 @@ circle {
 <script>
 var inData;
 var csvData;
+var writers;
+var directors;
 
 d3.csv("startrekStrictNoComma.csv",function(data){
 	console.log("Loading CSV Data");
@@ -34,6 +36,36 @@ d3.json("data.json",function(error,data){
 	console.log("Loading JSON Data");
 	inData = data;
 });
+
+d3.json("writers.json",function(error,data){
+	console.log("Loading Writer JSON Data");
+	writers = data;
+});
+
+d3.json("directors.json",function(error,data){
+	console.log("Loading Director JSON Data");
+	console.log(data);
+	directors = data;
+});
+
+
+function grabPerson(data, flag){
+	if(flag==4){ // directors
+		for(var i=0; i < directors.nodes.length; i++){
+			if(directors.nodes[i].name == data.name){
+				return directors.nodes[i];
+			}
+		}
+	}
+	else{
+		for(var i=0; i < writers.nodes.length; i++){
+			if(writers.nodes[i].name == data.name){
+				return writers.nodes[i];
+			}
+		}
+	}
+}
+
 
 function episodeRegrab(episodeNode, flag){
 	console.log("THIS IS THE EPISODE YOU ARE LOOKING AT (SHOULD BE)");
@@ -99,7 +131,7 @@ function generateNodes(data, flag){
 		});
 		return toRet;
 	}
-	else if(flag==1 || flag==2){ //series and season level
+	else if(flag==1 || flag==2 || flag==4 || flag==5){ //series and season level, and directors, and writers
 		toRet.push(data);
 		$.each(data.children, function(i,d){
 			toRet.push(d);
@@ -227,11 +259,20 @@ function render(input, flag){
 					return;
 				}
 				else if(i==3){//Selected director TODO
+					render(grabPerson(d,4),4);
 					return;
 				}
 				else if(i==4){//Selected writer TODO
+					render(grabPerson(d,5),5);
 					return;
 				}
+			}
+			if(flag ==4 || flag==5){
+				if(i==0){
+					return;
+				}
+				render(d,3);
+				return;
 			}
 			if(i==0){ //Going back!
 				render(dataRegrab(d,(flag-1)),(flag-1));
