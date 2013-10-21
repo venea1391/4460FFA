@@ -26,11 +26,22 @@ rect.background {
     </style>
   </head>
   <body>
+  <div id="barchart" style="width: 620px; height: 300px; overflow: auto;"></div>
     <script type="text/javascript">
+    var tooltip = d3.select("#barchart")
+	.append("div")
+	.style("position", "absolute")
+	.style("opacity", ".8")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.style("background", "white")
+	.style("font-size", "11px")
+	.style("font-family", "sans-serif")
+	.style("padding", "5px");
 
 var m = [30, 40, 20, 120], // top right bottom left
-    w = 960 - m[1] - m[3], // width
-    h = 500 - m[0] - m[2], // height
+    w = 600 - m[1] - m[3], // width
+    h = 775 - m[0] - m[2], // height
     x = d3.scale.linear().range([0, w]),
     y = 20, // bar height
     z = d3.scale.ordinal().range(["steelblue", "#ccc"]), // bar color
@@ -39,13 +50,14 @@ var m = [30, 40, 20, 120], // top right bottom left
     
 //sets the values of all the nodes (episodes) to their rating
 var hierarchy = d3.layout.partition()
+	.sort(null) //disable sorting to keep existing order
     .value(function(d) { return d.rating; }); 
 
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("top");
 
-var svg = d3.select("body").append("svg:svg")
+var svg = d3.select("#barchart").append("svg:svg")
     .attr("width", w + m[1] + m[3]) //960
     .attr("height", h + m[0] + m[2])  //500
   .append("svg:g")
@@ -68,30 +80,20 @@ svg.append("svg:g")
 function avgValues(d) {
 	var count=0;
 	if (d.children){
-		console.log(d.name);
 		count += d.children.length;
-		console.log(d.children.length);
-		console.log(count);
 		for(var i=0; i<d.children.length; i++){
 			count += avgValues(d.children[i]);
 		}
-		console.log('node: '+d.name+' count: '+count+' value: '+d.value);
 		d.value = d.value/count;
-		console.log('new value: '+d.value);
 	}
 	else {count = 0;}  //d has no children
 	return count;
 }
 
 d3.json("hierarchy.json", function(root) {
-console.log(root);
-//avgValues(root);
   hierarchy.nodes(root);
-  //console.log(root.value); //sum of all the ratings
   avgValues(root);
-  //console.log((root.value)/root.children);
-  //console.log(root.children.length);
-  //x.domain([0, (root.value)]).nice(); //I still don't know what this affects
+  //x.domain([0, (root.value)]).nice(); 
   x.domain([0, 10]).nice();
   down(root, 0);
 });
@@ -106,15 +108,15 @@ function down(d, i) {
   // Mark any currently-displayed bars as exiting.
   var exit = svg.selectAll(".enter").attr("class", "exit");
 
-  // Entering nodes immediately obscure the clicked-on bar, so hide it.
-  exit.selectAll("rect").filter(function(p) { return p === d; })
-      .style("fill-opacity", 1e-6);
+  // Entering nodes immediately obscure the clicked-on bar, FALSE so hide it.
+  //exit.selectAll("rect").filter(function(p) { return p === d; })
+    //  .style("fill-opacity", 1e-6);
 
   // Enter the new bars for the clicked-on data.
   // Per above, entering bars are immediately visible.
   var enter = bar(d)
       .attr("transform", stack(i))
-      .style("opacity", 1);
+      .style("opacity", 0);
 
   // Have the text fade-in, even though the bars are visible.
   // Color the bars as parents; they will fade to children if appropriate.
@@ -122,10 +124,7 @@ function down(d, i) {
   enter.select("rect").style("fill", z(true));
 
   // Update the x-scale domain.
-  //console.log(x.domain([0, d3.max(d.children, function(d) { return d.value; })]).nice());
-  //console.log(d3.max(d.children, function(d) { return d.value; }));
-  
-  //x.domain([0, d3.max(d.children, function(d) { return d.value; })]).nice(); //<-------------------
+  //x.domain([0, d3.max(d.children, function(d) { return d.value; })]).nice(); 
   x.domain([0, 10]).nice();
 
   // Update the x-axis.
@@ -135,6 +134,7 @@ function down(d, i) {
   var enterTransition = enter.transition()
       .duration(duration)
       .delay(function(d, i) { return i * delay; })
+      .style("opacity", 1)
       .attr("transform", function(d, i) { return "translate(0," + y * i * 1.2 + ")"; });
 
   // Transition entering text.
@@ -175,9 +175,9 @@ function up(d) {
   // Color the bars as appropriate.
   // Exiting nodes will obscure the parent bar, so hide it.
   enter.select("rect")
-      .style("fill", function(d) { return z(!!d.children); })
-    .filter(function(p) { return p === d; })
-      .style("fill-opacity", 1e-6);
+      .style("fill", function(d) { return z(!!d.children); });
+    //.filter(function(p) { return p === d; })
+      //.style("fill-opacity", 1e-6);
 
   // Update the x-scale domain.
   //x.domain([0, d3.max(d.parent.children, function(d) { return d.value; })]).nice();
@@ -201,7 +201,8 @@ function up(d) {
   var exitTransition = exit.selectAll("g").transition()
       .duration(duration)
       .delay(function(d, i) { return i * delay; })
-      .attr("transform", stack(d.index));
+      .attr("transform", stack(d.index))
+      .style("opacity", 0);
 
   // Transition exiting text to fade out.
   exitTransition.select("text")
@@ -216,7 +217,8 @@ function up(d) {
   exit.transition().duration(end).remove();
 
   // Rebind the current parent to the background.
-  svg.select(".background").data([d.parent]).transition().duration(end);;
+  svg.select(".background").data([d.parent]).transition().duration(end);
+  //d3.select('#barchart').scrollTop(0);
 }
 
 // Creates a set of bars for the given data node, at the specified index.
@@ -228,8 +230,12 @@ function bar(d) {
       .data(d.children)
       .enter().append("svg:g")
       .style("cursor", function(d) { return !d.children ? null : "pointer"; }) //change cursor to pointer if the bar has children
-      .on("click", down); //drill down onclick
-      console.log(d.value);
+      .on("click", down) //drill down onclick
+      .on("mouseover", function(d){setTooltipText(d); })
+	  .on("mousemove", function(){
+		return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px");})
+	  .on("mouseout", function(){
+    	return tooltip.style("visibility", "hidden");});
 
   bar.append("svg:text")
       .attr("x", -6)
@@ -245,12 +251,53 @@ function bar(d) {
   return bar;
 }
 
+function getSeriesName(n){
+	if (n=='TOS') return 'The Original Series';
+	else if (n=='TNG') return 'The Next Generation';
+	else if (n=='DS9') return 'Deep Space Nine';
+	else if (n=='VOY') return 'Voyager';
+	else if (n=='ENT') return 'Enterprise';
+}
+
+function setTooltipText(node){
+	var n, sn, avgRating;
+	if (node.children && node.children[0].children && node.children[0].children[0].children) {
+		return;
+	}
+	else if (node.children && node.children[0].children) {
+		//series
+		n = getSeriesName(node.name);
+		var seasons = node.children.length;
+		avgRating = node.value.toFixed(1);
+		tooltip.html(n + "<br />Seasons: " + seasons + "<br />Average Rating: " + avgRating);
+		
+	}
+	else if (node.children) {
+		//season
+		sn = getSeriesName(node.parent.name);
+		var episodes = node.children.length;
+		avgRating = node.value.toFixed(1);
+		n = node.name;
+		tooltip.html(sn + "<br />" + n + "<br />" + episodes + " episodes" + "<br />Average Rating: " + avgRating);
+	}
+	else {
+		//episode
+		sn = getSeriesName(node.parent.parent.name);
+		n = node.name;
+		var epNum = node.epNum;
+		avgRating = node.value;
+		seasonn = node.parent.name;
+		tooltip.html(sn + "<br />" + seasonn + " Episode " + epNum + "<br />" + n + "<br />Average Rating: " + avgRating);
+	}
+    return tooltip.style("visibility", "visible");
+}
+
 // A stateful closure for stacking bars horizontally.
 function stack(i) {
   var x0 = 0;
   return function(d) {
     var tx = "translate(" + x0 + "," + y * i * 1.2 + ")";
-    x0 += x(d.value);
+    //x0 += x(d.value);
     return tx;
   };
 }
