@@ -152,17 +152,30 @@ function render(input, flag){
 	d3.select("svg")
 		.remove(); ///removes old so you can add new
 		
-	var width = 960,
-		height = 500;
-
-	var n,
-		nodes = [], //d3.range(n).map(function() { return {}; }),
+	var inputNodes = generateNodes(input, flag),
+		n = generateCount(input, flag);
+		
+	var width = 1000,
+		height = 1000;
+		
+	
+	
+	var nodes = [], //d3.range(n).map(function() { return {}; }),
 		links = []; //d3.range(n).map(function(d) { return {source: 0, target: (d + input) % n}; });
+	
+	var mult =0;
+	
+	if(n < 20){
+		mult = n;
+	}else{
+		mult = 10;
+	}
 	
 	var force = d3.layout.force()
 		.nodes(nodes)
 		.links(links)
-		.linkDistance(200)
+		.charge(-140*mult)
+		.linkDistance(2*mult)
 		.size([width, height]);
 
 	//console.log("nodes before");
@@ -171,8 +184,7 @@ function render(input, flag){
 	
 	
 	
-	var inputNodes = generateNodes(input, flag);
-	n = generateCount(input, flag);
+	
 	
 	//push nodes into force layout
 	$.each(inputNodes, function(i,d){
@@ -218,7 +230,7 @@ function render(input, flag){
 	  // The ideal number of times scales with graph complexity.
 	  // Of course, don't run too long—you'll hang the page!
 	  force.start();
-	  for (var i = n * n*n; i > 0; --i) force.tick();
+	  for (var i = n*n*n; i > 0; --i) force.tick();
 	  force.stop();
 
 	  svg.selectAll("line")
@@ -240,7 +252,7 @@ function render(input, flag){
 			if(i==0){
 				return "red";
 			}	
-			return "blue"
+			return "cyan"
 			})
 		.on("mouseover", function(d,i){
 			console.log("Index: "+i);
@@ -291,7 +303,11 @@ function render(input, flag){
                 .enter().append("text")
                 .attr("class", "label")
                 .attr("fill", "black")
-                .text(function(d) {  return d.name;  });
+                .text(function(d,i){
+					if((i!=0&&flag==2) || (i!=0&&flag==4) || (i!=0&&flag==5)){
+						return "Episode "+d.episode;
+					}
+					return d.name;  });
 		
 		texts.attr("transform", function(d) {
 			return "translate(" + d.x + "," + d.y + ")";
