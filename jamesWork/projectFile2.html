@@ -7,7 +7,7 @@ text {
 
 line {
   stroke: #000;
-  stroke-width: 1.5px;
+  stroke-width: .5px;
 }
 
 circle {
@@ -47,6 +47,18 @@ d3.json("directors.json",function(error,data){
 	directors = data;
 });
 
+function getData(flag){
+	if(flag == 0){
+		return inData;
+	}
+	else if(flag==6){
+		return directors;
+	}
+	else if(flag==7){
+		return writers;
+	}
+
+}
 
 function grabPerson(data, flag){
 	if(flag==4){ // directors
@@ -110,7 +122,7 @@ function test(){
 //method that takes in data and flag to determin amout of nodes that will be needed (plus 1 to account for root)
 function generateCount(data, flag){
 	if(flag==0){
-		return data.nodes.length + 1;
+		return data.nodes.length + 3;
 	}
 	else if(flag == 1 || flag == 2){
 		return data.children.length +1;
@@ -125,6 +137,8 @@ function generateNodes(data, flag){
 	var toRet = [];
 	if(flag==0){ //top level
 		toRet.push({"name":"Star Trek"});
+		toRet.push({"name":"Directors"});
+		toRet.push({"name":"Writers"});
 		$.each(data.nodes, function(i,d){
 			toRet.push(d);
 		});
@@ -144,6 +158,19 @@ function generateNodes(data, flag){
 		toRet.push({"name":"Season "+episodeData.season});
 		toRet.push({"name":episodeData.director});
 		toRet.push({"name":episodeData.writer});
+		return toRet;
+	}
+	else if(flag == 6 || flag == 7){
+		var root;
+		if(flag==6){
+			root = {"name":"Directors"};
+		}else{
+			root = {"name":"Writers"};
+		}
+		toRet.push(root);
+		$.each(data.nodes, function(i,d){
+			toRet.push(d);
+		});
 		return toRet;
 	}
 }
@@ -174,8 +201,8 @@ function render(input, flag){
 	var force = d3.layout.force()
 		.nodes(nodes)
 		.links(links)
-		.charge(-140*mult)
-		.linkDistance(2*mult)
+		.charge(-800)
+		.linkDistance(200)
 		.size([width, height]);
 
 	//console.log("nodes before");
@@ -183,7 +210,7 @@ function render(input, flag){
 	//will need to check what level we are on, in this case just assuming 0
 	
 	
-	
+	var R =  ((3*5*n)/2*Math.PI)
 	
 	
 	//push nodes into force layout
@@ -194,15 +221,16 @@ function render(input, flag){
 		}
 	});
 	
-	
+	var incrementN = 0;
 	//seting all the nodes to have specific X's and Y's still needs to be fixed
 	nodes.forEach(function(d, i) {
 		if(i!=0){
-			d.x = d.x*i;
-			d.y = d.y*i;
+			d.x = (width/2)+R*Math.cos(incrementN);
+			d.y = (height/2)+R*Math.sin(incrementN);
+			incrementN+=((2*Math.PI)/n);
 		}else{
-			d.x = width/2;
-			d.y = height/2;
+			d.x = (width/2);
+			d.y = (height/2);
 			d.fixed = true;
 		}
 	});
@@ -247,24 +275,40 @@ function render(input, flag){
 		  .attr("class", "node")
 		  .attr("cx", function(d) { return d.x; })
 		  .attr("cy", function(d) { return d.y; })
-		  .attr("r", 20)
+		  .attr("r", function(d,i){ 
+						if(i==0){
+							return 20;
+						}
+						else{
+							return 10;
+						}
+						
+				})
 		  .attr("fill", function(d,i){ 
 			if(i==0){
-				return "red";
+				return "tomato";
 			}	
-			return "cyan"
+			return "skyblue"
 			})
 		.on("mouseover", function(d,i){
 			console.log("Index: "+i);
 			console.log(d);
-			console.log("Mouse over me baby!!!");
 		})
 		.on("click", function(d,i){
-			console.log("You clicked me baby!");
 			console.log("Flag: "+flag);
 			console.log("Index: "+i);
 			if((flag==0 && i==0)||(flag==3 && i==0)){ //Does nothing at top and bottom of treee
 				return;
+			}
+			if(flag==0){
+				if(i==1){//Selected directors TODO
+					render(getData(6),6);
+					return;
+				}
+				else if(i==2){//Selected writers TODO
+					render(getData(7),7);
+					return;
+				}
 			}
 			if(flag==3){
 				if(i==1){ //Selected series to go back to
@@ -284,18 +328,42 @@ function render(input, flag){
 					return;
 				}
 			}
-			if(flag ==4 || flag==5){
+			if(flag ==4 || flag==5){ // in specific writer or director node
 				if(i==0){
-					return;
+					if(flag == 4){
+						render(getData(6),6);
+						return;
+					}
+					else if(flag==5){
+						render(getData(7),7);
+						return;
+					}
+					//return; // go back to all directors or writers TODO
 				}
 				render(d,3);
 				return;
 			}
+			if(flag==6||flag==7){ // inside of all writers or all directors
+				if(i==0){
+					render(getData(0),0);
+					return;
+				}
+				
+				if(flag==6){ // selecting a director
+					render(d,4);
+					return;
+				}
+				else if(flag==7){ // selecting a writer
+					render(d,5);
+					return;
+				}
+			}
+			
 			if(i==0){ //Going back!
 				render(dataRegrab(d,(flag-1)),(flag-1));
 				return;
 			}
-			render(d, flag+1); //di deeper in a node
+			render(d, flag+1); //dig deeper in a node
 		});
 		
 		var texts = svg.selectAll("text.label")
@@ -303,6 +371,7 @@ function render(input, flag){
                 .enter().append("text")
                 .attr("class", "label")
                 .attr("fill", "black")
+				.style("font-weight", "bold")
                 .text(function(d,i){
 					if((i!=0&&flag==2) || (i!=0&&flag==4) || (i!=0&&flag==5)){
 						return "Episode "+d.episode;
@@ -310,7 +379,7 @@ function render(input, flag){
 					return d.name;  });
 		
 		texts.attr("transform", function(d) {
-			return "translate(" + d.x + "," + d.y + ")";
+			return "translate(" + (d.x-15) + "," + d.y + ")";
 		});
 		
 	  loading.remove();
