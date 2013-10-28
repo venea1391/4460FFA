@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>Yeah Title</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<style>
+
+	body {
+	  font: 10px sans-serif;
+	}
+
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+
+	.foreground path {
+		fill: none;
+		/*stroke: steelblue;*/
+		stroke-opacity: .8;
+		stroke-width:2;
+	}
+
+	.TOS {stroke:#1f77b4;}
+	.TNG {stroke:#ff7f0e;}
+	.DS9 {stroke:#2ca02c;}
+	.VOY {stroke:#d62728;}
+	.ENT {stroke:#9467bd;}
+
+	</style>
+</head>
+<body>
+<script>
+
+var m = [50, 50, 50, 40], // top right bottom left
+    w = 960 - m[1] - m[3], // width
+    h = 500 - m[0] - m[2]; // height
+
+var x = d3.scale.ordinal().rangePoints([0, w], 1);
+    y = {};
+
+var line = d3.svg.line(),
+    axis = d3.svg.axis().orient("left"),
+    background,
+    foreground;
+
+//sets the values of all the nodes (episodes) to their rating
+// var hierarchy = d3.layout.partition()
+//     .value(function(d) { return d.rating; });
+
+var color = d3.scale.category10();
+
+var svg = d3.select("body").append("svg:svg")
+    .attr("width", w + m[1] + m[3]) //960
+    .attr("height", h + m[0] + m[2])  //500
+	.append("svg:g")
+    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+// Add the x-axis.
+// svg.append("g")
+// 	.attr("class", "x axis")
+// 	.attr("transform", "translate("+m[3]+"," + h + ")");
+	//.call(xAxis);
+
+
+d3.json("../KateriWork/hierarchy.json", function(d) {
+	assignAvgValue(d);
+	x.domain(dimensions=longestSeasons(d));
+	for (var i = 0; i<dimensions.length; i++){
+		y[dimensions[i]] = d3.scale.linear().domain([6, 9]).range([h, 0]);
+	}
+	color.domain(childrenNames(d));
+	// console.log(dimensions);
+	series = getSeries(d);
+	// console.log(series);
+
+	var legend = svg.selectAll("g.legend")
+	  .data(series)
+	  .enter().append("svg:g")
+	  .attr("class", "legend")
+	  .attr("transform", function(s, i) { return "translate(0," + (i * 20 ) + ")"; });
+
+	legend.append("svg:line")
+	  .attr("class", String)
+	  .attr("x1", -7)
+	  .attr("x2", 8)
+	  .attr("stroke-width", 2);
+
+	legend.append("svg:text")
+	  .attr("x", 12)
+	  .attr("dy", ".31em")
+	  .text(function(s) { return s; });
+
+	foreground = svg.append("svg:g")
+	  .attr("class", "foreground")
+	  .selectAll("path")
+	  .data(series)
+	  .enter().append("svg:path")
+	  .attr("d", path)
+	  .attr("class",function(s){return s});
+
+	var g = svg.selectAll(".dimension")
+	  .data(dimensions)
+	  .enter().append("svg:g")
+	  .attr("class", "dimension")
+	  .attr("transform", function(d) {return "translate(" + x(d) + ")"; });
+
+	// Add an axis and title.
+	g.append("svg:g")
+	  .attr("class", "axis")
+	  .each(function(d) { d3.select(this).call(axis.scale(y[d]).ticks(4)); })
+	  .append("svg:text")
+	  .attr("text-anchor", "middle")
+	  .attr("x",-10)
+	  .attr("y", h+20)
+	  .text(String);
+
+	function path(s) {
+		return line(dimensions.map(function(p) {
+			// console.log(y[p](getScore(d,s,p)));
+			return [x(p), y[p](getScore(d,s,p))];
+		}));
+	}
+	
+});
+
+function getScore(d,s,p){
+	//assume d is root
+	for (var i = 0; i < d.children.length; i++) {
+		if (d.children[i].name == s){
+			// console.log(d.children[i].name,s);
+			for (var j = 0; j < d.children[i].children.length; j++) {
+				// console.log(d.children[i].children[j].name,p);
+				if (d.children[i].children[j].name == p){
+					// console.log(d.children[i].children[j].value);
+					return d.children[i].children[j].value;
+					break;
+				}
+			}
+		}
+	}
+	// return 0;
+}
+
+function getSeries(d){
+	// assume d is root
+	var s = [];
+	for (var i = 0; i < d.children.length; i++) {
+		s.push(d.children[i].name);
+	}
+	return s;
+}
+
+function longestSeasons(d){
+	// assume d is root
+	var maxLength = -1,index = -1;
+	var result = [];
+	for (var i=0; i<d.children.length;i++){
+		if (d.children[i].children.length > maxLength){
+			maxLength = d.children[i].children.length;
+			index = i;
+		}
+	}
+	if (index>-1){
+		for (var i = 0; i < d.children[index].children.length; i++) {
+			result.push(d.children[index].children[i].name);
+		};
+	}
+	return result;
+}
+
+function childrenNames(d){
+	var childNames = [];
+	if(d.children){
+		for (var i = 0; i < d.children.length; i++) {
+			childNames.push(d.children[i].name);
+		}
+	}
+	return childNames;
+}
+
+function assignAvgValue(d){
+	var average = 0;
+	if(d.children){
+		// d.value = avgValues(d);
+		for (var i=0; i<d.children.length; i++){
+			// assignAvgValue(d.children[i]);
+			average += assignAvgValue(d.children[i]);
+		}
+		average = average/d.children.length;
+		d.value = average;
+	}
+	else{
+		average = parseFloat(d.rating);
+		d.value = average;
+	}
+	return average;
+}
+
+/* deprecated
+*/
+function avgValues(d) {
+	var average = 0;
+	if (d.children){
+		for (var i=0; i<d.children.length; i++){
+			// console.log(d.children[i]);
+			average += avgValues(d.children[i]);
+			// console.log(average);
+		}
+		average = average/d.children.length;
+		// console.log('node: '+d.name+'new value: '+average);
+	}
+	else {average = parseFloat(d.rating)}  //d has no children
+	return average;
+}
+</script>
+</body>
+</html>
