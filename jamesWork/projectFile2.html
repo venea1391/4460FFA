@@ -63,14 +63,14 @@ function getData(flag){
 function grabPerson(data, flag){
 	if(flag==4){ // directors
 		for(var i=0; i < directors.nodes.length; i++){
-			if(directors.nodes[i].name == data.name){
+			if(directors.nodes[i].name == data.rName){
 				return directors.nodes[i];
 			}
 		}
 	}
 	else{
 		for(var i=0; i < writers.nodes.length; i++){
-			if(writers.nodes[i].name == data.name){
+			if(writers.nodes[i].name == data.rName){
 				return writers.nodes[i];
 			}
 		}
@@ -156,8 +156,8 @@ function generateNodes(data, flag){
 		toRet.push({"name":episodeData.title+" Episode " +episodeData.episode});
 		toRet.push({"name":"Series "+episodeData.series});
 		toRet.push({"name":"Season "+episodeData.season});
-		toRet.push({"name":episodeData.director});
-		toRet.push({"name":episodeData.writer});
+		toRet.push({"name":"Director: "+ episodeData.director , "rName":episodeData.director});
+		toRet.push({"name":"Writer: "+episodeData.writer ,"rName":episodeData.writer});
 		return toRet;
 	}
 	else if(flag == 6 || flag == 7){
@@ -183,7 +183,7 @@ function render(input, flag){
 		n = generateCount(input, flag);
 		
 	var width = 1000,
-		height = 1000;
+		height = 800;
 		
 	
 	
@@ -201,8 +201,8 @@ function render(input, flag){
 	var force = d3.layout.force()
 		.nodes(nodes)
 		.links(links)
-		.charge(-800)
-		.linkDistance(200)
+		.charge(-200)
+		.linkDistance(100)
 		.size([width, height]);
 
 	//console.log("nodes before");
