@@ -3,10 +3,10 @@
   { "name": "TOS", "children":
    [
     { "name": "Season 1", "children": [
-      {"name": "The Cage", "epNum": "0", "rating": "7.6", "numOfVotes": "2,327"},
-      {"name": "The Man Trap", "epNum": "1", "rating": "7.3", "numOfVotes": "1,135"},
-      {"name": "Charlie X", "epNum": "2", "rating": "7.2", "numOfVotes": "1,050"},
-      {"name": "Where No Man Has Gone Before", "epNum": "3", "rating": "7.8", "numOfVotes": "1,930"},
+      {"name": "The Cage", "epNum": "0", "rating": "7.6", "numOfVotes": "2327"},
+      {"name": "The Man Trap", "epNum": "1", "rating": "7.3", "numOfVotes": "1135"},
+      {"name": "Charlie X", "epNum": "2", "rating": "7.2", "numOfVotes": "1050"},
+      {"name": "Where No Man Has Gone Before", "epNum": "3", "rating": "7.8", "numOfVotes": "1930"},
       {"name": "The Naked Time", "epNum": "4", "rating": "7.9", "numOfVotes": "977"},
       {"name": "The Enemy Within", "epNum": "5", "rating": "7.7", "numOfVotes": "935"},
       {"name": "Mudd's Women", "epNum": "6", "rating": "7", "numOfVotes": "899"},
@@ -17,7 +17,7 @@
       {"name": "The Menagerie: Part I", "epNum": "11", "rating": "8.3", "numOfVotes": "908"},
       {"name": "The Menagerie: Part II", "epNum": "12", "rating": "8.3", "numOfVotes": "856"},
       {"name": "The Conscience of the King", "epNum": "13", "rating": "7.2", "numOfVotes": "810"},
-      {"name": "Balance of Terror", "epNum": "14", "rating": "8.6", "numOfVotes": "1,111"},
+      {"name": "Balance of Terror", "epNum": "14", "rating": "8.6", "numOfVotes": "1111"},
       {"name": "Shore Leave", "epNum": "15", "rating": "7.6", "numOfVotes": "842"},
       {"name": "The Galileo Seven", "epNum": "16", "rating": "7.6", "numOfVotes": "808"},
       {"name": "The Squire of Gothos", "epNum": "17", "rating": "7.6", "numOfVotes": "803"},
@@ -25,13 +25,13 @@
       {"name": "Tomorrow Is Yesterday", "epNum": "19", "rating": "7.9", "numOfVotes": "809"},
       {"name": "Court Martial", "epNum": "20", "rating": "7.3", "numOfVotes": "753"},
       {"name": "The Return of the Archons", "epNum": "21", "rating": "7.2", "numOfVotes": "731"},
-      {"name": "Space Seed", "epNum": "22", "rating": "8.6", "numOfVotes": "1,160"},
+      {"name": "Space Seed", "epNum": "22", "rating": "8.6", "numOfVotes": "1160"},
       {"name": "A Taste of Armageddon", "epNum": "23", "rating": "8", "numOfVotes": "791"},
       {"name": "This Side of Paradise", "epNum": "24", "rating": "7.9", "numOfVotes": "777"},
       {"name": "The Devil in the Dark", "epNum": "25", "rating": "8.3", "numOfVotes": "849"},
       {"name": "Errand of Mercy", "epNum": "26", "rating": "8.1", "numOfVotes": "770"},
       {"name": "The Alternative Factor", "epNum": "27", "rating": "6", "numOfVotes": "758"},
-      {"name": "The City on the Edge of Forever", "epNum": "28", "rating": "8.7", "numOfVotes": "1,408"},
+      {"name": "The City on the Edge of Forever", "epNum": "28", "rating": "8.7", "numOfVotes": "1408"},
       {"name": "Operation - Annihilate!", "epNum": "29", "rating": "7.5", "numOfVotes": "682"}
      ]
     },
@@ -39,7 +39,7 @@
       {"name": "Amok Time", "epNum": "1", "rating": "8.6", "numOfVotes": "935"},
       {"name": "Who Mourns for Adonais?", "epNum": "2", "rating": "7", "numOfVotes": "750"},
       {"name": "The Changeling", "epNum": "3", "rating": "7.7", "numOfVotes": "675"},
-      {"name": "Mirror, Mirror", "epNum": "4", "rating": "8.6", "numOfVotes": "1,044"},
+      {"name": "Mirror, Mirror", "epNum": "4", "rating": "8.6", "numOfVotes": "1044"},
       {"name": "The Apple", "epNum": "5", "rating": "6.4", "numOfVotes": "654"},
       {"name": "The Doomsday Machine", "epNum": "6", "rating": "8.7", "numOfVotes": "907"},
       {"name": "Catspaw", "epNum": "7", "rating": "6.3", "numOfVotes": "651"},
@@ -50,7 +50,7 @@
       {"name": "The Deadly Years", "epNum": "12", "rating": "7.3", "numOfVotes": "624"},
       {"name": "Obsession", "epNum": "13", "rating": "7.3", "numOfVotes": "577"},
       {"name": "Wolf in the Fold", "epNum": "14", "rating": "7.4", "numOfVotes": "646"},
-      {"name": "The Trouble with Tribbles", "epNum": "15", "rating": "8.6", "numOfVotes": "1,019"},
+      {"name": "The Trouble with Tribbles", "epNum": "15", "rating": "8.6", "numOfVotes": "1019"},
       {"name": "The Gamesters of Triskelion", "epNum": "16", "rating": "6.8", "numOfVotes": "633"},
       {"name": "A Piece of the Action", "epNum": "17", "rating": "7.8", "numOfVotes": "712"},
       {"name": "The Immunity Syndrome", "epNum": "18", "rating": "7.4", "numOfVotes": "596"},
@@ -96,7 +96,7 @@
   { "name": "TNG", "children":
    [
     { "name": "Season 1", "children": [
-      {"name": "Encounter at Farpoint", "epNum": "1", "rating": "6.9", "numOfVotes": "2,650"},
+      {"name": "Encounter at Farpoint", "epNum": "1", "rating": "6.9", "numOfVotes": "2650"},
       {"name": "The Naked Now", "epNum": "2", "rating": "6.6", "numOfVotes": "867"},
       {"name": "Code of Honor", "epNum": "3", "rating": "5.3", "numOfVotes": "779"},
       {"name": "The Last Outpost", "epNum": "4", "rating": "6.4", "numOfVotes": "727"},
@@ -161,9 +161,9 @@
       {"name": "The Defector", "epNum": "10", "rating": "8.2", "numOfVotes": "692"},
       {"name": "The Hunted", "epNum": "11", "rating": "7.4", "numOfVotes": "595"},
       {"name": "The High Ground", "epNum": "12", "rating": "6.8", "numOfVotes": "578"},
-      {"name": "D_jˆ Q", "epNum": "13", "rating": "8.4", "numOfVotes": "748"},
+      {"name": "Deja Q", "epNum": "13", "rating": "8.4", "numOfVotes": "748"},
       {"name": "A Matter of Perspective", "epNum": "14", "rating": "6.8", "numOfVotes": "558"},
-      {"name": "Yesterday's Enterprise", "epNum": "15", "rating": "8.6", "numOfVotes": "1,097"},
+      {"name": "Yesterday's Enterprise", "epNum": "15", "rating": "8.6", "numOfVotes": "1097"},
       {"name": "The Offspring", "epNum": "16", "rating": "8.1", "numOfVotes": "762"},
       {"name": "Sins of the Father", "epNum": "17", "rating": "8.1", "numOfVotes": "621"},
       {"name": "Allegiance", "epNum": "18", "rating": "7.4", "numOfVotes": "593"},
@@ -172,13 +172,13 @@
       {"name": "Hollow Pursuits", "epNum": "21", "rating": "7.8", "numOfVotes": "625"},
       {"name": "The Most Toys", "epNum": "22", "rating": "7.6", "numOfVotes": "614"},
       {"name": "Sarek", "epNum": "23", "rating": "8.1", "numOfVotes": "636"},
-      {"name": "M_nage ˆ Troi", "epNum": "24", "rating": "6.8", "numOfVotes": "552"},
+      {"name": "Menage a Troi", "epNum": "24", "rating": "6.8", "numOfVotes": "552"},
       {"name": "Transfigurations", "epNum": "25", "rating": "7", "numOfVotes": "534"},
-      {"name": "The Best of Both Worlds: Part 1", "epNum": "26", "rating": "8.6", "numOfVotes": "1,158"}
+      {"name": "The Best of Both Worlds: Part 1", "epNum": "26", "rating": "8.6", "numOfVotes": "1158"}
      ]
     },
     { "name": "Season 4", "children": [
-      {"name": "The Best of Both Worlds: Part 2", "epNum": "1", "rating": "8.6", "numOfVotes": "1,035"},
+      {"name": "The Best of Both Worlds: Part 2", "epNum": "1", "rating": "8.6", "numOfVotes": "1035"},
       {"name": "Family", "epNum": "2", "rating": "7.9", "numOfVotes": "717"},
       {"name": "Brothers", "epNum": "3", "rating": "7.7", "numOfVotes": "582"},
       {"name": "Suddenly Human", "epNum": "4", "rating": "6.5", "numOfVotes": "549"},
@@ -231,7 +231,7 @@
       {"name": "Imaginary Friend", "epNum": "22", "rating": "6.2", "numOfVotes": "486"},
       {"name": "I Borg", "epNum": "23", "rating": "8.5", "numOfVotes": "702"},
       {"name": "The Next Phase", "epNum": "24", "rating": "8.1", "numOfVotes": "561"},
-      {"name": "The Inner Light", "epNum": "25", "rating": "8.6", "numOfVotes": "1,549"},
+      {"name": "The Inner Light", "epNum": "25", "rating": "8.6", "numOfVotes": "1549"},
       {"name": "Time's Arrow: Part 1", "epNum": "26", "rating": "8.3", "numOfVotes": "606"}
      ]
     },
@@ -289,7 +289,7 @@
       {"name": "Bloodlines", "epNum": "22", "rating": "6.6", "numOfVotes": "421"},
       {"name": "Emergence", "epNum": "23", "rating": "6.7", "numOfVotes": "434"},
       {"name": "Preemptive Strike", "epNum": "24", "rating": "7.9", "numOfVotes": "464"},
-      {"name": "All Good Things...", "epNum": "25", "rating": "8.4", "numOfVotes": "4,973"}
+      {"name": "All Good Things...", "epNum": "25", "rating": "8.4", "numOfVotes": "4973"}
      ]
     }
    ]
@@ -297,7 +297,7 @@
   { "name": "DS9", "children":
    [
     { "name": "Season 1", "children": [
-      {"name": "Emissary", "epNum": "1", "rating": "7.3", "numOfVotes": "1,736"},
+      {"name": "Emissary", "epNum": "1", "rating": "7.3", "numOfVotes": "1736"},
       {"name": "Past Prologue", "epNum": "2", "rating": "7", "numOfVotes": "419"},
       {"name": "A Man Alone", "epNum": "3", "rating": "6.9", "numOfVotes": "402"},
       {"name": "Babel", "epNum": "4", "rating": "6.9", "numOfVotes": "394"},
@@ -495,7 +495,7 @@
   { "name": "VOY", "children":
    [
     { "name": "Season 1", "children": [
-      {"name": "Caretaker", "epNum": "1", "rating": "7.1", "numOfVotes": "1,769"},
+      {"name": "Caretaker", "epNum": "1", "rating": "7.1", "numOfVotes": "1769"},
       {"name": "Parallax", "epNum": "2", "rating": "7", "numOfVotes": "385"},
       {"name": "Time and Again", "epNum": "3", "rating": "7.1", "numOfVotes": "372"},
       {"name": "Phage", "epNum": "4", "rating": "7.1", "numOfVotes": "343"},
@@ -690,7 +690,7 @@
   { "name": "ENT", "children":
    [
     { "name": "Season 1", "children": [
-      {"name": "Broken Bow: Part 1", "epNum": "1", "rating": "6.8", "numOfVotes": "2,580"},
+      {"name": "Broken Bow: Part 1", "epNum": "1", "rating": "6.8", "numOfVotes": "2580"},
       {"name": "Broken Bow: Part 2", "epNum": "2", "rating": "7.9", "numOfVotes": "771"},
       {"name": "Fight or Flight", "epNum": "3", "rating": "7", "numOfVotes": "310"},
       {"name": "Strange New World", "epNum": "4", "rating": "7.2", "numOfVotes": "302"},
