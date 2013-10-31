@@ -25,6 +25,10 @@
 		stroke-width:2;
 	}
 
+	.axis text, .sublegend text{
+		cursor: pointer;
+	}
+
 	.TOS {stroke:#1f77b4;}
 	.TNG {stroke:#ff7f0e;}
 	.DS9 {stroke:#2ca02c;}
@@ -41,12 +45,19 @@ var m = [50, 50, 50, 40], // top right bottom left
     h = 500 - m[0] - m[2]; // height
 
 var x = d3.scale.ordinal().rangePoints([0, w], 1);
-    y = {};
+    y = {},
+    duration = 750,
+    delay = 100;
 
 var line = d3.svg.line(),
     axis = d3.svg.axis().orient("left"),
     background,
-    foreground;
+    foreground,
+    series,
+    g;
+
+var legend,
+	sublegend;
 
 //sets the values of all the nodes (episodes) to their rating
 // var hierarchy = d3.layout.partition()
@@ -54,35 +65,31 @@ var line = d3.svg.line(),
 
 var color = d3.scale.category10();
 
+
 var svg = d3.select("body").append("svg:svg")
     .attr("width", w + m[1] + m[3]) //960
     .attr("height", h + m[0] + m[2])  //500
 	.append("svg:g")
     .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-// Add the x-axis.
-// svg.append("g")
-// 	.attr("class", "x axis")
-// 	.attr("transform", "translate("+m[3]+"," + h + ")");
-	//.call(xAxis);
-
-
 d3.json("../KateriWork/hierarchy.json", function(d) {
 	assignAvgValue(d);
+	// console.log(dimensions);
+	series = getSeries(d);
+	seasonLevel(d);
+});
+
+function seasonLevel(d){
 	x.domain(dimensions=longestSeasons(d));
 	for (var i = 0; i<dimensions.length; i++){
 		y[dimensions[i]] = d3.scale.linear().domain([6, 9]).range([h, 0]);
 	}
-	color.domain(childrenNames(d));
-	// console.log(dimensions);
-	series = getSeries(d);
-	// console.log(series);
-
-	var legend = svg.selectAll("g.legend")
+	// legend
+	legend = svg.selectAll("g.legend")
 	  .data(series)
 	  .enter().append("svg:g")
 	  .attr("class", "legend")
-	  .attr("transform", function(s, i) { return "translate(0," + (i * 20 ) + ")"; });
+	  .attr("transform", function(s, i) { return "translate("+w+"," + (i * 20 ) + ")"; });
 
 	legend.append("svg:line")
 	  .attr("class", String)
@@ -95,19 +102,30 @@ d3.json("../KateriWork/hierarchy.json", function(d) {
 	  .attr("dy", ".31em")
 	  .text(function(s) { return s; });
 
+	// displayed path
 	foreground = svg.append("svg:g")
 	  .attr("class", "foreground")
 	  .selectAll("path")
 	  .data(series)
 	  .enter().append("svg:path")
-	  .attr("d", path)
-	  .attr("class",function(s){return s});
+	  .attr("d", flatPath)
+	  .attr("class",function(s){return s})
+	  .style("opacity", 0);
 
-	var g = svg.selectAll(".dimension")
+	// path enter animation
+	foreground.transition()
+      .duration(duration)
+      .delay(duration/2)
+      .style("opacity", 1)
+      .attr("d", path);
+
+    // dimension position
+	g = svg.selectAll(".dimension")
 	  .data(dimensions)
 	  .enter().append("svg:g")
 	  .attr("class", "dimension")
-	  .attr("transform", function(d) {return "translate(" + x(d) + ")"; });
+	  .attr("transform", function() {return "translate(" + m[3] + ")"; })
+	  .style("opacity",0.5);
 
 	// Add an axis and title.
 	g.append("svg:g")
@@ -117,7 +135,14 @@ d3.json("../KateriWork/hierarchy.json", function(d) {
 	  .attr("text-anchor", "middle")
 	  .attr("x",-10)
 	  .attr("y", h+20)
-	  .text(String);
+	  .text(String)
+	  .on("click",seasonNumber);//function(){exit();});
+
+	// dimension transaction
+	g.transition()
+	  .duration(duration)
+	  .attr("transform", function(d) {return "translate(" + x(d) + ")"; })
+	  .style("opacity",1);
 
 	function path(s) {
 		return line(dimensions.map(function(p) {
@@ -125,8 +150,113 @@ d3.json("../KateriWork/hierarchy.json", function(d) {
 			return [x(p), y[p](getScore(d,s,p))];
 		}));
 	}
-	
-});
+
+	function seasonNumber(tmp,i){
+		exit();
+		episodeLevel(d,i);
+	}
+
+}
+
+function episodeLevel(d,season){
+	// console.log(d,season);
+	x.domain(dimensions=longestEpisodes(d,season));
+	for (var i = 0; i<dimensions.length; i++){
+		y[dimensions[i]] = d3.scale.linear().domain([0, 10]).range([h, 0]);
+	}
+
+	var seasonData = [season];
+
+	// season Label
+	sublegend = svg.selectAll("g.sublegend")
+	  .data(seasonData)
+	  .enter().append("svg:g")
+	  // .style("opacity",0)
+	  .attr("class", "sublegend")
+	  .attr("transform", function() { return "translate("+(season*124.28600 + 19)+"," + 420 + ")"; });
+
+	sublegend.append("svg:text")
+	  .attr("x", 12)
+	  .text(function(s) {return "Season "+(s+1); })
+	  .on("click",function(){exit();seasonLevel(d)});
+
+	sublegend.transition()
+	  .duration(duration)
+	  .attr("transform", function() { return "translate("+(w-20)+"," + h + ")"; });
+
+	// displayed path
+	foreground = svg.append("svg:g")
+	  .attr("class", "foreground")
+	  .selectAll("path")
+	  .data(series)
+	  .enter().append("svg:path")
+	  .attr("d", flatPath)
+	  .attr("class",function(s){return s})
+	  .style("opacity", 0);
+
+	// path enter animation
+	foreground.transition()
+      .duration(duration)
+      .delay(duration/2)
+      .style("opacity", 1)
+      .attr("d", path);
+
+    // dimension position
+	g = svg.selectAll(".dimension")
+	  .data(dimensions)
+	  .enter().append("svg:g")
+	  .attr("class", "dimension")
+	  .attr("transform", function() {return "translate(" + m[3] + ")"; })
+	  .style("opacity",0.5);
+
+	// Add an axis and title.
+	g.append("svg:g")
+	  .attr("class", "axis")
+	  .each(function(d) { d3.select(this).call(axis.scale(y[d]).ticks(5)); })
+	  .append("svg:text")
+	  .attr("text-anchor", "middle")
+	  .attr("x",-10)
+	  .attr("y", h+20)
+	  .attr("class","no-pointer")
+	  .text(String)
+	  .on("click",function(){exit();seasonLevel(d)});
+
+	// dimension transaction
+	g.transition()
+	  .duration(duration)
+	  .attr("transform", function(d) {return "translate(" + x(d) + ")"; })
+	  .style("opacity",1);
+
+	function path(s) {
+		return line(dimensions.map(function(p) {
+			// console.log(y[p](getScore(d,s,p)));
+			return [x(p), y[p](getEpisodeScore(d,s,season,p))];
+		}));
+	}
+}
+
+function exit(){
+	// path exit transition
+	foreground.transition()
+      .duration(duration)
+      .style("opacity", 0);
+    // axis transition
+    g.transition()
+      .duration(duration)
+      .delay(duration/2)
+      .attr("transform", function() {return "translate(" + m[3] + ")"; })
+      .style("opacity",0);
+    //remove elements
+    svg.selectAll(".dimension").remove();
+    svg.selectAll(".foreground").remove();
+    svg.selectAll(".sublegend").remove();
+}
+
+function flatPath(){
+	return line(dimensions.map(function(p){
+		return [x(p),400];
+	}));
+}
 
 function getScore(d,s,p){
 	//assume d is root
@@ -144,6 +274,25 @@ function getScore(d,s,p){
 		}
 	}
 	// return 0;
+}
+
+function getEpisodeScore(d,s,season,p){
+	// if (p==0 && s=="TOS"){
+	// 	return d.children[0].children[season].children[0].value;
+	// }
+	for (var i = 0; i < d.children.length; i++) {
+		if (d.children[i].name == s){
+			// console.log(d.children[i].children.length, season);
+			if (d.children[i].children.length > season){
+				// console.log(d.children[i].children[season].children[j].value);
+				var j = (s=="TOS"?p:p-1);
+				if (d.children[i].children[season].children.length > j){
+					return d.children[i].children[season].children[j].value;
+					break;
+				}
+			}
+		}
+	}
 }
 
 function getSeries(d){
@@ -173,14 +322,23 @@ function longestSeasons(d){
 	return result;
 }
 
-function childrenNames(d){
-	var childNames = [];
-	if(d.children){
-		for (var i = 0; i < d.children.length; i++) {
-			childNames.push(d.children[i].name);
+function longestEpisodes(d,season){
+	// assume d is root
+	var maxLength = -1,index = -1;
+	var result = [];
+	for (var i = 0; i < d.children.length; i++) {
+		if (d.children[i].children.length > season){
+			if (d.children[i].children[season].children.length > maxLength){
+				maxLength = d.children[i].children[season].children.length;
+			}
 		}
 	}
-	return childNames;
+	if (maxLength > -1){
+		for (var i = 1; i < maxLength; i++) {
+			result.push(i);
+		}
+	}
+	return result;
 }
 
 function assignAvgValue(d){
