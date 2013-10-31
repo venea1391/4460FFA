@@ -25,7 +25,7 @@
 		stroke-width:2;
 	}
 
-	.axis text, .sublegend text{
+	.axis text, .sublegend text, .legend text{
 		cursor: pointer;
 	}
 
@@ -34,6 +34,14 @@
 	.DS9 {stroke:#2ca02c;}
 	.VOY {stroke:#d62728;}
 	.ENT {stroke:#9467bd;}
+
+	.season1 {stroke:#1f77b4;}
+	.season2 {stroke:#ff7f0e;}
+	.season3 {stroke:#2ca02c;}
+	.season4 {stroke:#d62728;}
+	.season5 {stroke:#9467bd;}
+	.season6 {stroke:#8c564b;}
+	.season7 {stroke:#e377c2;}
 
 	</style>
 </head>
@@ -100,7 +108,8 @@ function seasonLevel(d){
 	legend.append("svg:text")
 	  .attr("x", 12)
 	  .attr("dy", ".31em")
-	  .text(function(s) { return s; });
+	  .text(function(s) { return s; })
+	  .on("click",seriesNo);
 
 	// displayed path
 	foreground = svg.append("svg:g")
@@ -156,6 +165,10 @@ function seasonLevel(d){
 		episodeLevel(d,i);
 	}
 
+	function seriesNo(tmp,i){
+		exit();
+		seriesLevel(d,i);
+	}
 }
 
 function episodeLevel(d,season){
@@ -166,6 +179,24 @@ function episodeLevel(d,season){
 	}
 
 	var seasonData = [season];
+
+	legend = svg.selectAll("g.legend")
+	  .data(series)
+	  .enter().append("svg:g")
+	  .attr("class", "legend")
+	  .attr("transform", function(s, i) { return "translate("+w+"," + (i * 20 ) + ")"; });
+
+	legend.append("svg:line")
+	  .attr("class", String)
+	  .attr("x1", -7)
+	  .attr("x2", 8)
+	  .attr("stroke-width", 2);
+
+	legend.append("svg:text")
+	  .attr("x", 12)
+	  .attr("dy", ".31em")
+	  .text(function(s) { return s; })
+	  .on("click",seriesNo);
 
 	// season Label
 	sublegend = svg.selectAll("g.sublegend")
@@ -233,6 +264,98 @@ function episodeLevel(d,season){
 			return [x(p), y[p](getEpisodeScore(d,s,season,p))];
 		}));
 	}
+
+	function seriesNo(tmp,i){
+		exit();
+		seriesLevel(d,i);
+	}
+}
+
+function seriesLevel(d,seriesNumber){
+	x.domain(dimensions=longestEpisodesInSeries(d,seriesNumber));
+	for (var i = 0; i<dimensions.length; i++){
+		y[dimensions[i]] = d3.scale.linear().domain([0, 10]).range([h, 0]);
+	}
+
+	svg.selectAll(".legend").remove();
+
+	var seriesData = [seriesNumber];
+
+	var seasonData = seasonsInSeries(d,seriesNumber);
+
+	// legend
+	legend = svg.selectAll("g.legend")
+	  .data(seasonData)
+	  .enter().append("svg:g")
+	  .attr("class", "legend")
+	  .attr("transform", function(s, i) { return "translate("+(w-7)+"," + (i * 20 ) + ")"; });
+
+	legend.append("svg:line")
+	  .attr("class", function(s){ return "season"+(s+1); })
+	  .attr("x1", -4)
+	  .attr("x2", 9)
+	  .attr("stroke-width", 2);
+
+	legend.append("svg:text")
+	  .attr("x", 12)
+	  .attr("dy", ".31em")
+	  .text(function(s) { return "Season "+(s+1); })
+	  .on("click",seasonNumber);
+
+	// displayed path
+	foreground = svg.append("svg:g")
+	  .attr("class", "foreground")
+	  .selectAll("path")
+	  .data(seasonData)
+	  .enter().append("svg:path")
+	  .attr("d", flatPath)
+	  .attr("class",function(s){return "season"+(s+1);})
+	  .style("opacity", 0);
+
+	// path enter animation
+	foreground.transition()
+      .duration(duration)
+      .delay(duration/2)
+      .style("opacity", 1)
+      .attr("d", path);
+
+    // dimension position
+	g = svg.selectAll(".dimension")
+	  .data(dimensions)
+	  .enter().append("svg:g")
+	  .attr("class", "dimension")
+	  .attr("transform", function() {return "translate(" + m[3] + ")"; })
+	  .style("opacity",0.5);
+
+	// Add an axis and title.
+	g.append("svg:g")
+	  .attr("class", "axis")
+	  .each(function(d) { d3.select(this).call(axis.scale(y[d]).ticks(5)); })
+	  .append("svg:text")
+	  .attr("text-anchor", "middle")
+	  .attr("x",-10)
+	  .attr("y", h+20)
+	  .attr("class","no-pointer")
+	  .text(String)
+	  .on("click",function(){exit();seasonLevel(d)});
+
+	// dimension transaction
+	g.transition()
+	  .duration(duration)
+	  .attr("transform", function(d) {return "translate(" + x(d) + ")"; })
+	  .style("opacity",1);
+
+    function path(season){
+    	return line(dimensions.map(function(p) { //p is episode
+			// console.log(getEpisodeScore(d,series[seriesNumber],season,p));
+			return [x(p), y[p](getEpisodeScore(d,series[seriesNumber],season,p))];
+		}));
+    }
+
+    function seasonNumber(tmp,i){
+		exit();
+		episodeLevel(d,i);
+	}
 }
 
 function exit(){
@@ -250,6 +373,7 @@ function exit(){
     svg.selectAll(".dimension").remove();
     svg.selectAll(".foreground").remove();
     svg.selectAll(".sublegend").remove();
+    svg.selectAll(".legend").remove();
 }
 
 function flatPath(){
@@ -304,6 +428,15 @@ function getSeries(d){
 	return s;
 }
 
+function seasonsInSeries(d,seriesNumber){
+	// assume d is root
+	var result = [];
+	for (var i = 0; i < d.children[seriesNumber].children.length; i++) {
+		result.push(i); //d.children[seriesNumber].children[i].name
+	}
+	return result;
+}
+
 function longestSeasons(d){
 	// assume d is root
 	var maxLength = -1,index = -1;
@@ -324,13 +457,29 @@ function longestSeasons(d){
 
 function longestEpisodes(d,season){
 	// assume d is root
-	var maxLength = -1,index = -1;
+	var maxLength = -1;
 	var result = [];
 	for (var i = 0; i < d.children.length; i++) {
 		if (d.children[i].children.length > season){
 			if (d.children[i].children[season].children.length > maxLength){
 				maxLength = d.children[i].children[season].children.length;
 			}
+		}
+	}
+	if (maxLength > -1){
+		for (var i = 1; i < maxLength; i++) {
+			result.push(i);
+		}
+	}
+	return result;
+}
+
+function longestEpisodesInSeries(d,seriesNumber){
+	var maxLength = -1;
+	var result = [];
+	for (var i = 0; i < d.children[seriesNumber].children.length; i++) {
+		if (d.children[seriesNumber].children[i].children.length > maxLength){
+			maxLength = d.children[seriesNumber].children[i].children.length;
 		}
 	}
 	if (maxLength > -1){
