@@ -1,4 +1,6 @@
-function transitionRatingBarChart(){
+var current_bar_node; 
+
+function transitionRatingBarChart(old_node){
 $('#barchart').empty();
 
 var tooltip = d3.select("#barchart")
@@ -69,6 +71,8 @@ d3.json("hierarchy.json", function(root) {
   avgValues(root);
   //x.domain([0, (root.value)]).nice(); 
   x.domain([0, 10]).nice();
+  /*if (old_node) { down(old_node, 0); }
+  else {down(root, 0);}*/
   down(root, 0);
 });
 
@@ -77,6 +81,7 @@ function down(d, i) {
   	setInfoPaneText(d, d.value, 'episode');
   	return;
   }
+  current_bar_node = d;
   setTitleText(d);
   var end = duration + d.children.length * delay;
   if (d.value > 10){
@@ -148,6 +153,7 @@ function down(d, i) {
 
 function up(d) {
   if (!d.parent || this.__transition__) return;
+  current_bar_node = d;
   setTitleText(d.parent);
   var end = duration + d.children.length * delay;
  if (d.value > 10){
@@ -299,4 +305,7 @@ function stack(i) {
   };
 }
 
+}
+function getCurrentBarNode(){
+	return current_bar_node;
 }

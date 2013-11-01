@@ -81,8 +81,8 @@ rect.background {
 	function changeMode(){
 		//get current "down" node maybe from title? idk really 
 		
-		if (document.getElementById('RB_votes').checked) transitionVotesBarChart();
-  			else transitionRatingBarChart();
+		if (document.getElementById('RB_votes').checked) transitionVotesBarChart(getCurrentBarNode());
+  			else transitionRatingBarChart(getCurrentBarNode());
 	}
 	
 </script>

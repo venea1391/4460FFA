@@ -1,4 +1,6 @@
-function transitionVotesBarChart(){
+var current_bar_node;
+
+function transitionVotesBarChart(old_node){
 $('#barchart').empty();
 
 var tooltip = d3.select("#barchart")
@@ -53,7 +55,15 @@ svg.append("svg:g")
 d3.json("hierarchy.json", function(root) {
   hierarchy.nodes(root);
   x.domain([0, (root.value)]).nice(); 
+  /*if (old_node) { 
+  	//get name and name of parent if exists
+  	if (old_node.parent) {
+  		///////////something
+  	down(old_node, 0); 
+  }
+  else {down(root, 0);}*/
   down(root, 0);
+
 });
 
 function down(d, i) {
@@ -62,6 +72,7 @@ function down(d, i) {
   	return;
   }
   setTitleText(d);
+  current_bar_node = d;
   var end = duration + d.children.length * delay;
 
   // Mark any currently-displayed bars as exiting.
@@ -128,6 +139,7 @@ function down(d, i) {
 function up(d) {
   if (!d.parent || this.__transition__) return;
   setTitleText(d.parent);
+  current_bar_node = d;
   var end = duration + d.children.length * delay;
 
   // Mark any currently-displayed bars as exiting.
@@ -271,4 +283,9 @@ function stack(i) {
     return tx;
   };
 }
+
+}
+
+function getCurrentBarNode(){
+	return current_bar_node;
 }
