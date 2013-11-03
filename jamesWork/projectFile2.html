@@ -25,6 +25,7 @@ var inData;
 var csvData;
 var writers;
 var directors;
+var colorArray = ["cyan", "burlywood", "chartreuse", "orange", "greenyellow","red"];
 
 d3.csv("startrekStrictNoComma.csv",function(data){
 	console.log("Loading CSV Data");
@@ -46,6 +47,93 @@ d3.json("directors.json",function(error,data){
 	console.log(data);
 	directors = data;
 });
+
+function seriesIndexFromName(name){
+	if(name=="TOS"){
+		return 0;
+	}
+	else if(name=="TNG"){
+		return 1;
+	}
+	else if(name=="DS9"){
+		return 2;
+	}
+	else if(name=="VOY"){
+		return 3;
+	}
+	else if(name=="ENT"){
+		return 4;
+	}
+	return 5;
+}
+
+function nodeColor(data, index, flag){
+/*
+	.TOS {stroke:#1f77b4;} cyan
+	.TNG {stroke:#ff7f0e;} burlywood
+	.DS9 {stroke:#2ca02c;} chartreuse
+	.VOY {stroke:#d62728;} orange
+	.ENT {stroke:#9467bd;} greenyellow
+	writers - moccasin
+	directors - limegreen
+	go back = RED 
+	done = gray	
+*/
+	if(flag==0){
+		if(index==0){
+			return "gray";
+		}
+		if(index==1){
+			return "limegreen";
+		}
+		if(index==2){
+			return "moccasin";
+		}
+		var indexToGo = seriesIndexFromName(data.name);
+		return colorArray[indexToGo];
+	}
+	else if(flag==1){
+		if(index==0){
+			return "tomato";
+		}
+		return colorArray[data.parentIndex-1];
+	}
+	else if(flag==2 || flag==4 || flag==5){
+		if(index==0){
+			return "tomato";
+		}
+		var episodeInfo = csvData[data.exact-1];
+		var indexToGo = seriesIndexFromName(episodeInfo.series)
+		return colorArray[indexToGo];
+	}
+	else if(flag==3){
+		if(index==0){
+			return "gray";
+		}
+		if(index<3){
+			var indexToGo = seriesIndexFromName(data.s)
+			return colorArray[indexToGo];
+		}
+		if(index==3){
+			return "limegreen";
+		}
+		if(index==4){
+			return "moccasin";
+		}
+	}
+	else if(flag==6){
+		if(index==0){
+			return "tomato";
+		}
+		return "limegreen";
+	}
+	else if(flag==7){
+		if(index==0){
+			return "tomato";
+		}
+		return "moccasin";
+	}
+}
 
 function getData(flag){
 	if(flag == 0){
@@ -153,9 +241,9 @@ function generateNodes(data, flag){
 	}
 	else if(flag == 3){ //episode level
 		var episodeData = csvData[data.exact-1];
-		toRet.push({"name":episodeData.title+" Episode " +episodeData.episode});
-		toRet.push({"name":"Series "+episodeData.series});
-		toRet.push({"name":"Season "+episodeData.season});
+		toRet.push({"name":episodeData.title+" Episode " +episodeData.episode, "s":episodeData.series});
+		toRet.push({"name":"Series "+episodeData.series, "s":episodeData.series});
+		toRet.push({"name":"Season "+episodeData.season, "s":episodeData.series});
 		toRet.push({"name":"Director: "+ episodeData.director , "rName":episodeData.director});
 		toRet.push({"name":"Writer: "+episodeData.writer ,"rName":episodeData.writer});
 		return toRet;
@@ -284,11 +372,8 @@ function render(input, flag){
 						}
 						
 				})
-		  .attr("fill", function(d,i){ 
-			if(i==0){
-				return "tomato";
-			}	
-			return "skyblue"
+		  .attr("fill", function(d,i){
+				return nodeColor(d,i,flag);
 			})
 		.on("mouseover", function(d,i){
 			console.log("Index: "+i);
@@ -379,7 +464,7 @@ function render(input, flag){
 					return d.name;  });
 		
 		texts.attr("transform", function(d) {
-			return "translate(" + (d.x-15) + "," + d.y + ")";
+			return "translate(" + (d.x +20) + "," + d.y + ")";
 		});
 		
 	  loading.remove();
