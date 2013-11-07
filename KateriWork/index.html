@@ -5,8 +5,10 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
     <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.2"></script>
     <script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js?2.4.2"></script>
+    <script type="text/javascript" src="bar_chart_common_functions.js"></script>
     <script type="text/javascript" src="info_pane.js"></script>
-    
+    <script type="text/javascript" src="rating_bar_chart.js"></script>
+    <script type="text/javascript" src="votes_bar_chart.js"></script>
     <style type="text/css">
 
 text {
@@ -29,16 +31,8 @@ rect.background {
     </style>
   </head>
   <body>
-  <div id="barchart_outer_div" style="width: 620px; height: 300px; overflow: auto;">
-  	<h4 id="bar_chart_title">Star Trek</h4>
-  	<label><input type="radio" name="mode" id="RB_rating" value="stacked" onclick="changeMode()" checked>Rating</label>
-<label><input type="radio" name="mode" id="RB_votes" value="grouped" onclick="changeMode()">Number of Votes</label>
-<div id="barchart" style="width: 620px; height: 300px; overflow: auto;">
-</div>
-  </div>
-  
-  <div id="info_pane" style="width: 500px; height: 200px; overflow-y: auto; border: 1px solid; padding: 5px;">
-  <h1>Star Trek</h1>
+    <div id="info_pane" style="width: 300px; height: 700px; overflow-y: auto; border: 1px solid; padding: 5px; margin-right: 10px; float: left;">
+     <h1>Star Trek</h1>
   
   <table>
   <tr><td><strong>Series</strong></td><td><p id="series"></p></td></tr>	
@@ -56,35 +50,29 @@ rect.background {
   <tr><td><strong>Main Cast</strong></td><td><p id="main_cast"></p></td></tr>
   <tr><td><strong>Recurring Cast</strong></td><td><p id="recurring_cast"></p></td></tr>
   </table>
+  </div>
+  <div id="barchart_outer_div" style="width: 700px; height: 500px; overflow: auto; float: left">
+  	<h4 id="bar_chart_title">Star Trek - <span id="series_from_title"></span> - <span id="season_from_title"></span></h4>
+  	<label><input type="radio" name="mode" id="RB_rating" value="stacked" onclick="changeMode()" checked>Rating</label>
+<label><input type="radio" name="mode" id="RB_votes" value="grouped" onclick="changeMode()">Number of Votes</label>
+<div id="barchart" style="width: 700px;">
+</div>
+</div>
   
-  <!--  <h4>Series</h4><p id="series"></p>	
-  <h4>Season</h4><p id="season"></p>
-  <h4>Episode</h4><p id="episode"></p>
-  <h4>Title</h4><p id="title"></p>
-  <h4>IMDB</h4><p id="url"></p>
-  <h4>Rating</h4><p id="user_rating"></p>
-  <h4>Number of Votes</h4><p id="user_votes"></p>
-  <h4>Air Date</h4><p id="date"></p>
-  <h4>Stardate</h4><p id="stardate"></p>
-  <h4>Director</h4><p id="director"></p>
-  <h4>Writer</h4><p id="writer"></p>
-  <h4>Featured Characters</h4><p id="feat_characters"></p>
-  <h4>Main Cast</h4><p id="main_cast"></p>
-  <h4>Recurring Cast</h4><p id="recurring_cast"></p>-->
   </div>
   
-  <script type="text/javascript" src="rating_bar_chart.js"></script>
-  <script type="text/javascript" src="votes_bar_chart.js"></script>
+
 <script>
-	transitionRatingBarChart();
+	transitionRatingBarChart('','');
 	
 	function changeMode(){
-		//get current "down" node maybe from title? idk really 
-		
-		if (document.getElementById('RB_votes').checked) transitionVotesBarChart(getCurrentBarNode());
-  			else transitionRatingBarChart(getCurrentBarNode());
+		var series = $('#series_from_title').text();
+		var season = $('#season_from_title').text();
+		if (document.getElementById('RB_votes').checked) transitionVotesBarChart(series, season);
+  			else transitionRatingBarChart(series, season);
 	}
 	
 </script>
+
   </body>
 </html>

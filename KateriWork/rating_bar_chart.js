@@ -1,6 +1,4 @@
-var current_bar_node; 
-
-function transitionRatingBarChart(old_node){
+function transitionRatingBarChart(transition_series, transition_season){
 $('#barchart').empty();
 
 var tooltip = d3.select("#barchart")
@@ -19,7 +17,7 @@ var m = [30, 40, 20, 120], // top right bottom left
     h = 775 - m[0] - m[2], // height
     x = d3.scale.linear().range([0, w]),
     y = 20, // bar height
-    z = d3.scale.ordinal().range(["steelblue", "#ccc"]), // bar color
+    z = d3.scale.ordinal().range(['steelblue', '#ccc']), // bar color
     duration = 750,
     delay = 25;
     
@@ -51,52 +49,52 @@ svg.append("svg:g")
     .attr("class", "y axis")
   .append("svg:line")
     .attr("y1", "100%");
-    
-function avgValues(d) {
-	var count=0;
-	if (d.children){
-		count += d.children.length;
-		for(var i=0; i<d.children.length; i++){
-			count += avgValues(d.children[i]);
-		}
-		d.value = d.value/count;
-	}
-	else {count = 0;}  //d has no children
-	return count;
-}
 
 d3.json("hierarchy.json", function(root) {
 
   hierarchy.nodes(root);
   avgValues(root);
-  //x.domain([0, (root.value)]).nice(); 
   x.domain([0, 10]).nice();
-  /*if (old_node) { down(old_node, 0); }
-  else {down(root, 0);}*/
-  down(root, 0);
+  var transition_node;
+  if (transition_series!="") { 
+  	$(root.children).each(function(i, e){
+  		if (getSeriesName(e.name)==transition_series){
+  			transition_node = e;
+  			if (transition_season!="")	{
+  				$(e.children).each(function(i2, e2){
+  					if (e2.name==transition_season){
+  						transition_node = e2;
+  					}
+  				});
+  			}
+  			down(transition_node, 0); 
+  		}
+  	});
+  }
+  else {down(root, 0);}
 });
 
 function down(d, i) {
   if (!d.children || this.__transition__) {
-  	setInfoPaneText(d, d.value, 'episode');
+  	d3.selectAll(".enter").selectAll("rect").style("fill", colors[5]);
+  	setInfoPaneText(d, d.value, 'episode', 'rating');
+  	d3.select(this).select("rect").style("fill", function(d,i){
+  		return getEpisodeHighlightColor(d);
+  	});
   	return;
   }
-  current_bar_node = d;
   setTitleText(d);
   var end = duration + d.children.length * delay;
   if (d.value > 10){
-  avgValues(d);
+  console.log("down, greater than 10!");
+  //getAvg(d);
   }
 
   // Mark any currently-displayed bars as exiting.
   var exit = svg.selectAll(".enter").attr("class", "exit");
 
-  // Entering nodes immediately obscure the clicked-on bar, FALSE so hide it.
-  //exit.selectAll("rect").filter(function(p) { return p === d; })
-    //  .style("fill-opacity", 1e-6);
-
   // Enter the new bars for the clicked-on data.
-  // Per above, entering bars are immediately visible.
+  // entering bars are immediately visible.
   var enter = bar(d)
       .attr("transform", stack(i))
       .style("opacity", 0);
@@ -104,10 +102,12 @@ function down(d, i) {
   // Have the text fade-in, even though the bars are visible.
   // Color the bars as parents; they will fade to children if appropriate.
   enter.select("text").style("fill-opacity", 1e-6);
-  enter.select("rect").style("fill", z(true));
-
-  // Update the x-scale domain.
-  //x.domain([0, d3.max(d.children, function(d) { return d.value; })]).nice(); 
+  
+  enter.select("rect").style("fill", function(d,i){
+  	return getColor(d, i);
+  });
+  
+  // Update the x-scale domain. 
   x.domain([0, 10]).nice();
 
   // Update the x-axis.
@@ -125,8 +125,7 @@ function down(d, i) {
 
   // Transition entering rects to the new x-scale.
   enterTransition.select("rect")
-      .attr("width", function(d) { return x(d.value); })
-      .style("fill", function(d) { return z(!!d.children); });
+      .attr("width", function(d) { return x(d.value); });
 
   // Transition exiting bars to fade out.
   var exitTransition = exit.transition()
@@ -144,7 +143,7 @@ function down(d, i) {
   	setInfoPaneText(d, d.value, 'season');
   	return;
   }
-  if (!d.children[0].children[0].children){
+  if (!d.children[0].children[0].children){ //not 'Star Trek' node
   	setInfoPaneText(d, d.value, 'series');
   	return;
   }
@@ -157,7 +156,7 @@ function up(d) {
   setTitleText(d.parent);
   var end = duration + d.children.length * delay;
  if (d.value > 10){
-  avgValues(d);
+ 	console.log("up, greater than 10!");
   }
   // Mark any currently-displayed bars as exiting.
   var exit = svg.selectAll(".enter").attr("class", "exit");
@@ -167,15 +166,11 @@ function up(d) {
       .attr("transform", function(d, i) { return "translate(0," + y * i * 1.2 + ")"; })
       .style("opacity", 1e-6);
 
-  // Color the bars as appropriate.
-  // Exiting nodes will obscure the parent bar, so hide it.
-  enter.select("rect")
-      .style("fill", function(d) { return z(!!d.children); });
-    //.filter(function(p) { return p === d; })
-      //.style("fill-opacity", 1e-6);
-
+enter.select("rect").style("fill", function(d,i){
+  	return getColor(d, i);
+  });
+  
   // Update the x-scale domain.
-  //x.domain([0, d3.max(d.parent.children, function(d) { return d.value; })]).nice();
   x.domain([0, 10]).nice();
 
   // Update the x-axis.
@@ -205,15 +200,14 @@ function up(d) {
 
   // Transition exiting rects to the new scale and fade to parent color.
   exitTransition.select("rect")
-      .attr("width", function(d) { return x(d.value); })
-      .style("fill", z(true));
+      .attr("width", function(d) { return x(d.value); });
+      //.style("fill", z(true));
 
   // Remove exiting nodes when the last child has finished transitioning.
   exit.transition().duration(end).remove();
 
   // Rebind the current parent to the background.
   svg.select(".background").data([d.parent]).transition().duration(end);
-  //d3.select('#barchart').scrollTop(0);
 }
 
 // Creates a set of bars for the given data node, at the specified index.
@@ -224,7 +218,7 @@ function bar(d) {
       .selectAll("g")
       .data(d.children)
       .enter().append("svg:g")
-      .style("cursor", function(d) { return !d.children ? null : "pointer"; }) //change cursor to pointer if the bar has children
+      .style("cursor", "pointer")
       .on("click", down) //drill down onclick
       .on("mouseover", function(d){setTooltipText(d); })
 	  .on("mousemove", function(){
@@ -248,23 +242,10 @@ function bar(d) {
   return bar;
 }
 
-function setTitleText(node){
-	if (node.children && node.children[0].children && node.children[0].children[0].children) {
-		$('#bar_chart_title').text('Star Trek');
-		return;
-	}
-	else if (node.children && node.children[0].children) {
-		//series
-		$('#bar_chart_title').text('Star Trek - '+getSeriesName(node.name));	
-	}
-	else if (node.children) {
-		//season
-		$('#bar_chart_title').text('Star Trek - '+getSeriesName(node.parent.name)+' - '+node.name);	
-	}
-}
+
 
 function setTooltipText(node){
-	var n, sn, avgRating;
+	var n, sn, averageRating;
 	if (node.children && node.children[0].children && node.children[0].children[0].children) {
 		return;
 	}
@@ -272,25 +253,25 @@ function setTooltipText(node){
 		//series
 		n = getSeriesName(node.name);
 		var seasons = node.children.length;
-		avgRating = node.value.toFixed(1);
-		tooltip.html(n + "<br />Seasons: " + seasons + "<br />Average Rating: " + avgRating);
+		averageRating = node.value.toFixed(1);
+		tooltip.html(n + "<br />Seasons: " + seasons + "<br />Average Rating: " + averageRating);
 	}
 	else if (node.children) {
 		//season
 		sn = getSeriesName(node.parent.name);
 		var episodes = node.children.length;
-		avgRating = node.value.toFixed(1);
+		averageRating = node.value.toFixed(1);
 		n = node.name;
-		tooltip.html(sn + "<br />" + n + "<br />" + episodes + " episodes" + "<br />Average Rating: " + avgRating);
+		tooltip.html(sn + "<br />" + n + "<br />" + episodes + " episodes" + "<br />Average Rating: " + averageRating);
 	}
 	else {
 		//episode
 		sn = getSeriesName(node.parent.parent.name);
 		n = node.name;
 		var epNum = node.epNum;
-		avgRating = node.value;
+		averageRating = node.value;
 		seasonn = node.parent.name;
-		tooltip.html(sn + "<br />" + seasonn + " Episode " + epNum + "<br />" + n + "<br />Average Rating: " + avgRating);
+		tooltip.html(sn + "<br />" + seasonn + " Episode " + epNum + "<br />" + n + "<br />Average Rating: " + averageRating);
 	}
     return tooltip.style("visibility", "visible");
 }
@@ -305,7 +286,4 @@ function stack(i) {
   };
 }
 
-}
-function getCurrentBarNode(){
-	return current_bar_node;
 }

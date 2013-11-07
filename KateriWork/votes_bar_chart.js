@@ -1,6 +1,4 @@
-var current_bar_node;
-
-function transitionVotesBarChart(old_node){
+function transitionVotesBarChart(transition_series, transition_season){
 $('#barchart').empty();
 
 var tooltip = d3.select("#barchart")
@@ -35,7 +33,7 @@ var xAxis = d3.svg.axis()
 var svg = d3.select("#barchart").append("svg:svg")
     .attr("width", w + m[1] + m[3]) //960
     .attr("height", h + m[0] + m[2])  //500
-  .append("svg:g")
+    .append("svg:g")
     .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
 svg.append("svg:rect")
@@ -55,20 +53,32 @@ svg.append("svg:g")
 d3.json("hierarchy.json", function(root) {
   hierarchy.nodes(root);
   x.domain([0, (root.value)]).nice(); 
-  /*if (old_node) { 
-  	//get name and name of parent if exists
-  	if (old_node.parent) {
-  		///////////something
-  	down(old_node, 0); 
+  var transition_node;
+  if (transition_series!="") { 
+  	$(root.children).each(function(i, e){
+  		if (getSeriesName(e.name)==transition_series){
+  			transition_node = e;
+  			if (transition_season!="")	{
+  				$(e.children).each(function(i2, e2){
+  					if (e2.name==transition_season){
+  						transition_node = e2;
+  					}
+  				});
+  			}
+  			down(transition_node, 0); 
+  		}
+  	});
   }
-  else {down(root, 0);}*/
-  down(root, 0);
-
+  else {down(root, 0);}
 });
 
 function down(d, i) {
   if (!d.children || this.__transition__) {
-  	setInfoPaneText(d, d.value, 'episode');
+  	d3.selectAll(".enter").selectAll("rect").style("fill", colors[5]);
+  	setInfoPaneText(d, d.value, 'episode', 'rating');
+  	d3.select(this).select("rect").style("fill", function(d,i){
+  		return getEpisodeHighlightColor(d);
+  	});
   	return;
   }
   setTitleText(d);
@@ -91,7 +101,9 @@ function down(d, i) {
   // Have the text fade-in, even though the bars are visible.
   // Color the bars as parents; they will fade to children if appropriate.
   enter.select("text").style("fill-opacity", 1e-6);
-  enter.select("rect").style("fill", z(true));
+  enter.select("rect").style("fill", function(d,i){
+  	return getColor(d, i);
+  });
 
   // Update the x-scale domain.
   x.domain([0, d3.max(d.children, function(d) { return d.value; })]).nice(); 
@@ -110,8 +122,7 @@ function down(d, i) {
 
   // Transition entering rects to the new x-scale.
   enterTransition.select("rect")
-      .attr("width", function(d) { return x(d.value); })
-      .style("fill", function(d) { return z(!!d.children); });
+      .attr("width", function(d) { return x(d.value); });
 
   // Transition exiting bars to fade out.
   var exitTransition = exit.transition()
@@ -153,7 +164,7 @@ function up(d) {
   // Color the bars as appropriate.
   // Exiting nodes will obscure the parent bar, so hide it.
   enter.select("rect")
-      .style("fill", function(d) { return z(!!d.children); })
+      .style("fill", function(d,i){return getColor(d, i);})
       .filter(function(p) { return p === d; })
       .style("fill-opacity", 1e-6);
 
@@ -187,7 +198,7 @@ function up(d) {
   // Transition exiting rects to the new scale and fade to parent color.
   exitTransition.select("rect")
       .attr("width", function(d) { return x(d.value); })
-      .style("fill", z(true));
+      .style("fill", function(d,i){return getColor(d, i);});
 
   // Remove exiting nodes when the last child has finished transitioning.
   exit.transition().duration(end).remove();
@@ -205,7 +216,7 @@ function bar(d) {
       .selectAll("g")
       .data(d.children)
       .enter().append("svg:g")
-      .style("cursor", function(d) { return !d.children ? null : "pointer"; }) //change cursor to pointer if the bar has children
+      .style("cursor", "pointer")
       .on("click", down) //drill down onclick
       .on("mouseover", function(d){setTooltipText(d); })
 	  .on("mousemove", function(){
@@ -229,20 +240,7 @@ function bar(d) {
   return bar;
 }
 
-function setTitleText(node){
-	if (node.children && node.children[0].children && node.children[0].children[0].children) {
-		$('#bar_chart_title').text('Star Trek');
-		return;
-	}
-	else if (node.children && node.children[0].children) {
-		//series
-		$('#bar_chart_title').text('Star Trek - '+getSeriesName(node.name));	
-	}
-	else if (node.children) {
-		//season
-		$('#bar_chart_title').text('Star Trek - '+getSeriesName(node.parent.name)+' - '+node.name);	
-	}
-}
+
 
 function setTooltipText(node){
 	var n, sn;
@@ -267,7 +265,7 @@ function setTooltipText(node){
 		sn = getSeriesName(node.parent.parent.name);
 		n = node.name;
 		var epNum = node.epNum;
-		avgRating = node.value;
+		averageRating = node.value;
 		seasonn = node.parent.name;
 		tooltip.html(sn + "<br />" + seasonn + " Episode " + epNum + "<br />" + n + "<br />Number of Votes: " + node.value);
 	}
@@ -284,8 +282,4 @@ function stack(i) {
   };
 }
 
-}
-
-function getCurrentBarNode(){
-	return current_bar_node;
 }
