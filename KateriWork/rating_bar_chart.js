@@ -32,7 +32,7 @@ var xAxis = d3.svg.axis()
 
 var svg = d3.select("#barchart").append("svg:svg")
     .attr("width", w + m[1] + m[3]) //960
-    .attr("height", h + m[0] + m[2])  //500
+    .attr("height", 0) //h + m[0] + m[2])  //500
   .append("svg:g")
     .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
@@ -113,6 +113,8 @@ function down(d, i) {
   // Update the x-axis.
   svg.selectAll(".x.axis").transition().duration(duration).call(xAxis);
 
+  d3.select('svg').transition().duration(duration).attr("height", 35+y*d.children.length*1.2);
+
   // Transition entering bars to their new position.
   var enterTransition = enter.transition()
       .duration(duration)
@@ -175,6 +177,7 @@ enter.select("rect").style("fill", function(d,i){
 
   // Update the x-axis.
   svg.selectAll(".x.axis").transition().duration(duration).call(xAxis);
+  
 
   // Transition entering bars to fade in over the full duration.
   var enterTransition = enter.transition()
@@ -206,6 +209,7 @@ enter.select("rect").style("fill", function(d,i){
   // Remove exiting nodes when the last child has finished transitioning.
   exit.transition().duration(end).remove();
 
+d3.select('svg').transition().duration(duration).attr("height", 35+y*d.parent.children.length*1.2);
   // Rebind the current parent to the background.
   svg.select(".background").data([d.parent]).transition().duration(end);
 }

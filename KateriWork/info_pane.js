@@ -44,6 +44,18 @@ function getSeriesName(n){
 	else if (n=='ENT') return 'Enterprise';
 }
 
+function getVotes(thing){
+	var count = 0;
+	if (thing.children){
+		for (var i=0; i<thing.children.length; i++){
+			count += getVotes(thing.children[i]);
+		}
+	}
+	else {
+		count = parseFloat(thing.numOfVotes);
+	}
+	return count;
+}
 
 var avgRating = function (input) {
 	var derp = [0, 0]; //total rating, total count
@@ -138,13 +150,14 @@ function setTextSeason(node){
 	});
 
 	var rating = getAvg(hobj);
+	var votes = getVotes(hobj);
 	$("#series").text(getSeriesName(obj.series));
 	$("#season").text(obj.season);
 	$("#episode").text(node.children.length + " episodes");
 	$("#title").text("");
 	$("#url").text("");
 	$("#user_rating").text(rating.toFixed(1));
-	$("#user_votes").text(obj.user_votes);
+	$("#user_votes").text(votes);
 	$("#date").text("");
 	$("#stardate").text("");
 	$("#director").text("");
@@ -175,13 +188,14 @@ function setTextSeries(node){
 	}
 
 	var rating = getAvg(hobj);
+	var votes = getVotes(hobj);
 	$("#series").text(getSeriesName(obj.series));
 	$("#season").text(node.children.length + " seasons");
 	$("#episode").text(eps + " episodes");
 	$("#title").text("");
 	$("#url").text("");
 	$("#user_rating").text(rating.toFixed(1));
-	$("#user_votes").text(obj.user_votes);
+	$("#user_votes").text(votes);
 	$("#date").text("");
 	$("#stardate").text("");
 	$("#director").text("");
