@@ -77,6 +77,12 @@ function toolText(data, flag, index){
 			toReturn+= "Rating: " + epiData.rating + " <br /> ";
 			toReturn+= "Director: " + epiData.director + " <br /> ";
 			toReturn+= "Writer: " + epiData.writer;
+			if(flag==4 || falg==5){
+				var i = seriesIndexFromName(epiData.series);
+				toReturn+=" <br /> ";
+				toReturn+= "Series: "+ titleArray[i] + " <br /> ";
+				toReturn+= "Season: "+ epiData.season;
+			}
 			return toReturn;
 		}
 	}
