@@ -81,9 +81,6 @@
 		{"episode":"23","exact":"622"},
 		{"episode":"9","exact":"634"}
 	]},
-	{ "name":"Pt 2:David Livingston", "index":"11", "children":[
-		{"episode":"10","exact":"584"}
-	]},
 	{ "name":"James Komack", "index":"12", "children":[
 		{"episode":"17","exact":"47"}
 	]},
@@ -492,6 +489,7 @@
 		{"episode":"16","exact":"17"}
 	]},
 	{ "name":"Mike Vejar", "index":"62", "children":[
+		{"episode":"9","exact":"583"},
 		{"episode":"18","exact":"98"},
 		{"episode":"11","exact":"363"},
 		{"episode":"24","exact":"376"},
@@ -626,6 +624,7 @@
 		{"episode":"23","exact":"79"}
 	]},
 	{ "name":"David Livingston", "index":"79", "children":[
+		{"episode":"10","exact":"584"},
 		{"episode":"24","exact":"177"},
 		{"episode":"15","exact":"194"},
 		{"episode":"10","exact":"266"},
@@ -830,9 +829,6 @@
 		{"episode":"13","exact":"314"},
 		{"episode":"17","exact":"318"},
 		{"episode":"11","exact":"338"}
-	]},
-	{ "name":"Pt 1:?Mike Vejar", "index":"93", "children":[
-		{"episode":"9","exact":"583"}
 	]},
 	{ "name":"Gates McFadden", "index":"94", "children":[
 		{"episode":"19","exact":"250"}

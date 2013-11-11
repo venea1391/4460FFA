@@ -69,7 +69,7 @@ function toolText(data, flag, index){
 		}
 		return toolText(data,0,3);
 	}
-	else if(flag==2){
+	else if(flag==2 || flag==4 || flag==5){
 		if(index!=0){
 			var epiData = csvData[data.exact-1];
 			toReturn+= "Episode: "+ epiData.episode + " <br /> ";
@@ -502,7 +502,7 @@ function render(input, flag){
 				.style("font-weight", "bold")
                 .text(function(d,i){
 					if((i!=0&&flag==2) || (i!=0&&flag==4) || (i!=0&&flag==5)){
-						return "Episode "+d.episode;
+						return ""+d.episode;
 					}
 					return d.name;  });
 		
