@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hierarchical Bar Chart</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.2"></script>
+    <!--<script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js?2.4.2"></script>-->
+    <script type="text/javascript" src="js/bar_chart_common_functions.js"></script>
+    <script type="text/javascript" src="js/info_pane.js"></script>
+    <script type="text/javascript" src="js/rating_bar_chart.js"></script>
+    <script type="text/javascript" src="js/votes_bar_chart.js"></script>
+    <script type="text/javascript" src="js/explore.js"></script>
+    <style type="text/css">
+
+text {
+  font: 10px sans-serif;
+}
+
+rect.background {
+  fill: white;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+}
+
+line {
+  stroke: #bbb;
+  stroke-width: .5px;
+}
+
+circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+  cursor: pointer;
+}
+
+    </style>
+    <script type="text/javascript">
+    	function activateTab(pageId) {
+          var tabs = document.getElementById('tabs');
+          var pageToActivate = document.getElementById(pageId);
+          for (var i = 0; i < tabs.childNodes.length; i++) {
+              var node = tabs.childNodes[i];
+              if (node.nodeType == 1) { /* Element */
+                  node.style.display = (node == pageToActivate) ? 'block' : 'none';
+              }
+          }
+      }
+    
+    </script>
+  </head>
+  <body>
+ 
+    <div id="info_pane" style="width: 300px; height: 700px; overflow-y: auto; border: 1px solid; padding: 5px; margin-right: 10px; float: left;">
+     <h1>Star Trek</h1>
+  
+  <p id="series"></p>
+  <p id="season"></p>
+  <p id="episode"></p>
+  <p id="title"></p>
+  <p id="url"></p>
+  <p id="user_rating"></p>
+  <p id="user_votes"></p>
+  <p id="date"></p>
+  <p id="stardate"></p>
+  <p id="director"></p>
+  <p id="writer"></p>
+  <p id="feat_characters"></p>
+  <p id="main_cast"></p>
+  <p id="recurring_cast"></p>
+
+  </div>
+   <ul>
+      <li>
+        <a href="javascript:activateTab('page1')">non-explore</a>
+      </li>
+      <li>
+        <a href="javascript:activateTab('page2')">explore</a>
+      </li>
+    </ul>
+    <div id="tabs">
+      <div id="page1" style="display: block;">non-explore
+      <div id="barchart_outer_div" style="width: 700px; height: 500px; overflow: auto; float: left">
+  	<h4 id="bar_chart_title">Star Trek - <span id="series_from_title"></span> - <span id="season_from_title"></span></h4>
+  	<label><input type="radio" name="mode" id="RB_rating" value="stacked" onclick="changeMode()" checked>Rating</label>
+<label><input type="radio" name="mode" id="RB_votes" value="grouped" onclick="changeMode()">Number of Votes</label>
+<div id="barchart" style="width: 700px;">
+</div>
+</div>
+      </div>
+      <div id="page2" style="display: none;">explore new life and new civilizations
+      <div class="graph_div"></div></div>
+    </div>
+  
+  
+  </div>
+  
+
+<script>
+	transitionRatingBarChart('','');
+
+	test();
+	function changeMode(){
+		var series = $('#series_from_title').text();
+		var season = $('#season_from_title').text();
+		if (document.getElementById('RB_votes').checked) transitionVotesBarChart(series, season);
+  			else transitionRatingBarChart(series, season);
+	}
+	
+	function changeBarChartFocus(series, season){
+		if (document.getElementByID('RB_votes').checked) transitionVotesBarChart(series, season);
+		else transitionRatingBarChart(series, season);
+	}
+	
+</script>
+
+  </body>
+</html>
