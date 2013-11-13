@@ -1,19 +1,5 @@
-var allData;
-/*var writers;
-var directors;
+var allData, hierarchyData;
 
-d3.json("writers.json",function(error,data){
-	console.log("Loading Writer JSON Data");
-	writers = data;
-});
-
-d3.json("directors.json",function(error,data){
-	console.log("Loading Director JSON Data");
-	directors = data;
-});*/
-
-
-    allData = null;
     $.ajax({
         'async': false,
         'global': false,
@@ -24,7 +10,6 @@ d3.json("directors.json",function(error,data){
         }
     });
 
-    hierarchyData = null;
     $.ajax({
         'async': false,
         'global': false,
