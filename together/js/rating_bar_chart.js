@@ -1,4 +1,4 @@
-function transitionRatingBarChart(transition_series, transition_season){
+function transitionRatingBarChart(transition_series, transition_season, transition_episode){
 $('#barchart').empty();
 
 var tooltip = d3.select("#barchart")
@@ -41,6 +41,7 @@ svg.append("svg:rect")
     .attr("class", "background")
     .attr("width", w)
     .attr("height", h)
+    .style("cursor", "pointer")
     .on("click", up);
 
 svg.append("svg:g")
@@ -57,6 +58,9 @@ d3.json("data/hierarchy.json", function(root) {
   avgValues(root);
   x.domain([0, 10]).nice();
   var transition_node;
+  var transition_index=0;
+  var transition_episode_node;
+  var TEN_index = 0;
   if (transition_series!="") { 
   	$(root.children).each(function(i, e){
   		if (getSeriesName(e.name)==transition_series){
@@ -65,10 +69,30 @@ d3.json("data/hierarchy.json", function(root) {
   				$(e.children).each(function(i2, e2){
   					if (e2.name==transition_season){
   						transition_node = e2;
+  						transition_node.parent.index = transition_index;
+  						transition_index = i2;
+  						if (transition_episode!="")	{
+  							$(e2.children).each(function(i3, e3){
+  								if (e3.name==transition_episode){
+  									transition_episode_node = e3;
+  									TEN_index = i3+1;
+  								}
+  							});
+  						}
   					}
   				});
   			}
-  			down(transition_node, 0); 
+  			down(transition_node, transition_index); 
+  			if (transition_episode_node){
+  				//get the bar
+  				var array=(d3.selectAll("rect"));
+  				var thing = array[0][TEN_index];
+  				d3.select(thing).style("fill", function(){
+  					return getEpisodeHighlightColor(transition_episode_node);
+  				});
+  				setInfoPaneText(transition_episode_node, 'episode');
+  				setTitleText(transition_episode_node);
+  			}
   		}
   	});
   }
@@ -78,7 +102,8 @@ d3.json("data/hierarchy.json", function(root) {
 function down(d, i) {
   if (!d.children || this.__transition__) {
   	d3.selectAll(".enter").selectAll("rect").style("fill", colors[5]);
-  	setInfoPaneText(d, d.value, 'episode', 'rating');
+  	setInfoPaneText(d, 'episode');
+  	setTitleText(d); //now including episode
   	d3.select(this).select("rect").style("fill", function(d,i){
   		return getEpisodeHighlightColor(d);
   	});
@@ -141,13 +166,17 @@ function down(d, i) {
 
   // Rebind the current node to the background.
   svg.select(".background").data([d]).transition().duration(end); d.index = i;
-
+  if (!d.parent){
+  	svg.select(".background").style("cursor", "default");
+  }
+  else {svg.select(".background").style("cursor", "pointer");}
+  
   if (!d.children[0].children) {
-  	setInfoPaneText(d, d.value, 'season');
+  	setInfoPaneText(d, 'season');
   	return;
   }
   if (!d.children[0].children[0].children){ //not 'Star Trek' node
-  	setInfoPaneText(d, d.value, 'series');
+  	setInfoPaneText(d, 'series');
   	return;
   }
 
@@ -210,9 +239,14 @@ enter.select("rect").style("fill", function(d,i){
   // Remove exiting nodes when the last child has finished transitioning.
   exit.transition().duration(end).remove();
 
-d3.select('kateriRating').transition().duration(duration).attr("height", 35+y*d.parent.children.length*1.2);
+d3.select('#kateriRating').transition().duration(duration).attr("height", 35+y*d.parent.children.length*1.2);
   // Rebind the current parent to the background.
   svg.select(".background").data([d.parent]).transition().duration(end);
+  
+  if (!d.parent.parent){
+  	svg.select(".background").style("cursor", "default");
+  }
+  else {svg.select(".background").style("cursor", "pointer");}
 }
 
 // Creates a set of bars for the given data node, at the specified index.
@@ -225,7 +259,7 @@ function bar(d) {
       .enter().append("svg:g")
       .style("cursor", "pointer")
       .on("click", down) //drill down onclick
-      .on("mouseover", function(d){setTooltipText(d); })
+      .on("mouseover", function(d){setTooltipText(d);})
 	  .on("mousemove", function(){
 		return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px");})
 	  .on("mouseout", function(){
@@ -241,6 +275,7 @@ function bar(d) {
       			else return d.name; });
 
   bar.append("svg:rect")
+  	  .attr("id", function(d) {return d.name;})
       .attr("width", function(d) { return x(d.value); }) //width of bar is x * the bar's value
       .attr("height", y);
 

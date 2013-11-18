@@ -87,7 +87,7 @@ circle {
     <div id="tabs">
       <div id="page1" style="display: block;">non-explore
       <div id="barchart_outer_div" style="width: 700px; height: 500px; overflow: auto; float: left">
-  	<h4 id="bar_chart_title">Star Trek - <span id="series_from_title"></span> - <span id="season_from_title"></span></h4>
+  	<h4 id="bar_chart_title">Star Trek - <span id="series_from_title"></span> - <span id="season_from_title"></span> - <span id="episode_from_title"></span></h4>
   	<label><input type="radio" name="mode" id="RB_rating" value="stacked" onclick="changeMode()" checked>Rating</label>
 <label><input type="radio" name="mode" id="RB_votes" value="grouped" onclick="changeMode()">Number of Votes</label>
 <div id="barchart" style="width: 700px;">
@@ -95,29 +95,25 @@ circle {
 </div>
       </div>
       <div id="page2" style="display: none;">explore new life and new civilizations
+      <button type="button" id="change_view" onclick="changeView()">View this in the other charts</button> 
       <div class="graph_div"></div></div>
     </div>
-  
-  
   </div>
   
-
 <script>
 	transitionRatingBarChart('','');
-
 	test();
-	function changeMode(){
-		var series = $('#series_from_title').text();
-		var season = $('#season_from_title').text();
-		if (document.getElementById('RB_votes').checked) transitionVotesBarChart(series, season);
-  			else transitionRatingBarChart(series, season);
-	}
 	
-	function changeBarChartFocus(series, season){
-		if (document.getElementByID('RB_votes').checked) transitionVotesBarChart(series, season);
-		else transitionRatingBarChart(series, season);
+	function changeView(){
+		/*TODO
+		Can only view in other charts if what's passed in is an episode, season, or series.
+		i.e. can't pick a director and then have the change_view button do something, other
+		than choose an episode he directed (?). Get the series, season, and episode name as
+		strings and then call 
+		changeBarChartFocus(series, season, episode);
+		*/
+		alert("<3");
 	}
-	
 </script>
 
   </body>

@@ -83,10 +83,8 @@ function getAvg(data) {
 		return herp[0];
 }
 
-
-function setInfoPaneText(node, value, type, chart){
-	var rating = 0, votes = 0;
-	//console.log(type);
+//node is a bar in the bar chart hierarchy
+function setInfoPaneText(node, type){
 	if (type=='episode') setTextEpisode(node);
 	else if (type=='season') setTextSeason(node);
 	else if (type=='series') {setTextSeries(node);}

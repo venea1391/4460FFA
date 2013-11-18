@@ -1,4 +1,4 @@
-function transitionVotesBarChart(transition_series, transition_season){
+function transitionVotesBarChart(transition_series, transition_season, transition_episode){
 $('#barchart').empty();
 
 var tooltip = d3.select("#barchart")
@@ -41,6 +41,7 @@ svg.append("svg:rect")
     .attr("class", "background")
     .attr("width", w)
     .attr("height", h)
+    .style("cursor", "pointer")
     .on("click", up);
 
 svg.append("svg:g")
@@ -55,18 +56,42 @@ d3.json("data/hierarchy.json", function(root) {
   hierarchy.nodes(root);
   x.domain([0, (root.value)]).nice(); 
   var transition_node;
+  var transition_index=0;
+  var transition_episode_node;
+  var TEN_index = 0;
   if (transition_series!="") { 
   	$(root.children).each(function(i, e){
   		if (getSeriesName(e.name)==transition_series){
   			transition_node = e;
+  			transition_index = i;
   			if (transition_season!="")	{
   				$(e.children).each(function(i2, e2){
   					if (e2.name==transition_season){
   						transition_node = e2;
+  						transition_node.parent.index = transition_index;
+  						transition_index = i2;
+  						if (transition_episode!="")	{
+  							$(e2.children).each(function(i3, e3){
+  								if (e3.name==transition_episode){
+  									transition_episode_node = e3;
+  									TEN_index = i3+1;
+  								}
+  							});
+  						}
   					}
   				});
   			}
-  			down(transition_node, 0); 
+  			down(transition_node, transition_index);
+  			if (transition_episode_node){
+  				//get the bar
+  				var array=(d3.selectAll("rect"));
+  				var thing = array[0][TEN_index];
+  				d3.select(thing).style("fill", function(){
+  					return getEpisodeHighlightColor(transition_episode_node);
+  				});
+  				setInfoPaneText(transition_episode_node, 'episode');
+  				setTitleText(transition_episode_node);
+  			}
   		}
   	});
   }
@@ -76,7 +101,8 @@ d3.json("data/hierarchy.json", function(root) {
 function down(d, i) {
   if (!d.children || this.__transition__) {
   	d3.selectAll(".enter").selectAll("rect").style("fill", colors[5]);
-  	setInfoPaneText(d, d.value, 'episode', 'rating');
+  	setInfoPaneText(d, 'episode');
+  	setTitleText(d);
   	d3.select(this).select("rect").style("fill", function(d,i){
   		return getEpisodeHighlightColor(d);
   	});
@@ -138,12 +164,17 @@ function down(d, i) {
   // Rebind the current node to the background.
   svg.select(".background").data([d]).transition().duration(end); d.index = i;
   
+  if (!d.parent){
+  	svg.select(".background").style("cursor", "default");
+  }
+  else {svg.select(".background").style("cursor", "pointer");}
+  
   if (!d.children[0].children) {
-  	setInfoPaneText(d, d.value, 'season');
+  	setInfoPaneText(d, 'season');
   	return;
   }
   if (!d.children[0].children[0].children){
-  	setInfoPaneText(d, d.value, 'series');
+  	setInfoPaneText(d, 'series');
   	return;
   }
 
@@ -209,7 +240,11 @@ function up(d) {
 
   // Rebind the current parent to the background.
   svg.select(".background").data([d.parent]).transition().duration(end);
-  //d3.select('#barchart').scrollTop(0);
+
+  if (!d.parent.parent){
+  	svg.select(".background").style("cursor", "default");
+  }
+  else {svg.select(".background").style("cursor", "pointer");}
 }
 
 // Creates a set of bars for the given data node, at the specified index.
