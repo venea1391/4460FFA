@@ -63,7 +63,7 @@ function changeMode(){
 }
 	
 function changeBarChartFocus(series, season, episode){
-	if (document.getElementByID('RB_votes').checked) transitionVotesBarChart(series, season, episode);
+	if (document.getElementById('RB_votes').checked) transitionVotesBarChart(series, season, episode);
 	else transitionRatingBarChart(series, season, episode);
 }
 

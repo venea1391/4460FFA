@@ -3,7 +3,9 @@ var csvData;
 var writers;
 var directors;
 var colorArray = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd","red"];
-var titleArray = ["The Original Series","The Next Genration", "Deep Space Nine", "Voyager","Enterprise"]
+var titleArray = ["The Original Series","The Next Genration", "Deep Space Nine", "Voyager","Enterprise"];
+var flagIndex = 0;
+var nodes_drawn = [];
 
 d3.csv("data/startrekStrictNoComma.csv",function(data){
 	console.log("Loading CSV Data");
@@ -270,7 +272,7 @@ function generateNodes(data, flag){
 	}
 	else if(flag == 3){ //episode level
 		var episodeData = csvData[data.exact-1];
-		toRet.push({"name":episodeData.title+" Episode " +episodeData.episode, "s":episodeData.series});
+		toRet.push({"name":episodeData.title+" Episode " +episodeData.episode, "s":episodeData.series, "e":episodeData.episode});
 		toRet.push({"name":"Series "+episodeData.series, "s":episodeData.series});
 		toRet.push({"name":"Season "+episodeData.season, "s":episodeData.series});
 		toRet.push({"name":"Director: "+ episodeData.director , "rName":episodeData.director});
@@ -327,8 +329,10 @@ function render(input, flag){
 	
 	
 	//push nodes into force layout
+	nodes_drawn = [];
 	$.each(inputNodes, function(i,d){
 		nodes.push(d);
+		nodes_drawn.push(d);
 		if(i!=0){
 			links.push({source: 0, target: i});
 		}
@@ -349,6 +353,8 @@ function render(input, flag){
 			d.fixed = true;
 		}
 	});
+	
+	flagIndex = flag;
 	
 	
 	

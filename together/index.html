@@ -112,7 +112,25 @@ circle {
 		strings and then call 
 		changeBarChartFocus(series, season, episode);
 		*/
-		alert("<3");
+		//alert("<3");
+		//console.log(nodes_drawn);
+		//console.log(flagIndex);
+		
+		if(flagIndex == 0){
+			changeBarChartFocus("", "", "");
+		}
+		else if(flagIndex == 1){
+			//PASS IN ACTRUAL NAME
+			var i = seriesIndexFromName(nodes_drawn[0].name);
+			changeBarChartFocus(titleArray[i], "", "");
+		}
+		else if(flagIndex == 2){
+			changeBarChartFocus(titleArray[nodes_drawn[0].parentIndex-1], nodes_drawn[0].name, "");
+		}
+		else if(flagIndex == 3){
+			//changeBarChartFocus("", "", nodes_drawn[0].name);
+		}
+		activateTab('page1');
 	}
 </script>
 
