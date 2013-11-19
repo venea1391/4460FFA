@@ -3,7 +3,7 @@ var csvData;
 var writers;
 var directors;
 var colorArray = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd","red"];
-var titleArray = ["The Original Series","The Next Genration", "Deep Space Nine", "Voyager","Enterprise"];
+var titleArray = ["The Original Series","The Next Generation", "Deep Space Nine", "Voyager","Enterprise"];
 var flagIndex = 0;
 var nodes_drawn = [];
 
