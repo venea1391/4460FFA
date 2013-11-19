@@ -114,6 +114,23 @@ function setTextEpisode(node){
 	$("#recurring_cast").html("<strong>Recurring Cast:</strong> "+obj.recurring_cast);
 }
 
+function setTextGivenEpisode(obj){
+	$("#series").html("<strong>Series:</strong> "+getSeriesName(obj.series));
+	$("#season").html("<strong>Season:</strong> "+obj.season);
+	$("#episode").html("<strong>Episode:</strong> "+obj.episode);
+	$("#title").html("<strong>Title:</strong> "+obj.title);
+	$("#url").html("<strong>IMDB:</strong> <a href=\""+obj.imdb_url+'\" target=\"__blank\" >'+obj.imdb_url+'</a>');
+	$("#user_rating").html("<strong>Average Rating:</strong> "+obj.user_rating);
+	$("#user_votes").html("<strong>Number of Votes:</strong> "+obj.user_votes);
+	$("#date").html("<strong>Air Date:</strong> "+obj.date);
+	$("#stardate").html("<strong>Stardate:</strong> "+obj.stardate);
+	$("#director").html("<strong>Director:</strong> "+obj.director);
+	$("#writer").html("<strong>Writer:</strong> "+obj.writer);
+	$("#feat_characters").html("<strong>Featured Characters:</strong> "+obj.feat_characters);
+	$("#main_cast").html("<strong>Main Cast:</strong> "+obj.main_cast);
+	$("#recurring_cast").html("<strong>Recurring Cast:</strong> "+obj.recurring_cast);
+}
+
 function setTextSeason(node){
 	var obj, hobj;
   	$(allData.nodes).each(function(index, element){
@@ -186,4 +203,117 @@ function setTextSeries(node){
 	$("#feat_characters").html("");
 	$("#main_cast").html("");
 	$("#recurring_cast").html("");
+}
+
+
+function updateByExplore(data,flag){
+	//add "<strong>Series:</strong> " to headers
+	var series = "";
+	var season = "";
+	var episode = "";
+	var title = "";
+	var url = "";
+	var date = "";
+	var stardate = "";
+	var director = "";
+	var writer = "";
+	var featChar = "";
+	var maincast = "";
+	var recccast = "";
+	var rating = "";
+	var votes = "";
+	var hobj;
+	
+	
+	if(flag==0){
+		return;
+	}
+	else if(flag==1){
+		series = "<strong>Series:</strong> "+getSeriesName(data[0].name);
+		season = "<strong># of Seasons:</strong> "+data[0].children.length;
+		
+		$(hierarchyData.children).each(function(index, element){
+			if(element.name == data[0].name) {
+				hobj = element;
+			}
+		});
+		var num = getAvg(hobj);
+		rating = "<strong>Average Rating:</strong> "+num.toFixed(1);
+		votes = "<strong>Number of Votes:</strong> "+getVotes(hobj);
+	}
+	else if(flag==2){
+		hobj = hierarchyData.children[data[0].parentIndex-1];
+		series = "<strong>Series:</strong> "+getSeriesName(hobj.name);
+		season = "<strong>Season:</strong> "+data[0].name;
+		episode = "<strong># of Episodes:</strong> "+data[0].children.length
+		
+		$(hobj.children).each(function(index, element){
+			if(element.name == data[0].name) {
+				hobj = element;
+				return false;
+			}
+		});
+		
+		var num = getAvg(hobj);
+		rating = "<strong>Average Rating:</strong> "+num.toFixed(1);
+		votes = "<strong>Number of Votes:</strong> "+getVotes(hobj);
+	}
+	else if(flag==3){
+		setTextGivenEpisode(allData.nodes[data[0].info.exact-1]);
+		return;
+	}
+	else if(flag==4){
+		director = "<strong>Director:</strong> "+ data[0].name;
+		episode = "<strong>Number of episodes directed:</strong> "+data[0].children.length;
+	}
+	else if(flag==5){
+		writer = "<strong>Director:</strong> "+ data[0].name;
+		episode = "<strong>Number of episodes written:</strong> "+data[0].children.length;
+	}
+	else if(flag==6){
+		director = "<h3>Directors:</h3> <br \>";
+		var data2 = [];
+		$.each(data, function(i,d){
+			data2.push(d);
+		});
+		
+		data2.shift();
+		
+		$.each(data2, function(i,d){
+			director+="<a href=\"javascript:james('"+d.name+"',4)\">"+d.name+"</a><br \>";
+		});
+	}
+	else if(flag==7){
+		writer = "<h3>Writers:</h3> <br \>";
+		
+		var data2 = [];
+		$.each(data, function(i,d){
+			data2.push(d);
+		});
+		
+		data2.shift();
+		
+		$.each(data2, function(i,d){
+			writer+="<a href=\"javascript:james('"+d.name+"',5)\">"+d.name+"</a><br \>";
+		});
+	}
+	
+	$("#series").html(series);
+	$("#season").html(season);
+	$("#episode").html(episode);
+	$("#title").html(title);
+	$("#url").html(url);
+	$("#user_rating").html(rating);
+	$("#user_votes").html(votes);
+	$("#date").html(date);
+	$("#stardate").html(stardate);
+	$("#director").html(director);
+	$("#writer").html(writer);
+	$("#feat_characters").html("");
+	$("#main_cast").html("");
+	$("#recurring_cast").html("");
+}
+function james(nameOfPerson, flag){
+	var obj = {"rName":nameOfPerson};
+	render(grabPerson(obj,flag),flag);
 }
