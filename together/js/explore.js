@@ -272,7 +272,7 @@ function generateNodes(data, flag){
 	}
 	else if(flag == 3){ //episode level
 		var episodeData = csvData[data.exact-1];
-		toRet.push({"name":episodeData.title+" Episode " +episodeData.episode, "s":episodeData.series, "e":episodeData.episode});
+		toRet.push({"name":episodeData.title+" Episode " +episodeData.episode, "s":episodeData.series, "e":episodeData.episode, "info":episodeData});
 		toRet.push({"name":"Series "+episodeData.series, "s":episodeData.series});
 		toRet.push({"name":"Season "+episodeData.season, "s":episodeData.series});
 		toRet.push({"name":"Director: "+ episodeData.director , "rName":episodeData.director});
@@ -356,7 +356,7 @@ function render(input, flag){
 	
 	flagIndex = flag;
 	
-	
+	updateByExplore(nodes,flag);
 	
 	//console.log("nodes after");
 	//console.log(nodes);
