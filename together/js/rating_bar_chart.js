@@ -73,9 +73,27 @@ d3.json("data/hierarchy.json", function(root) {
   						transition_index = i2;
   						if (transition_episode!="")	{
   							$(e2.children).each(function(i3, e3){
-  								if (e3.name==transition_episode){
-  									transition_episode_node = e3;
-  									TEN_index = i3+1;
+  								if (transition_episode.substring(0, 1)=='~') {
+  									var numCheck = transition_episode.substring(1);
+  									var h = parseInt(numCheck);
+  									if (transition_series=="The Original Series" && transition_season=="Season 1"){
+  										if (i3==h){
+  											transition_episode_node = e3;
+  											TEN_index = i3+1;
+  										}
+  									}
+  									else {
+  										if ((i3+1)==h){
+  											transition_episode_node = e3;
+  											TEN_index = i3+1;
+  										}
+  									}
+  								}
+  								else {
+  									if (e3.name==transition_episode){
+  										transition_episode_node = e3;
+  										TEN_index = i3+1;
+  									}
   								}
   							});
   						}
