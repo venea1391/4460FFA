@@ -67,11 +67,26 @@ function changeBarChartFocus(series, season, episode){
 	else transitionRatingBarChart(series, season, episode);
 }
 
-jQuery.fn.d3Click = function () {
+/*jQuery.fn.d3Click = function () {
   this.each(function (i, e) {
     var evt = document.createEvent("MouseEvents");
     evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
 
     e.dispatchEvent(evt);
   });
-};
+};*/
+
+function setTitleTextMC(series, season){
+	if (series!='') {
+		$('#series_mc').text(' - '+series);
+		$('#season_mc').text('');
+	}
+	else if (season!='') {
+		$('#series_mc').text('');
+		$('#season_mc').text(' - '+season);
+	}
+	else {
+		$('#series_mc').text('');
+		$('#season_mc').text('');
+	}	
+}

@@ -317,3 +317,49 @@ function james(nameOfPerson, flag){
 	var obj = {"rName":nameOfPerson};
 	render(grabPerson(obj,flag),flag);
 }
+
+function setInfoPaneTextForSeason(sNum, seriesArray, data){
+	var text = '';
+	var obj1, obj2;
+	
+	for (var i=0; i<seriesArray.length; i++){
+		var innerText = '<strong>Series:</strong> '+getSeriesName(seriesArray[i])+'<br />';
+	
+		$(hierarchyData.children).each(function(index, element){
+			if (element.name == seriesArray[i]){
+				obj1 = element;
+				$(element.children).each(function(index2, element2){
+					if (element2.name == "Season "+sNum){
+						obj2 = element2;
+					}
+				});
+			}
+		});
+
+		var rating = getAvg(obj2);
+		var votes = getVotes(obj2);
+		innerText += '<strong>Season:</strong> '+sNum+'<br />'+
+				'<strong># of Episodes:</strong> '+obj2.children.length+'<br />'+
+				'<strong>Average Rating:</strong> '+rating.toFixed(1)+'<br />'+
+				'<strong>Number of Votes:</strong> '+votes+'<br /><br />';
+				
+		text += innerText;
+	}
+	
+	$("#series").html(text);
+	$("#season").html('');
+	$("#episode").html('');
+	$("#title").html("");
+	$("#url").html("");
+	$("#user_rating").html('');
+	$("#user_votes").html('');
+	$("#date").html("");
+	$("#stardate").html("");
+	$("#director").html("");
+	$("#writer").html("");
+	$("#feat_characters").html("");
+	$("#main_cast").html('');
+	$("#recurring_cast").html('');
+	
+
+}

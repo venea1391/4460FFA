@@ -23,7 +23,7 @@ var legend,
 	sublegend,
 	svg;
 
-d3.json("../KateriWork/hierarchy.json", function(d) {
+d3.json("data/hierarchy.json", function(d) {
 	assignAvgValue(d);
 	// console.log(dimensions);
 	series = getSeries(d);
@@ -148,12 +148,16 @@ function seasonLevel(d){
 	function seasonNumber(tmp,i){
 		// exit();
 		deleteSVG();
+		setTitleTextMC('', tmp);
+		setInfoPaneTextForSeason(i+1, seriesHasSeason(d,i), d);
 		episodeLevel(d,i);
 	}
 
 	function seriesNo(tmp,i){
 		// exit();
 		deleteSVG();
+		setTitleTextMC(getSeriesName(tmp), '');
+		setInfoPaneText(d.children[i], "series");
 		seriesLevel(d,series[i]);
 	}
 }
@@ -279,6 +283,8 @@ function episodeLevel(d,season){
 	function seriesNo(tmp,i){
 		// exit();
 		deleteSVG();
+		setTitleTextMC(getSeriesName(tmp), '');
+		setInfoPaneText(d.children[i], "series");
 		seriesLevel(d,seriesForSeason[i]);
 	}
 }
@@ -403,6 +409,8 @@ function seriesLevel(d,seriesAbr){
     function seasonNumber(tmp,i){
 		// exit();
 		deleteSVG();
+		setTitleTextMC('', 'Season '+(tmp+1));
+		setInfoPaneTextForSeason(i+1, seriesHasSeason(d,i), d);
 		episodeLevel(d,i);
 	}
 }
