@@ -1,8 +1,13 @@
+var tooltip;
+
+var abbrFull = {"TOS":"The Original Series","TNG":"The Next Generation", "DS9":"Deep Space Nine","VOY":"Voyager","ENT":"Enterprise"};
+var seriesTrick = {"TOS":0,"TNG":1,"DS9":2,"VOY":3,"ENT":4};
+
 var m = [50, 50, 50, 40], // top right bottom left
     w = 700 - m[1] - m[3], // width
     h = 500 - m[0] - m[2]; // height
 
-var margin = [10, 55, 30, 10],
+var margin = [10, 60, 30, 10],
     width = 700 - margin[1] - margin[3],
     height;
 
@@ -27,6 +32,18 @@ d3.json("data/hierarchy.json", function(d) {
 	assignAvgValue(d);
 	// console.log(dimensions);
 	series = getSeries(d);
+
+	tooltip = d3.select("#linechart")
+	.append("div")
+	.style("position", "absolute")
+	.style("opacity", ".8")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.style("background", "white")
+	.style("font-size", "11px")
+	.style("font-family", "sans-serif")
+	.style("padding", "5px");
+
 	seasonLevel(d);
 });
 
@@ -35,6 +52,7 @@ function seasonLevel(d){
 	for (var i = 0; i<dimensions.length; i++){
 		y[dimensions[i]] = d3.scale.linear().domain([6, 9]).range([h, 0]);
 	}
+	var lineData = seasonsInAllSeries();
 	//svg
 	svg = d3.select("#linechart").append("svg:svg")
 		.attr("class","mc")
@@ -92,6 +110,7 @@ function seasonLevel(d){
 	  .attr("class", "axis")
 	  .each(function(d) { d3.select(this).call(axis.scale(y[d]).ticks(4)); })
 	  .append("svg:text")
+	  .attr("class","axisPointer")
 	  .attr("text-anchor", "middle")
 	  .attr("x",-10)
 	  .attr("y", h+20)
@@ -111,12 +130,34 @@ function seasonLevel(d){
 		.attr("r",3)
 		.style("opacity",0)
 		.style("fill","rgb(214,214,214)")
-		.style("stroke","rgb(50,50,50)");
+		.style("stroke","rgb(50,50,50)")
+		.on("mouseover", function(s){ setTooltipText(s); })
+		.on("mousemove", function(){ return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px"); })
+		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); });
 
 	circle.transition()
 		.duration(duration)
 		.delay(duration/2)
 		.style("opacity",1);
+
+	function setTooltipText(s){
+		var srs = s.substring(0,3);
+		var sea = parseInt(s.substring(4));
+		tooltip.html(abbrFull[srs]+"<br />Season "+(sea+1)+"<br /> Average Rating: "+parseFloat(d.children[seriesTrick[srs]].children[sea].value).toFixed(1));
+		return tooltip.style("visibility", "visible");
+	}
+
+	function seasonsInAllSeries(){
+		var toReturn = {};
+		for (var i = 0; i < d.children.length; i++) {
+			var tmp = []
+			for (var j=0; j < d.children[i].children.length; j++){
+				tmp.push("Season "+(j+1));
+			}
+			toReturn[d.children[i].name] = tmp;
+		};
+		return toReturn;
+	}
 
 	function generateYAxisData(){
 		var result = [];
@@ -132,14 +173,8 @@ function seasonLevel(d){
 		return result;
 	}
 
-	// dimension transaction
-	// g.transition()
-	//   .duration(duration)
-	  // .attr("transform", function(d) {return "translate(" + x(d) + ")"; })
-	//   .style("opacity",1);
-
 	function path(s) {
-		return line(dimensions.map(function(p) {
+		return line(lineData[s].map(function(p) {
 			// console.log(y[p](getScore(d,s,p)));
 			return [x(p), y[p](getScore(d,s,p))];
 		}));
@@ -186,7 +221,7 @@ function episodeLevel(d,season){
 	// legend
 	svg.append("svg:g")
 		.attr("class","legend")
-		.attr("transform", function(s,i){return "translate("+width+",0)";})
+		.attr("transform", function(s,i){return "translate("+(width+5)+",0)";})
 		.append("svg:text")
 		.attr("x",10)
 		.attr("dy", ".31em")
@@ -245,12 +280,23 @@ function episodeLevel(d,season){
 		.attr("r",3)
 		.style("opacity",0)
 		.style("fill","rgb(214,214,214)")
-		.style("stroke","rgb(50,50,50)");
+		.style("stroke","rgb(50,50,50)")
+		.on("mouseover", function(s){ setTooltipText(s); })
+		.on("mousemove", function(){ return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px"); })
+		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); });
 
 	yAxis.transition()
 		.duration(duration)
 		.delay(duration/2)
 		.style("opacity",1);
+
+	function setTooltipText(s){
+		var srs = s.substring(0,3);
+		var epi = parseInt(s.substring(4));
+		var calculatedEpi = (srs == "TOS" && season == 0)?epi:(epi-1);
+		tooltip.html(abbrFull[srs]+"<br />Season "+(season+1)+"<br />Episode "+epi+"<br />Average Rating: "+parseFloat(d.children[seriesTrick[srs]].children[season].children[calculatedEpi].value).toFixed(1));
+		return tooltip.style("visibility", "visible");
+	}
 
 	function path(s) {
 		return line(x[s].domain().map(function(p) {
@@ -313,7 +359,7 @@ function seriesLevel(d,seriesAbr){
 	// legend
 	svg.append("svg:g")
 		.attr("class","legend")
-		.attr("transform", function(){return "translate("+width+",0)";})
+		.attr("transform", function(){return "translate("+(width+5)+",0)";})
 		.append("svg:text")
 		.attr("x",10)
 		.attr("dy", ".31em")
@@ -371,14 +417,25 @@ function seriesLevel(d,seriesAbr){
 		.attr("r",3)
 		.style("opacity",0)
 		.style("fill","rgb(214,214,214)")
-		.style("stroke","rgb(50,50,50)");
+		.style("stroke","rgb(50,50,50)")
+		.on("mouseover", function(s){ setTooltipText(s); })
+		.on("mousemove", function(){ return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px"); })
+		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); });
 
 	yAxis.transition()
 		.duration(duration)
 		.delay(duration/2)
 		.style("opacity",1);
 
-	 function path(s) {
+	function setTooltipText(s){
+		var season = parseInt(s.substring(0,s.indexOf("_")));
+		var epi = parseInt(s.substring(s.indexOf("_")+1));
+		var calculatedEpi = (seriesAbr == "TOS" && season == 0)?epi:(epi-1);
+		tooltip.html(abbrFull[seriesAbr]+"<br />Season "+(season+1)+"<br />Episode "+epi+"<br />Average Rating: "+parseFloat(d.children[seriesTrick[seriesAbr]].children[season].children[calculatedEpi].value).toFixed(1));
+		return tooltip.style("visibility", "visible");
+	}
+
+	function path(s) {
 		return line(x[s].domain().map(function(p) {
 			// console.log(s,p);
 			// console.log(y[p](getScore(d,s,p)));
