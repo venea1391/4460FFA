@@ -212,10 +212,6 @@ function seasonLevel(d){
 }
 
 function episodeLevel(d,season){
-	d3.select("#linechart")
-		.append("div")
-		.attr("class","mc ")
-		.html("Back to Overview Level");
 	//get all series has that season number
 	var seriesForSeason = seriesHasSeason(d,season);
 
