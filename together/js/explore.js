@@ -295,8 +295,32 @@ function generateNodes(data, flag){
 }
 
 function render(input, flag){
-	d3.select("#james")
-		.remove(); ///removes old so you can add new
+	//Mark old nodes and lines as exiting
+	var exitNode = d3.selectAll("#james circle").attr("class","exit");
+	var exitLine = d3.selectAll("#james line").attr("class","exit");
+	var exitText = d3.selectAll("#james text").attr("class","exit");
+	
+	//Exit transition bs
+	var exitTran = exitNode.transition()
+		.duration(750)
+		.style("opacity",1e-6)
+		.remove();
+		
+	var exitLineTran = exitLine.transition()
+		.duration(750)
+		.style("opacity",1e-6)
+		.remove();
+		
+	var exitTextTran = exitText.transition()
+		.duration(750)
+		.style("opacity",1e-6)
+		.remove();
+	
+	d3.select("#james").transition()
+		.duration(750)
+		.style("opacity",1e-6)
+		.remove(); //removes old so you can add new
+		
 	d3.select("tooltiphelp")
 		.remove();
 		
@@ -364,13 +388,15 @@ function render(input, flag){
 	var svg = d3.select(".graph_div").append("svg:svg")
 		.attr("id","james")
 		.attr("width", width)
-		.attr("height", height);
+		.attr("height", height)
+		.style("opacity",1e-6); //HERE JAMES;
 
 	var loading = svg.append("text")
 		.attr("x", width / 2)
 		.attr("y", height / 2)
 		.attr("dy", ".35em")
 		.style("text-anchor", "middle")
+		.style("opacity",1e-6) //HERE JAMES
 		.text("Simulating. One moment please...");
 		
 	var tooltip = d3.select("body")
@@ -399,7 +425,8 @@ function render(input, flag){
 		  .attr("x1", function(d) { return d.source.x; })
 		  .attr("y1", function(d) { return d.source.y; })
 		  .attr("x2", function(d) { return d.target.x; })
-		  .attr("y2", function(d) { return d.target.y; });
+		  .attr("y2", function(d) { return d.target.y; })
+		  .style("opacity",1e-6); //HERE JAMES;
 
 	  var node = svg.selectAll("circle")
 		  .data(nodes)
@@ -419,6 +446,7 @@ function render(input, flag){
 		  .attr("fill", function(d,i){
 				return nodeColor(d,i,flag);
 			})
+		  .style("opacity",1e-6) //HERE JAMES
 		.on("mouseover", function(d,i){
 			//console.log("Index: "+i);
 			//console.log(d);
@@ -512,6 +540,7 @@ function render(input, flag){
                 .attr("class", "label")
                 .attr("fill", "black")
 				.style("font-weight", "bold")
+				.style("opacity",1e-6) //HERE JAMES
                 .text(function(d,i){
 					if((i!=0&&flag==2) || (i!=0&&flag==4) || (i!=0&&flag==5)){
 						return ""+d.episode;
@@ -523,5 +552,25 @@ function render(input, flag){
 		});
 		
 	  loading.remove();
+		var enterN = d3.selectAll("#james circle");
+		var enterL = d3.selectAll("#james line");
+		var enterT = d3.selectAll("#james text");
+	
+		//Exit transition bs
+		var enterTran = enterN.transition()
+			.duration(1600)
+			.style("opacity",1);
+			
+		var enterLineTran = enterL.transition()
+			.duration(1600)
+			.style("opacity",1);
+			
+		var enterTextTran = enterT.transition()
+			.duration(1600)
+			.style("opacity",1);
+			
+		svg.transition()
+			.duration(1600)
+			.style("opacity",1);
 	}, 10);
 }
