@@ -28,8 +28,11 @@ var legend,
 	sublegend,
 	svg;
 
+var overallData;
+
 d3.json("data/hierarchy.json", function(d) {
 	assignAvgValue(d);
+	overallData = d;
 	// console.log(dimensions);
 	series = getSeries(d);
 
@@ -44,10 +47,21 @@ d3.json("data/hierarchy.json", function(d) {
 	.style("font-family", "sans-serif")
 	.style("padding", "5px");
 
+	$("#startrek_mc").click(function(){
+		if ($(this).css("cursor") != "normal"){
+			deleteSVG();
+			setTitleTextMC('', '');
+			seasonLevel(overallData);
+		}
+	});
+
 	seasonLevel(d);
 });
 
 function seasonLevel(d){
+
+    axis = d3.svg.axis().orient("left");
+
 	x.domain(dimensions=longestSeasons(d));
 	for (var i = 0; i<dimensions.length; i++){
 		y[dimensions[i]] = d3.scale.linear().domain([6, 9]).range([h, 0]);
@@ -66,7 +80,7 @@ function seasonLevel(d){
 	  .data(series)
 	  .enter().append("svg:g")
 	  .attr("class", "legend")
-	  .attr("transform", function(s, i) { return "translate("+w+"," + (i * 20 ) + ")"; });
+	  .attr("transform", function(s, i) { return "translate("+w+"," + (i * 20 + 150) + ")"; });
 
 	legend.append("svg:line")
 	  .attr("class", String)
@@ -108,7 +122,7 @@ function seasonLevel(d){
 	// Add an axis and title.
 	g.append("svg:g")
 	  .attr("class", "axis")
-	  .each(function(d) { d3.select(this).call(axis.scale(y[d]).ticks(4)); })
+	  .each(function(s) {d3.select(this).call(axis.scale(y[s]).ticks(4)); })
 	  .append("svg:text")
 	  .attr("class","axisPointer")
 	  .attr("text-anchor", "middle")
@@ -198,6 +212,10 @@ function seasonLevel(d){
 }
 
 function episodeLevel(d,season){
+	d3.select("#linechart")
+		.append("div")
+		.attr("class","mc ")
+		.html("Back to Overview Level");
 	//get all series has that season number
 	var seriesForSeason = seriesHasSeason(d,season);
 
@@ -682,4 +700,22 @@ function assignAvgValue(d){
 		d.value = average;
 	}
 	return average;
+}
+
+function setTitleTextMC(series, season){
+	if (series!='') {
+		$('#startrek_mc').css({"color":"#0000FF","text-decoration":"underline","cursor": "pointer"});
+		$('#series_mc').text(' > '+series);
+		$('#season_mc').text('');
+	}
+	else if (season!='') {
+		$('#startrek_mc').css({"color":"#0000FF","text-decoration":"underline","cursor": "pointer"});
+		$('#series_mc').text('');
+		$('#season_mc').text(' > '+season);
+	}
+	else {
+		$('#startrek_mc').css({"color":"black","text-decoration":"none","cursor": "normal"});
+		$('#series_mc').text('');
+		$('#season_mc').text('');
+	}	
 }

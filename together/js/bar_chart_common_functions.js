@@ -75,18 +75,3 @@ function changeBarChartFocus(series, season, episode){
     e.dispatchEvent(evt);
   });
 };*/
-
-function setTitleTextMC(series, season){
-	if (series!='') {
-		$('#series_mc').text(' - '+series);
-		$('#season_mc').text('');
-	}
-	else if (season!='') {
-		$('#series_mc').text('');
-		$('#season_mc').text(' - '+season);
-	}
-	else {
-		$('#series_mc').text('');
-		$('#season_mc').text('');
-	}	
-}
