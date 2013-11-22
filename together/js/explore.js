@@ -69,6 +69,9 @@ function toolText(data, flag, index){
 			toReturn+= data.children.length + " Episodes";
 			return toReturn;
 		}
+		if(index == 0){
+			return "Go back a level";
+		}
 		return toolText(data,0,3);
 	}
 	else if(flag==2 || flag==4 || flag==5){
@@ -87,6 +90,11 @@ function toolText(data, flag, index){
 			}
 			return toReturn;
 		}
+	}
+	if(flag!=3){
+		if(index==0){
+			return "Go back a level";
+		}	
 	}
 	return data.name;
 }
