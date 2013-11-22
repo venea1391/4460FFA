@@ -52,6 +52,7 @@ d3.json("data/hierarchy.json", function(d) {
 			deleteSVG();
 			setTitleTextMC('', '');
 			seasonLevel(overallData);
+			changeBarChartFocus("","","");
 		}
 	});
 
@@ -166,7 +167,7 @@ function seasonLevel(d){
 		var srs = c.substring(0,3);
 		var sea = parseInt(c.substring(4));
 		setInfoPaneText(d.children[seriesTrick[srs]].children[sea], "season");
-	
+		changeBarChartFocus(getSeriesName(srs),"Season "+(sea+1),"");
 	}
 	
 	function seasonsInAllSeries(){
@@ -212,6 +213,7 @@ function seasonLevel(d){
 
 	function seriesNo(tmp,i){
 		// exit();
+		changeBarChartFocus(getSeriesName(tmp),"","");
 		deleteSVG();
 		setTitleTextMC(getSeriesName(tmp), '');
 		setInfoPaneText(d.children[i], "series");
@@ -326,6 +328,7 @@ function episodeLevel(d,season){
 		var epi = parseInt(c.substring(4));
 		var calculatedEpi = (srs == "TOS" && season == 0)?epi:(epi-1);
 		setInfoPaneText(d.children[seriesTrick[srs]].children[season].children[calculatedEpi], "episode");
+		changeBarChartFocus(getSeriesName(srs),"Season "+(season+1),d.children[seriesTrick[srs]].children[season].children[calculatedEpi].name);
 	}
 	
 	function path(s) {
@@ -358,6 +361,7 @@ function episodeLevel(d,season){
 
 	function seriesNo(tmp,i){
 		// exit();
+		changeBarChartFocus(getSeriesName(tmp),"","");
 		deleteSVG();
 		setTitleTextMC(getSeriesName(tmp), '');
 		setInfoPaneText(d.children[i], "series");
@@ -471,6 +475,7 @@ function seriesLevel(d,seriesAbr){
 		var epi = parseInt(c.substring(c.indexOf("_")+1));
 		var calculatedEpi = (seriesAbr == "TOS" && season == 0)?epi:(epi-1);
 		setInfoPaneText(d.children[seriesTrick[seriesAbr]].children[season].children[calculatedEpi], "episode");
+		changeBarChartFocus(getSeriesName(seriesAbr),"Season "+(season+1),d.children[seriesTrick[seriesAbr]].children[season].children[calculatedEpi].name);
 	}
 	
 	function path(s) {
