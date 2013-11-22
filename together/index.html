@@ -11,6 +11,7 @@
     <script type="text/javascript" src="js/votes_bar_chart.js"></script>
     <script type="text/javascript" src="js/linechart.js"></script>
     <script type="text/javascript" src="js/explore.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <style type="text/css">
 
 text {font: 10px sans-serif;}
@@ -86,6 +87,17 @@ circle {
  
     <div id="info_pane" style="height:800px; width: 300px;  overflow-y: auto; border: 1px solid; padding: 5px; margin-right: 10px; float: left;">
      <h1>Star Trek</h1>
+     <div id="legend">
+     <p><span id="color-swatch" style="background-color: #1f77b4;"></span> The Original Series (TOS)<br />
+     <span id="color-swatch" style="background-color: #ff7f0e;"></span> The Next Generation (TNG)<br />
+     <span id="color-swatch" style="background-color: #2ca02c;"></span> Deep Space Nine (DS9)<br />
+     <span id="color-swatch" style="background-color: #d62728;"></span> Voyager (VOY)<br />
+     <span id="color-swatch" style="background-color: #9467bd;"></span> Enterprise (ENT)<br />
+     <span id="color-swatch" style="background-color: #8c564b;"></span> Directors<br />
+     <span id="color-swatch" style="background-color: #e377c2;"></span> Writers<br />
+     <span id="color-swatch" style="background-color: #bcbd22;"></span> Back<br />
+     <span id="color-swatch" style="background-color: gray;"></span> dead-for nowZOMBIES<br /></p>
+     </div>
   
   <p id="series"></p>
   <p id="season"></p>
@@ -105,14 +117,6 @@ circle {
   </div>
   <span style="right:auto; left:auto;"><label><input type="radio" name="explore" id="non-explore" onclick="activateTab('page1')" checked>non-explore</label>
 <label><input type="radio" name="explore" id="explore" onclick="activateTab('page2')">explore</label></span>
-   <!--<ul>
-      <li>
-        <a href="javascript:activateTab('page1')">non-explore</a>
-      </li>
-      <li>
-        <a href="javascript:activateTab('page2')">explore</a>
-      </li>
-    </ul>-->
     <div id="tabs">
       <div id="page1" style="display: block;">
       <div id="linechart">
@@ -149,7 +153,7 @@ circle {
 			changeBarChartFocus(titleArray[i], nodes_drawn[2].name, "~"+nodes_drawn[0].e);
 		}
 		else{
-			changeBarChartFocus("", "", "");
+			changeBarChartFocus("The Original Series", "Season 1", "The Cage");
 		}
 		activateTab('page1');
 		//set rb to non-explore
