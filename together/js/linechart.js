@@ -147,7 +147,8 @@ function seasonLevel(d){
 		.style("stroke","rgb(50,50,50)")
 		.on("mouseover", function(s){ setTooltipText(s); })
 		.on("mousemove", function(){ return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px"); })
-		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); });
+		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); })
+		.on("click", function(c){setIPText(c); });
 
 	circle.transition()
 		.duration(duration)
@@ -160,7 +161,14 @@ function seasonLevel(d){
 		tooltip.html(abbrFull[srs]+"<br />Season "+(sea+1)+"<br /> Average Rating: "+parseFloat(d.children[seriesTrick[srs]].children[sea].value).toFixed(1));
 		return tooltip.style("visibility", "visible");
 	}
-
+	
+	function setIPText(c){
+		var srs = c.substring(0,3);
+		var sea = parseInt(c.substring(4));
+		setInfoPaneText(d.children[seriesTrick[srs]].children[sea], "season");
+	
+	}
+	
 	function seasonsInAllSeries(){
 		var toReturn = {};
 		for (var i = 0; i < d.children.length; i++) {
@@ -297,7 +305,8 @@ function episodeLevel(d,season){
 		.style("stroke","rgb(50,50,50)")
 		.on("mouseover", function(s){ setTooltipText(s); })
 		.on("mousemove", function(){ return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px"); })
-		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); });
+		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); })
+		.on("click", function(c){setIPText(c);});
 
 	yAxis.transition()
 		.duration(duration)
@@ -312,6 +321,13 @@ function episodeLevel(d,season){
 		return tooltip.style("visibility", "visible");
 	}
 
+	function setIPText(c){
+		var srs = c.substring(0,3);
+		var epi = parseInt(c.substring(4));
+		var calculatedEpi = (srs == "TOS" && season == 0)?epi:(epi-1);
+		setInfoPaneText(d.children[seriesTrick[srs]].children[season].children[calculatedEpi], "episode");
+	}
+	
 	function path(s) {
 		return line(x[s].domain().map(function(p) {
 			// console.log(s,p);
@@ -434,7 +450,8 @@ function seriesLevel(d,seriesAbr){
 		.style("stroke","rgb(50,50,50)")
 		.on("mouseover", function(s){ setTooltipText(s); })
 		.on("mousemove", function(){ return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px"); })
-		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); });
+		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); })
+		.on("click", function(c){setIPText(c);});
 
 	yAxis.transition()
 		.duration(duration)
@@ -449,6 +466,13 @@ function seriesLevel(d,seriesAbr){
 		return tooltip.style("visibility", "visible");
 	}
 
+	function setIPText(c){
+		var season = parseInt(c.substring(0,c.indexOf("_")));
+		var epi = parseInt(c.substring(c.indexOf("_")+1));
+		var calculatedEpi = (seriesAbr == "TOS" && season == 0)?epi:(epi-1);
+		setInfoPaneText(d.children[seriesTrick[seriesAbr]].children[season].children[calculatedEpi], "episode");
+	}
+	
 	function path(s) {
 		return line(x[s].domain().map(function(p) {
 			// console.log(s,p);
