@@ -273,6 +273,9 @@ function updateByExplore(data,flag){
 	else if(flag==5){
 		writer = "<strong>Writer:</strong> "+ data[0].name;
 		episode = "<strong>Number of episodes written:</strong> "+data[0].children.length;
+		var temp = james_avg(data[0]);
+		rating = "<strong>Average Rating per Episode:</strong> "+temp.rate;
+		votes = "<strong>Number of Votes:</strong> "+temp.vote_num;
 	}
 	else if(flag==6){
 		director = "<h3>Directors:</h3> <br \>";
