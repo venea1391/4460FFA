@@ -162,6 +162,32 @@ circle {
 		//set rb to non-explore
 		$('#non-explore').attr("checked", "checked");
 	}
+	
+	function goBack(){
+		if(stateIndex<=0){
+			alert("Sorry can no longer go back");
+			return;
+		}
+		stateIndex--;
+		var currState = stateMap[stateIndex];
+		render(currState.data,currState.flag);
+		stateMap.pop();
+		stateIndex--;
+		return;
+	}
+	
+	function goForward(){
+		if(stateIndex>=stateMap.length-1){
+			alert("Sorry can no longer go forward");
+			return;
+		}
+		stateIndex++;
+		var currState = stateMap[stateIndex];
+		render(currState.data,currState.flag);
+		stateMap.pop();
+		stateIndex--;
+		return;
+	}
 </script>
 
   </body>

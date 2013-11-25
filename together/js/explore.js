@@ -7,7 +7,7 @@ var titleArray = ["The Original Series","The Next Generation", "Deep Space Nine"
 var flagIndex = 0;
 var nodes_drawn = [];
 var stateMap = [];
-var stateIndex = 0;
+var stateIndex = -1;
 
 d3.csv("data/startrekStrictNoComma.csv",function(data){
 	console.log("Loading CSV Data");
@@ -54,7 +54,14 @@ d3.csv("data/startrekStrictNoComma.csv",function(data){
         }
     });
 
-	
+
+function clear_state(){
+	var temp = [];
+	for(var i =0; i < stateIndex+1; i++){
+		temp.push(stateMap[i]);
+	}
+	stateMap = temp;
+}
 	
 function save_state(data,flag){
 	var state = {"data":data, "flag":flag};
@@ -482,8 +489,7 @@ function render(input, flag){
 			return tooltip.style("visibility", "hidden");
 		})
 		.on("click", function(d,i){
-			//console.log("Flag: "+flag);
-			//console.log("Index: "+i);
+			clear_state();
 			tooltip.style("visibility", "hidden");
 			if((flag==0 && i==0)||(flag==3 && i==0)){ //Does nothing at top and bottom of treee
 				return;
