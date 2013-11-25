@@ -266,7 +266,7 @@ function updateByExplore(data,flag){
 		director = "<strong>Director:</strong> "+ data[0].name;
 		episode = "<strong>Number of episodes directed:</strong> "+data[0].children.length;
 		var temp = james_avg(data[0]);
-		rating = "<strong>Average Rating per Episode:</strong> "+temp.rate;
+		rating = "<strong>Average Rating per Episode:</strong> "+temp.rate.toFixed(1);
 		votes = "<strong>Number of Votes:</strong> "+temp.vote_num;
 		
 	}
@@ -274,7 +274,7 @@ function updateByExplore(data,flag){
 		writer = "<strong>Writer:</strong> "+ data[0].name;
 		episode = "<strong>Number of episodes written:</strong> "+data[0].children.length;
 		var temp = james_avg(data[0]);
-		rating = "<strong>Average Rating per Episode:</strong> "+temp.rate;
+		rating = "<strong>Average Rating per Episode:</strong> "+temp.rate.toFixed(1);
 		votes = "<strong>Number of Votes:</strong> "+temp.vote_num;
 	}
 	else if(flag==6){
