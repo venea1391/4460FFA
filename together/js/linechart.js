@@ -231,6 +231,8 @@ function episodeLevel(d,season){
 		x[seriesForSeason[i]] = d3.scale.ordinal().rangePoints([0, width], 1).domain(episodesInSeriesSeason(d,seriesForSeason[i],season));
 		y[seriesForSeason[i]] = d3.scale.linear().range([height, 0]).domain(seriesSeasonMaxMin(d,seriesForSeason[i],season));
 	}
+	var xx = d3.scale.ordinal().rangePoints([0, width], 1).domain(longestEpisodes(d,season));
+	var yy = d3.scale.linear().range([height, 0]).domain(seasonMaxMin(d,season));
 
 	svg = d3.select("#linechart").selectAll("svg")
 		.data(seriesForSeason)
@@ -254,9 +256,11 @@ function episodeLevel(d,season){
 
 	// y-axis
 	svg.append("svg:g")
-		.attr("transform", function(s){ var tmp = x[s].domain().length > 29? x[s].domain().length-1:x[s].domain().length; return "translate("+ x[s](tmp) +")";})
+		// .attr("transform", function(s){ var tmp = x[s].domain().length > 29? x[s].domain().length-1:x[s].domain().length; return "translate("+ x[s](tmp) +")";})
+		.attr("transform",function(s){var tmp = (s=="TOS"&&season==0)? x[s].domain().length-1:x[s].domain().length; return "translate("+ xx(tmp) +")";})
 		.attr("class","axis")
-		.each(function(s){d3.select(this).call(axis.scale(y[s]).tickValues(y[s].domain()).orient("right"));})
+		// .each(function(s){d3.select(this).call(axis.scale(y[s]).tickValues(y[s].domain()).orient("right"));})
+		.each(function(s){d3.select(this).call(axis.scale(yy).tickValues(yy.domain()).orient("right"));})
 		.append("svg:text")
 		.attr("text-anchor", "middle")
 		.attr("x",-10)
@@ -268,18 +272,21 @@ function episodeLevel(d,season){
 	svg.append("svg:g")
 		.attr("transform", function(s){return "translate(0,"+height+")"})
 		.attr("class","xaxis")
-		.each(function(s){d3.select(this).call(axis.scale(x[s]).tickValues(x[s].domain()).orient("bottom"));});
+		// .each(function(s){d3.select(this).call(axis.scale(x[s]).tickValues(x[s].domain()).orient("bottom"));});
+		.each(function(s){d3.select(this).call(axis.scale(xx).tickValues(xx.domain()).orient("bottom"));});
 
-	svg.append("svg:line")
-		.attr("class","axis")
-		.attr("x1",function(s){return x[s](x[s].domain()[0])})
-		.attr("y1",height)
-		.attr("x2",function(s){return x[s](x[s].domain()[x[s].domain().length - 1])})
-		.attr("y2",height)
-		.style("stroke","black")
-		.style("stroke-width",1)
-		.style("opacity",1)
-		.style("shape-rendering","crispedges");
+	// svg.append("svg:line")
+	// 	.attr("class","axis")
+	// 	// .attr("x1",function(s){return x[s](x[s].domain()[0])})
+	// 	.attr("x1",function(s){return xx(xx.domain()[0])})
+	// 	.attr("y1",height)
+	// 	// .attr("x2",function(s){return x[s](x[s].domain()[x[s].domain().length - 1])})
+	// 	.attr("x2",function(s){return xx(xx.domain()[xx.domain().length - 1])})
+	// 	.attr("y2",height)
+	// 	.style("stroke","black")
+	// 	.style("stroke-width",1)
+	// 	.style("opacity",1)
+	// 	.style("shape-rendering","crispedges");
 
 
 	// Add the line path elements. Note: the y-domain is set per element.
@@ -299,8 +306,10 @@ function episodeLevel(d,season){
 	yAxis = svg.selectAll("g.yAxis")
 		.data(function(s){return yAxisData[s]})
 		.enter().append("svg:circle")
-		.attr("cx",function(s){return x[s.substring(0,3)](s.substring(4))})
-		.attr("cy",function(s){return y[s.substring(0,3)](getEpisodeScore(d,s.substring(0,3),season,s.substring(4)))})
+		// .attr("cx",function(s){return x[s.substring(0,3)](s.substring(4))})
+		.attr("cx",function(s){return xx(s.substring(4))})
+		// .attr("cy",function(s){return y[s.substring(0,3)](getEpisodeScore(d,s.substring(0,3),season,s.substring(4)))})
+		.attr("cy",function(s){return yy(getEpisodeScore(d,s.substring(0,3),season,s.substring(4)))})
 		.attr("r",3)
 		.style("opacity",0)
 		.style("fill","rgb(214,214,214)")
@@ -335,13 +344,15 @@ function episodeLevel(d,season){
 		return line(x[s].domain().map(function(p) {
 			// console.log(s,p);
 			// console.log(y[p](getScore(d,s,p)));
-			return [x[s](p), y[s](getEpisodeScore(d,s,season,p))];
+			// return [x[s](p), y[s](getEpisodeScore(d,s,season,p))];
+			return [xx(p), yy(getEpisodeScore(d,s,season,p))];
 		}));
 	}
 
 	function flatPath(s){
 		return line(x[s].domain().map(function(p) {
-			return [x[s](p), height];
+			// return [x[s](p), height];
+			return [xx(p), height];
 		}));
 	}
 
@@ -378,6 +389,8 @@ function seriesLevel(d,seriesAbr){
 		x[seasonForSeries[i]] = d3.scale.ordinal().rangePoints([0, width], 1).domain(episodesInSeriesSeason(d,seriesAbr,i));
 		y[seasonForSeries[i]] = d3.scale.linear().range([height, 0]).domain(seriesSeasonMaxMin(d,seriesAbr,i));
 	}
+	var xx = d3.scale.ordinal().rangePoints([0, width], 1).domain(longestEpisodesInSeries(d,seriesAbr));
+	var yy = d3.scale.linear().range([height, 0]).domain(seariesMaxMin(d,seriesAbr));
 
 	// svg
 	svg = d3.select("#linechart").selectAll("svg")
@@ -402,9 +415,11 @@ function seriesLevel(d,seriesAbr){
 
 	// y-axis
 	svg.append("svg:g")
-		.attr("transform", function(s){ var tmp = x[s].domain().length > 29? x[s].domain().length-1:x[s].domain().length; return "translate("+ x[s](tmp) +")";})
+		// .attr("transform", function(s){ var tmp = x[s].domain().length > 29? x[s].domain().length-1:x[s].domain().length; return "translate("+ x[s](tmp) +")";})
+		.attr("transform",function(s){var tmp = (x[s].domain().length > 29)? x[s].domain().length-1:x[s].domain().length; return "translate("+ xx(tmp) +")";})
 		.attr("class","axis")
-		.each(function(s){d3.select(this).call(axis.scale(y[s]).tickValues(y[s].domain()).orient("right"));})
+		// .each(function(s){d3.select(this).call(axis.scale(y[s]).tickValues(y[s].domain()).orient("right"));})
+		.each(function(s){d3.select(this).call(axis.scale(yy).tickValues(yy.domain()).orient("right"));})
 		.append("svg:text")
 		.attr("text-anchor", "middle")
 		.attr("x",-10)
@@ -416,18 +431,21 @@ function seriesLevel(d,seriesAbr){
 	svg.append("svg:g")
 		.attr("transform", function(s){return "translate(0,"+height+")"})
 		.attr("class","xaxis")
-		.each(function(s){d3.select(this).call(axis.scale(x[s]).tickValues(x[s].domain()).orient("bottom"));});
+		// .each(function(s){d3.select(this).call(axis.scale(x[s]).tickValues(x[s].domain()).orient("bottom"));});
+		.each(function(s){d3.select(this).call(axis.scale(xx).tickValues(xx.domain()).orient("bottom"));});
 
-	svg.append("svg:line")
-		.attr("class","axis")
-		.attr("x1",function(s){return x[s](x[s].domain()[0])})
-		.attr("y1",height)
-		.attr("x2",function(s){return x[s](x[s].domain()[x[s].domain().length - 1])})
-		.attr("y2",height)
-		.style("stroke","black")
-		.style("stroke-width",1)
-		.style("opacity",1)
-		.style("shape-rendering","crispedges");
+	// svg.append("svg:line")
+	// 	.attr("class","axis")
+	// 	// .attr("x1",function(s){return x[s](x[s].domain()[0])})
+	// 	.attr("x1",function(s){return xx(xx.domain()[0])})
+	// 	.attr("y1",height)
+	// 	// .attr("x2",function(s){return x[s](x[s].domain()[x[s].domain().length - 1])})
+	// 	.attr("x2",function(s){return xx(xx.domain()[xx.domain().length - 1])})
+	// 	.attr("y2",height)
+	// 	.style("stroke","black")
+	// 	.style("stroke-width",1)
+	// 	.style("opacity",1)
+	// 	.style("shape-rendering","crispedges");
 
 	// Add the line path elements. Note: the y-domain is set per element.
 	var ratePath = svg.append("svg:path")
@@ -446,8 +464,10 @@ function seriesLevel(d,seriesAbr){
 	yAxis = svg.selectAll("g.yAxis")
 		.data(function(s){return yAxisData[s]})
 		.enter().append("svg:circle")
-		.attr("cx",function(s){return x[s.substring(0,s.indexOf("_"))](s.substring(s.indexOf("_")+1))})
-		.attr("cy",function(s){return y[s.substring(0,s.indexOf("_"))](getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1)))})
+		// .attr("cx",function(s){return x[s.substring(0,s.indexOf("_"))](s.substring(s.indexOf("_")+1))})
+		.attr("cx",function(s){var tmp = ((seriesAbr == "TOS") && (s.substring(0,s.indexOf("_")) == "0"))? s.substring(s.indexOf("_")) : s.substring(s.indexOf("_")+1); return xx(tmp);})
+		// .attr("cy",function(s){return y[s.substring(0,s.indexOf("_"))](getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1)))})
+		.attr("cy",function(s){return yy(getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1)))})
 		.attr("r",3)
 		.style("opacity",0)
 		.style("fill","rgb(214,214,214)")
@@ -482,13 +502,15 @@ function seriesLevel(d,seriesAbr){
 		return line(x[s].domain().map(function(p) {
 			// console.log(s,p);
 			// console.log(y[p](getScore(d,s,p)));
-			return [x[s](p), y[s](getEpisodeScore(d,seriesAbr,s,p))];
+			// return [x[s](p), y[s](getEpisodeScore(d,seriesAbr,s,p))];
+			return [xx(p), yy(getEpisodeScore(d,seriesAbr,s,p))];
 		}));
 	}
 
 	function flatPath(s){
 		return line(x[s].domain().map(function(p) {
-			return [x[s](p), height];
+			// return [x[s](p), height];
+			return [xx(p), height];
 		}));
 	}
 
@@ -557,6 +579,46 @@ function seriesSeasonMaxMin(d,series,season){
 	};
 	var result = [mi,ma];
 	return result;
+}
+
+function seasonMaxMin(d,season){
+	var mi=10, ma = 0;
+	for (var i = 0; i < d.children.length; i++){
+		if(d.children[i].children.length > season){
+			for (var j = 0; j < d.children[i].children[season].children.length; j++){
+				var rate = d.children[i].children[season].children[j].rating;
+				if(mi>rate){
+					mi = rate;
+				}
+				if(ma<rate){
+					ma = rate;
+				}
+			}
+		}
+	}
+	var result = [mi,ma];
+	return result;
+}
+
+function seariesMaxMin(d,seriesAbr){
+	var mi=10, ma = 0;
+	for (var i = 0; i < d.children.length; i++) {
+		if (d.children[i].name == seriesAbr){
+			for (var j = 0; j < d.children[i].children.length; j++){
+				for (var k = 0; k < d.children[i].children[j].children.length; k++){
+					var rate = d.children[i].children[j].children[k].rating;
+					if(mi>rate){
+						mi = rate;
+					}
+					if(ma<rate){
+						ma = rate;
+					}
+				}
+			}
+		}
+	};
+	var result = [mi,ma];
+	return result
 }
 
 function deleteSVG(){
@@ -663,35 +725,57 @@ function longestSeasons(d){
 function longestEpisodes(d,season){
 	// assume d is root
 	var maxLength = -1;
+	var srs;
 	var result = [];
 	for (var i = 0; i < d.children.length; i++) {
 		if (d.children[i].children.length > season){
 			if (d.children[i].children[season].children.length > maxLength){
 				maxLength = d.children[i].children[season].children.length;
+				srs = d.children[i].name;
 			}
 		}
 	}
 	if (maxLength > -1){
-		for (var i = 1; i < maxLength; i++) {
+		var i = 1;
+		if (season == 0){
+			i=0;
+		}else{
+			maxLength++;
+		}
+		for (i; i < maxLength; i++) {
 			result.push(i);
 		}
 	}
 	return result;
 }
 
-function longestEpisodesInSeries(d,seriesNumber){
+function longestEpisodesInSeries(d,seriesAbbr){
 	var maxLength = -1;
 	var result = [];
-	for (var i = 0; i < d.children[seriesNumber].children.length; i++) {
-		if (d.children[seriesNumber].children[i].children.length > maxLength){
-			maxLength = d.children[seriesNumber].children[i].children.length;
+	var j = 0;
+	for ( j; j < d.children.length;j++){
+		if (d.children[j].name == seriesAbbr){
+			break;
+		}
+	}
+	for (var i = 0; i < d.children[j].children.length; i++) {
+		if (d.children[j].children[i].children.length > maxLength){
+			maxLength = d.children[j].children[i].children.length;
 		}
 	}
 	if (maxLength > -1){
-		for (var i = 1; i < maxLength; i++) {
+		var i = 1;
+		if(seriesAbbr == "TOS"){
+			i = 0;
+		}
+		else{
+			maxLength++;
+		}
+		for (i; i < maxLength; i++) {
 			result.push(i);
 		}
 	}
+	console.log(result);
 	return result;
 }
 
