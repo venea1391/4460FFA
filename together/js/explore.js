@@ -6,6 +6,8 @@ var colorArray = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd","red"];
 var titleArray = ["The Original Series","The Next Generation", "Deep Space Nine", "Voyager","Enterprise"];
 var flagIndex = 0;
 var nodes_drawn = [];
+var stateMap = [];
+var stateIndex = -1;
 
 d3.csv("data/startrekStrictNoComma.csv",function(data){
 	console.log("Loading CSV Data");
@@ -51,6 +53,22 @@ d3.csv("data/startrekStrictNoComma.csv",function(data){
             directors = data;
         }
     });
+
+
+function clear_state(){
+	var temp = [];
+	for(var i =0; i < stateIndex+1; i++){
+		temp.push(stateMap[i]);
+	}
+	stateMap = temp;
+}
+	
+function save_state(data,flag){
+	var state = {"data":data, "flag":flag};
+	stateMap.push(state);
+	stateIndex++;
+}
+
 
 function toolText(data, flag, index){
 	var toReturn = "";
@@ -303,6 +321,7 @@ function generateNodes(data, flag){
 }
 
 function render(input, flag){
+	save_state(input,flag);
 	//Mark old nodes and lines as exiting
 	var exitNode = d3.selectAll("#james circle").attr("class","exit");
 	var exitLine = d3.selectAll("#james line").attr("class","exit");
@@ -470,8 +489,7 @@ function render(input, flag){
 			return tooltip.style("visibility", "hidden");
 		})
 		.on("click", function(d,i){
-			//console.log("Flag: "+flag);
-			//console.log("Index: "+i);
+			clear_state();
 			tooltip.style("visibility", "hidden");
 			if((flag==0 && i==0)||(flag==3 && i==0)){ //Does nothing at top and bottom of treee
 				return;

@@ -265,10 +265,17 @@ function updateByExplore(data,flag){
 	else if(flag==4){
 		director = "<strong>Director:</strong> "+ data[0].name;
 		episode = "<strong>Number of episodes directed:</strong> "+data[0].children.length;
+		var temp = james_avg(data[0]);
+		rating = "<strong>Average Rating per Episode:</strong> "+temp.rate.toFixed(1);
+		votes = "<strong>Number of Votes:</strong> "+temp.vote_num;
+		
 	}
 	else if(flag==5){
-		writer = "<strong>Director:</strong> "+ data[0].name;
+		writer = "<strong>Writer:</strong> "+ data[0].name;
 		episode = "<strong>Number of episodes written:</strong> "+data[0].children.length;
+		var temp = james_avg(data[0]);
+		rating = "<strong>Average Rating per Episode:</strong> "+temp.rate.toFixed(1);
+		votes = "<strong>Number of Votes:</strong> "+temp.vote_num;
 	}
 	else if(flag==6){
 		director = "<h3>Directors:</h3> <br \>";
@@ -316,6 +323,20 @@ function updateByExplore(data,flag){
 function james(nameOfPerson, flag){
 	var obj = {"rName":nameOfPerson};
 	render(grabPerson(obj,flag),flag);
+}
+
+function james_avg(data){
+	var avg_rate = 0.0;
+	var tot_votes = 0;
+	$.each(data.children, function(i,d){
+		var epi = allData.nodes[d.exact-1];
+		avg_rate+=parseFloat(epi.user_rating);
+		tot_votes+=parseFloat(epi.user_votes);
+	});
+	avg_rate = avg_rate/data.children.length;
+	
+	var toRet = {"vote_num":tot_votes, "rate":avg_rate};
+	return toRet;
 }
 
 function setInfoPaneTextForSeason(sNum, seriesArray, data){

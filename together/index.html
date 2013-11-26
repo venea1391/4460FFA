@@ -145,8 +145,11 @@ circle {
 </div>
 </div>
       </div>
-      <div id="page2" style="display: none;">to explore strange new worlds, to seek out new life and new civilizations
-      <button type="button" id="change_view" onclick="changeView()">View this in the other charts</button> 
+      <div id="page2" style="display: none;">
+      <button type="button" id="change_view" onclick="changeView()">View this in the bar chart</button> 
+      <br />
+      <button type="button" id="back_button" title="Go Back" onclick="goBack()"><-</button>
+      <button type="button" id="forward_button" title="Go Forward" onclick="goForward()">-></button>
       <div class="graph_div"></div></div>
     </div>
   </div>
@@ -174,6 +177,32 @@ circle {
 		activateTab('page1');
 		//set rb to non-explore
 		$('#non-explore').attr("checked", "checked");
+	}
+	
+	function goBack(){
+		if(stateIndex<=0){
+			alert("Sorry can no longer go back");
+			return;
+		}
+		stateIndex--;
+		var currState = stateMap[stateIndex];
+		render(currState.data,currState.flag);
+		stateMap.pop();
+		stateIndex--;
+		return;
+	}
+	
+	function goForward(){
+		if(stateIndex>=stateMap.length-1){
+			alert("Sorry can no longer go forward");
+			return;
+		}
+		stateIndex++;
+		var currState = stateMap[stateIndex];
+		render(currState.data,currState.flag);
+		stateMap.pop();
+		stateIndex--;
+		return;
 	}
 </script>
 
