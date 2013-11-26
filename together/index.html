@@ -12,79 +12,6 @@
     <script type="text/javascript" src="js/linechart.js"></script>
     <script type="text/javascript" src="js/explore.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <style type="text/css">
-
-text {font: 10px sans-serif;}
-
-rect.background {fill: white;}
-
-.axis {shape-rendering: crispEdges;}
-
-line {
-  stroke: #bbb;
-  stroke-width: .5px;
-}
-
-circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
-  cursor: pointer;
-}
-
-.axis path,
-.axis line {
-	fill: none;
-	stroke: #000;
-	shape-rendering: crispEdges;
-}
-
-	.foreground path{
-		fill: none;
-		stroke-opacity: .8;
-		stroke-width:2;
-	}
-
-	path.domain{
-		stroke-width:1;
-	}
-
-	.axisPointer, .legend text{
-		cursor: pointer;
-	}
-
-	.TOS {stroke:#1f77b4;stroke-width: 2px;}
-	.TNG {stroke:#ff7f0e;stroke-width: 2px;}
-	.DS9 {stroke:#2ca02c;stroke-width: 2px;}
-	.VOY {stroke:#d62728;stroke-width: 2px;}
-	.ENT {stroke:#9467bd;stroke-width: 2px;}
-
-	.season1 {stroke:#1f77b4;}
-	.season2 {stroke:#ff7f0e;}
-	.season3 {stroke:#2ca02c;}
-	.season4 {stroke:#d62728;}
-	.season5 {stroke:#9467bd;}
-	.season6 {stroke:#8c564b;}
-	.season7 {stroke:#e377c2;}
-
-  #info_pane {
-    background-color: rgb(245,245,245);
-    height:100%; 
-    width: 28%;  
-    overflow-y: auto;  
-    padding: 0px 2px 2px 10px; 
-    margin-left:-10px; 
-    margin-top:-10px; 
-    margin-right: 10px; 
-    margin-bottom:-10px; 
-    float: left;
-    position: fixed;
-  }
-  #graph_pane{
-    float:left;
-    margin-left: 29.5%;
-  }
-
-    </style>
     <script type="text/javascript">
     	function activateTab(pageId) {
           var tabs = document.getElementById('tabs');
@@ -131,8 +58,10 @@ circle {
 
   </div>
   <div id="graph_pane">
-  <span style="right:auto; left:auto;"><label><input type="radio" name="explore" id="non-explore" onclick="activateTab('page1')" checked>non-explore</label>
-<label><input type="radio" name="explore" id="explore" onclick="activateTab('page2')">explore</label></span>
+  <span style="right:auto; left:auto;">
+  <input type="radio" name="explore" id="non-explore" onclick="activateTab('page1')" checked><label for="non-explore">non-explore</label>
+  <input type="radio" name="explore" id="explore" onclick="activateTab('page2')"><label for="explore">explore</label>
+  </span>
     <div id="tabs">
       <div id="page1" style="display: block;">
       <div id="linechart">

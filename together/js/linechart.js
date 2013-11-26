@@ -7,7 +7,7 @@ var m = [50, 50, 50, 40], // top right bottom left
     w = 700 - m[1] - m[3], // width
     h = 500 - m[0] - m[2]; // height
 
-var margin = [10, 60, 30, 10],
+var margin = [10, 60, 30, 13],
     width = 700 - margin[1] - margin[3],
     height;
 
@@ -257,10 +257,12 @@ function episodeLevel(d,season){
 	// y-axis
 	svg.append("svg:g")
 		// .attr("transform", function(s){ var tmp = x[s].domain().length > 29? x[s].domain().length-1:x[s].domain().length; return "translate("+ x[s](tmp) +")";})
-		.attr("transform",function(s){var tmp = (s=="TOS"&&season==0)? x[s].domain().length-1:x[s].domain().length; return "translate("+ xx(tmp) +")";})
+		// .attr("transform",function(s){var tmp = (s=="TOS"&&season==0)? x[s].domain().length-1:x[s].domain().length; return "translate("+ xx(tmp) +")";})
+		.attr("transform",function(s){var tmp = (season==0)? 0:1; return "translate("+ xx(tmp) +")";})
 		.attr("class","axis")
 		// .each(function(s){d3.select(this).call(axis.scale(y[s]).tickValues(y[s].domain()).orient("right"));})
-		.each(function(s){d3.select(this).call(axis.scale(yy).tickValues(yy.domain()).orient("right"));})
+		// .each(function(s){d3.select(this).call(axis.scale(yy).tickValues(yy.domain()).orient("right"));})
+		.each(function(s){d3.select(this).call(axis.scale(yy).tickValues(yy.domain()).orient("left"));})
 		.append("svg:text")
 		.attr("text-anchor", "middle")
 		.attr("x",-10)
@@ -416,10 +418,12 @@ function seriesLevel(d,seriesAbr){
 	// y-axis
 	svg.append("svg:g")
 		// .attr("transform", function(s){ var tmp = x[s].domain().length > 29? x[s].domain().length-1:x[s].domain().length; return "translate("+ x[s](tmp) +")";})
-		.attr("transform",function(s){var tmp = (x[s].domain().length > 29)? x[s].domain().length-1:x[s].domain().length; return "translate("+ xx(tmp) +")";})
+		// .attr("transform",function(s){var tmp = (x[s].domain().length > 29)? x[s].domain().length-1:x[s].domain().length; return "translate("+ xx(tmp) +")";})
+		.attr("transform",function(s){var tmp = (seriesAbr=="TOS")? 0:1; return "translate("+ xx(tmp) +")";})
 		.attr("class","axis")
 		// .each(function(s){d3.select(this).call(axis.scale(y[s]).tickValues(y[s].domain()).orient("right"));})
-		.each(function(s){d3.select(this).call(axis.scale(yy).tickValues(yy.domain()).orient("right"));})
+		// .each(function(s){d3.select(this).call(axis.scale(yy).tickValues(yy.domain()).orient("right"));})
+		.each(function(s){d3.select(this).call(axis.scale(yy).tickValues(yy.domain()).orient("left"));})
 		.append("svg:text")
 		.attr("text-anchor", "middle")
 		.attr("x",-10)
