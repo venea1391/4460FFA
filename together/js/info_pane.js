@@ -29,6 +29,14 @@ function getSeriesName(n){
 	else if (n=='ENT') return 'Enterprise';
 }
 
+function getSeriesAbbr(n){
+	if (n=='The Original Series') return 'TOS';
+	else if (n=='The Next Generation') return 'TNG';
+	else if (n=='Deep Space Nine') return 'DS9';
+	else if (n=='Voyager') return 'VOY';
+	else if (n=='Enterprise') return 'ENT';
+}
+
 function getVotes(thing){
 	var count = 0;
 	if (thing.children){
@@ -383,4 +391,21 @@ function setInfoPaneTextForSeason(sNum, seriesArray, data){
 	$("#recurring_cast").html('');
 	
 
+}
+
+function clearInfoPane(){
+	$("#series").html('');
+	$("#season").html('');
+	$("#episode").html('');
+	$("#title").html("");
+	$("#url").html("");
+	$("#user_rating").html('');
+	$("#user_votes").html('');
+	$("#date").html("");
+	$("#stardate").html("");
+	$("#director").html("");
+	$("#writer").html("");
+	$("#feat_characters").html("");
+	$("#main_cast").html('');
+	$("#recurring_cast").html('');
 }

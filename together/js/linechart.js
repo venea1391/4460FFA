@@ -60,7 +60,7 @@ d3.json("data/hierarchy.json", function(d) {
 });
 
 function seasonLevel(d){
-
+	console.log('seasonLevel');
     axis = d3.svg.axis().orient("left");
 
 	x.domain(dimensions=longestSeasons(d));
@@ -224,7 +224,7 @@ function seasonLevel(d){
 function episodeLevel(d,season){
 	//get all series has that season number
 	var seriesForSeason = seriesHasSeason(d,season);
-
+console.log('episodelevel');
 	height = (500/seriesForSeason.length) - margin[0] - margin[2];
 	// console.log(d,season);
 	for (var i = 0; i < seriesForSeason.length; i++) {
@@ -314,7 +314,14 @@ function episodeLevel(d,season){
 		.attr("cy",function(s){return yy(getEpisodeScore(d,s.substring(0,3),season,s.substring(4)))})
 		.attr("r",3)
 		.style("opacity",0)
-		.style("fill","rgb(214,214,214)")
+		.style("fill", function(s){
+			var score = getEpisodeScore(d,s.substring(0,3),season,s.substring(4));
+			var minmax = seriesSeasonMaxMin(d,s.substring(0,3),season);
+			console.log('score: '+score+' minmax: '+minmax+' s: '+s);
+			if (score==minmax[0] || score==minmax[1]){
+				return "black";
+			}
+			else return "rgb(214,214,214)";})
 		.style("stroke","rgb(50,50,50)")
 		.on("mouseover", function(s){ setTooltipText(s); })
 		.on("mousemove", function(){ return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px"); })
@@ -330,7 +337,7 @@ function episodeLevel(d,season){
 		var srs = s.substring(0,3);
 		var epi = parseInt(s.substring(4));
 		var calculatedEpi = (srs == "TOS" && season == 0)?epi:(epi-1);
-		tooltip.html(abbrFull[srs]+"<br />Season "+(season+1)+"<br />Episode "+epi+"<br />Average Rating: "+parseFloat(d.children[seriesTrick[srs]].children[season].children[calculatedEpi].value).toFixed(1));
+		tooltip.html("Season "+(season+1)+" Episode "+epi+"<br />"+d.children[seriesTrick[srs]].children[season].children[calculatedEpi].name+"<br />Average Rating: "+parseFloat(d.children[seriesTrick[srs]].children[season].children[calculatedEpi].value).toFixed(1));
 		return tooltip.style("visibility", "visible");
 	}
 
@@ -385,7 +392,7 @@ function episodeLevel(d,season){
 function seriesLevel(d,seriesAbr){
 	// get all series has that season number
 	var seasonForSeries = seasonInSeries(d,seriesAbr);
-
+console.log('seriesLevel');
 	height = (500/seasonForSeries.length) - margin[0] - margin[2];
 	for (var i = 0; i < seasonForSeries.length; i++) {
 		x[seasonForSeries[i]] = d3.scale.ordinal().rangePoints([0, width], 1).domain(episodesInSeriesSeason(d,seriesAbr,i));
@@ -474,7 +481,14 @@ function seriesLevel(d,seriesAbr){
 		.attr("cy",function(s){return yy(getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1)))})
 		.attr("r",3)
 		.style("opacity",0)
-		.style("fill","rgb(214,214,214)")
+		.style("fill", function(s){
+			var score = getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1));
+			var minmax = seriesSeasonMaxMin(d,seriesAbr,s.substring(0,s.indexOf("_")));
+			console.log('score: '+score+' minmax: '+minmax+' s: '+s);
+			if (score==minmax[0] || score==minmax[1]){
+				return "black";
+			}
+			else return "rgb(214,214,214)";})
 		.style("stroke","rgb(50,50,50)")
 		.on("mouseover", function(s){ setTooltipText(s); })
 		.on("mousemove", function(){ return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px"); })
@@ -485,12 +499,15 @@ function seriesLevel(d,seriesAbr){
 		.duration(duration)
 		.delay(duration/2)
 		.style("opacity",1);
+		
+	mysvg = d3.select("#linechart").selectAll("svg").selectAll("circle");
+	console.log(mysvg);
 
 	function setTooltipText(s){
 		var season = parseInt(s.substring(0,s.indexOf("_")));
 		var epi = parseInt(s.substring(s.indexOf("_")+1));
 		var calculatedEpi = (seriesAbr == "TOS" && season == 0)?epi:(epi-1);
-		tooltip.html(abbrFull[seriesAbr]+"<br />Season "+(season+1)+"<br />Episode "+epi+"<br />Average Rating: "+parseFloat(d.children[seriesTrick[seriesAbr]].children[season].children[calculatedEpi].value).toFixed(1));
+		tooltip.html("Season "+(season+1)+" Episode "+epi+"<br />"+d.children[seriesTrick[seriesAbr]].children[season].children[calculatedEpi].name+"<br />Average Rating: "+parseFloat(d.children[seriesTrick[seriesAbr]].children[season].children[calculatedEpi].value).toFixed(1));
 		return tooltip.style("visibility", "visible");
 	}
 
@@ -831,4 +848,17 @@ function setTitleTextMC(series, season){
 		$('#series_mc').text('');
 		$('#season_mc').text('');
 	}	
+}
+
+function changeLineChartFocus(tmp,i){
+		deleteSVG();
+		setTitleTextMC(getSeriesName(tmp), '');
+		setInfoPaneText(overallData.children[i], "series");
+		seriesLevel(overallData,series[i]);
+}
+
+function resetMC() {
+			deleteSVG();
+			setTitleTextMC('', '');
+			seasonLevel(overallData);
 }
