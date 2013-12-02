@@ -3,7 +3,8 @@
   <head>
     <title>Hierarchical Bar Chart</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
-    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.2"></script>
+    <!--<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.2"></script>-->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
     <!--<script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js?2.4.2"></script>-->
     <script type="text/javascript" src="js/bar_chart_common_functions.js"></script>
     <script type="text/javascript" src="js/info_pane.js"></script>
@@ -69,7 +70,7 @@
       <div id="barchart_outer_div" style="width: 700px; overflow: auto; float: left">
   	<h4 id="bar_chart_title">Star Trek - <span id="series_from_title"></span> - <span id="season_from_title"></span> - <span id="episode_from_title"></span></h4>
   	<span style="right:auto; left:auto;"><input type="radio" name="mode" id="RB_rating" onclick="changeMode()" checked><label for="RB_rating">Rating</label>
-<input type="radio" name="mode" id="RB_votes" onclick="changeMode()"><label for="RB_votes">Number of Votes</label></span>
+<input type="radio" name="mode" id="RB_votes" onclick="changeMode()"><label for="RB_votes">Number of Votes</label><button type="button" id="moveUpBars" style="margin-left: 20px;">Travel Up</button></span>
 <div id="barchart" style="width: 700px;">
 </div>
 </div>

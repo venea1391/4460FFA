@@ -1,6 +1,11 @@
+/* The inspiration for this chart came from http://bl.ocks.org/mbostock/1283663. It was
+heavily modified to accomodate the data, be color coordinated, and interact with 
+other components on the page. */
+
 function transitionVotesBarChart(transition_series, transition_season, transition_episode){
 $('#barchart').empty();
 
+/* Tooltip basic format found in an example, modified */
 var tooltip = d3.select("#barchart")
 	.append("div")
 	.style("position", "absolute")
@@ -40,9 +45,7 @@ var svg = d3.select("#barchart").append("svg:svg")
 svg.append("svg:rect")
     .attr("class", "background")
     .attr("width", w)
-    .attr("height", h)
-    .style("cursor", "pointer")
-    .on("click", up);
+    .attr("height", h);
 
 svg.append("svg:g")
     .attr("class", "x axis");
@@ -52,6 +55,9 @@ svg.append("svg:g")
   .append("svg:line")
     .attr("y1", "100%");
     
+    
+/* Basic hierarchy data borrowed from example, added a lot of computation to be able to 
+start the chart at something other than the root of the hierarchy */
 d3.json("data/hierarchy.json", function(root) {
   hierarchy.nodes(root);
   x.domain([0, (root.value)]).nice(); 
@@ -116,6 +122,8 @@ d3.json("data/hierarchy.json", function(root) {
   else {down(root, 0);}
 });
 
+/* A lot of custom code was added to this to have clicks modify the info pane. 
+Transitions did not have to be modified because it was appropriate to aggregate votes. */
 function down(d, i) {
   if (!d.children || this.__transition__) {
   	d3.selectAll(".enter").selectAll("rect").style("fill", colors[5]);
@@ -182,10 +190,10 @@ function down(d, i) {
   // Rebind the current node to the background.
   svg.select(".background").data([d]).transition().duration(end); d.index = i;
   
-  if (!d.parent){
+  /*if (!d.parent){
   	svg.select(".background").style("cursor", "default");
   }
-  else {svg.select(".background").style("cursor", "pointer");}
+  else {svg.select(".background").style("cursor", "pointer");}*/
   
   if (!d.children[0].children) {
   	setInfoPaneText(d, 'season');
@@ -198,6 +206,7 @@ function down(d, i) {
 
 }
 
+/* Similar to down() */
 function up(d) {
   if (!d.parent || this.__transition__) return;
   setTitleText(d.parent);
@@ -259,10 +268,10 @@ function up(d) {
   // Rebind the current parent to the background.
   svg.select(".background").data([d.parent]).transition().duration(end);
 
-  if (!d.parent.parent){
+  /*if (!d.parent.parent){
   	svg.select(".background").style("cursor", "default");
   }
-  else {svg.select(".background").style("cursor", "pointer");}
+  else {svg.select(".background").style("cursor", "pointer");}*/
 }
 
 // Creates a set of bars for the given data node, at the specified index.
@@ -298,7 +307,7 @@ function bar(d) {
 }
 
 
-
+/* Completely from scratch */
 function setTooltipText(node){
 	var n, sn;
 	if (node.children && node.children[0].children && node.children[0].children[0].children) {
@@ -329,7 +338,7 @@ function setTooltipText(node){
     return tooltip.style("visibility", "visible");
 }
 
-// A stateful closure for stacking bars horizontally.
+// A stateful closure for stacking bars horizontally. Was not modified.
 function stack(i) {
   var x0 = 0;
   return function(d) {
@@ -339,4 +348,5 @@ function stack(i) {
   };
 }
 
+$('#moveUpBars').click(function(){up(d3.select(".background").data()[0])});
 }

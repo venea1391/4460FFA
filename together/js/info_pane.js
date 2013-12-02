@@ -1,5 +1,8 @@
-var allData, hierarchyData;
+/* All code in info_pane.js is completely from scratch. */
 
+var allData, hierarchyData;
+/* Load files of data asynchronously so that it doesn't have to be loaded multiple
+times. */
     $.ajax({
         'async': false,
         'global': false,
@@ -20,7 +23,7 @@ var allData, hierarchyData;
         }
     });
 
-
+/* Given a abbreviation, get the full name */
 function getSeriesName(n){
 	if (n=='TOS') return 'The Original Series';
 	else if (n=='TNG') return 'The Next Generation';
@@ -29,6 +32,7 @@ function getSeriesName(n){
 	else if (n=='ENT') return 'Enterprise';
 }
 
+/* Given a full name, get the abbreviation */
 function getSeriesAbbr(n){
 	if (n=='The Original Series') return 'TOS';
 	else if (n=='The Next Generation') return 'TNG';
@@ -37,6 +41,9 @@ function getSeriesAbbr(n){
 	else if (n=='Enterprise') return 'ENT';
 }
 
+/* Recursively calculates the votes for a given thing - sums up all of its children if
+necessary. A season's votes is equal to the sum of all of the episodes votes that make up
+that season. */
 function getVotes(thing){
 	var count = 0;
 	if (thing.children){
@@ -50,6 +57,8 @@ function getVotes(thing){
 	return count;
 }
 
+/* Calculates average rating for a given thing. Returns an array [<sum of ratings>,<count of 
+things that had their ratings added>] */
 var avgRating = function (input) {
 	var derp = [0, 0]; //total rating, total count
 	derp[0] = 0;
@@ -69,7 +78,7 @@ var avgRating = function (input) {
 }
 
 
-
+/* Also calculates average rating for a given thing. */
 function avgValues(d) {
 	var count=0;
 	if (d.children){
@@ -82,6 +91,7 @@ function avgValues(d) {
 	return count;
 }
 
+/*Gets result of avgRating() and calculates the average by dividing the two numbers*/
 function getAvg(data) {
 	var herp = avgRating(data);
 	if (herp[1]!=0){
@@ -99,6 +109,7 @@ function setInfoPaneText(node, type){
 	return;
 }
 
+/* Set text on the info pane if an episode bar was clicked on. */
 function setTextEpisode(node){
 	var obj;
   	$(allData.nodes).each(function(index, element){
@@ -122,6 +133,7 @@ function setTextEpisode(node){
 	$("#recurring_cast").html("<strong>Recurring Cast:</strong> "+obj.recurring_cast);
 }
 
+/* Set text on the info pane if an episode object was clicked on. */
 function setTextGivenEpisode(obj){
 	$("#series").html("<strong>Series:</strong> "+getSeriesName(obj.series));
 	$("#season").html("<strong>Season:</strong> "+obj.season);
@@ -139,6 +151,7 @@ function setTextGivenEpisode(obj){
 	$("#recurring_cast").html("<strong>Recurring Cast:</strong> "+obj.recurring_cast);
 }
 
+/* Set text on the info pane if a season bar was clicked on. */
 function setTextSeason(node){
 	var obj, hobj;
   	$(allData.nodes).each(function(index, element){
@@ -175,6 +188,7 @@ function setTextSeason(node){
 	$("#recurring_cast").html("<strong>Recurring Cast:</strong> "+obj.recurring_cast);
 }
 
+/* Set text on the info pane if a series bar was clicked on. */
 function setTextSeries(node){
 	var obj, hobj;
   	$(allData.nodes).each(function(index, element){
@@ -212,7 +226,6 @@ function setTextSeries(node){
 	$("#main_cast").html("");
 	$("#recurring_cast").html("");
 }
-
 
 function updateByExplore(data,flag){
 	//add "<strong>Series:</strong> " to headers

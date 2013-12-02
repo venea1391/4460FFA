@@ -58,7 +58,7 @@ circle {
   #info_pane {
     background-color: rgb(245,245,245);
     height:100%; 
-    width: 28%;  
+    width: 27%;  
     overflow-y: auto;  
     padding: 0px 2px 2px 15px; 
     margin-left:-10px; 

@@ -1,5 +1,9 @@
+/* All code in this file is from scratch */
+
+/* color array for the 5 series and the gray bars */
 var colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", '#ccc'];
 
+/* Sets the title text of the bar chart */
 function setTitleText(node){
 	if (node.children && node.children[0].children && node.children[0].children[0].children) {
 		$('#series_from_title').text('');
@@ -30,6 +34,7 @@ function setTitleText(node){
 	}	
 }
 
+/* gets the index of that series in the color array */
 function getParentIndex(s){
 	if (s=='TOS') return 0;
 	else if (s=='TNG') return 1;
@@ -54,28 +59,26 @@ function getEpisodeHighlightColor(bar){
 	return colors[getParentIndex(bar.parent.parent.name)];
 }
 
+/* Changes bar chart mode based on radio button - rating or number of votes */
 function changeMode(){
 	var series = $('#series_from_title').text();
 	var season = $('#season_from_title').text();
 	var episode = $('#episode_from_title').text();
 	if (document.getElementById('RB_votes').checked) transitionVotesBarChart(series, season, episode);
   		else transitionRatingBarChart(series, season, episode);
+  	$('html,body').animate({
+        scrollTop: $("#barchart_outer_div").offset().top},
+        'slow');
+
 }
 	
+/* Same as changeMode but series (name, not abbr), season, and episode are given as arguments */
 function changeBarChartFocus(series, season, episode){
 	if (document.getElementById('RB_votes').checked) transitionVotesBarChart(series, season, episode);
 	else transitionRatingBarChart(series, season, episode);
 }
 
-/*jQuery.fn.d3Click = function () {
-  this.each(function (i, e) {
-    var evt = document.createEvent("MouseEvents");
-    evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-
-    e.dispatchEvent(evt);
-  });
-};*/
-
+/* Updates bar chart and line graph from series listed in legend */
 function changeFromLegend(abbr, i){
 	changeLineChartFocus(abbr, i);
 	changeBarChartFocus(getSeriesName(abbr), '', '');
