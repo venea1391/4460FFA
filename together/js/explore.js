@@ -307,6 +307,7 @@ function generateNodes(data, flag){
 	}
 	else if(flag == 6 || flag == 7){
 		var root;
+		toRet=[];
 		if(flag==6){
 			root = {"name":"Directors"};
 		}else{
@@ -380,10 +381,8 @@ function render(input, flag){
 	
 	
 	//push nodes into force layout
-	nodes_drawn = [];
 	$.each(inputNodes, function(i,d){
 		nodes.push(d);
-		nodes_drawn.push(d);
 		if(i!=0){
 			links.push({source: 0, target: i});
 		}
@@ -393,17 +392,19 @@ function render(input, flag){
 	//seting all the nodes to have specific X's and Y's still needs to be fixed
 	var R =  ((3*5*n)/2*Math.PI);
 	
+	var check = 0;
 	nodes.forEach(function(d, i) {
-		if(i!=0){
-			d.x = (width/2)+R*Math.cos(incrementN);
-			d.y = (height/2)+R*Math.sin(incrementN);
-			incrementN+=((2*Math.PI)/n);
-		}else{
+		if(i===0){
 			d.x = (width/2);
 			d.y = (height/2);
 			d.fixed = true;
+		}else{
+			d.x = (width/2)+R*Math.cos(incrementN);
+			d.y = (height/2)+R*Math.sin(incrementN);
+			incrementN+=((2*Math.PI)/n);
 		}
 	});
+	
 	
 	flagIndex = flag;
 	
@@ -525,11 +526,13 @@ function render(input, flag){
 			if(flag ==4 || flag==5){ // in specific writer or director node
 				if(i==0){
 					if(flag == 4){
-						render(getData(6),6);
+						//render(getData(6),6);
+						render(directors,6);
 						return;
 					}
 					else if(flag==5){
-						render(getData(7),7);
+						//render(getData(7),7);
+						render(writers,7);
 						return;
 					}
 					//return; // go back to all directors or writers TODO

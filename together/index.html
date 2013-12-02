@@ -109,7 +109,9 @@
 			changeBarChartFocus(titleArray[i], nodes_drawn[2].name, "~"+nodes_drawn[0].e);
 			changeLineChartFocus(getSeriesAbbr(titleArray[i]), i);
 		}
-		else{ 
+		else{
+			alert('Nothing to be viewed on other graphs.');
+			return;
 			changeBarChartFocus("", "", "");
 			resetMC();
 			clearInfoPane();
