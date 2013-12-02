@@ -30,12 +30,14 @@ var legend,
 
 var overallData;
 
+// json loading code from barchart.js
 d3.json("data/hierarchy.json", function(d) {
 	assignAvgValue(d);
 	overallData = d;
 	// console.log(dimensions);
 	series = getSeries(d);
 
+	// setup tooptip
 	tooltip = d3.select("#linechart")
 	.append("div")
 	.style("position", "absolute")
@@ -47,6 +49,7 @@ d3.json("data/hierarchy.json", function(d) {
 	.style("font-family", "sans-serif")
 	.style("padding", "5px");
 
+	//back navigation
 	$("#startrek_mc").click(function(){
 		if ($(this).css("cursor") != "normal"){
 			deleteSVG();
@@ -59,10 +62,12 @@ d3.json("data/hierarchy.json", function(d) {
 	seasonLevel(d);
 });
 
+// top-level visualization
 function seasonLevel(d){
-	console.log('seasonLevel');
+	// set axis
     axis = d3.svg.axis().orient("left");
 
+    // x axis domain
 	x.domain(dimensions=longestSeasons(d));
 	for (var i = 0; i<dimensions.length; i++){
 		y[dimensions[i]] = d3.scale.linear().domain([6, 9]).range([h, 0]);
@@ -151,11 +156,13 @@ function seasonLevel(d){
 		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); })
 		.on("click", function(c){setIPText(c); });
 
+	// Circle animation
 	circle.transition()
 		.duration(duration)
 		.delay(duration/2)
 		.style("opacity",1);
 
+	// Set tooltip text
 	function setTooltipText(s){
 		var srs = s.substring(0,3);
 		var sea = parseInt(s.substring(4));
@@ -163,6 +170,7 @@ function seasonLevel(d){
 		return tooltip.style("visibility", "visible");
 	}
 	
+	// Set Info Pane text
 	function setIPText(c){
 		var srs = c.substring(0,3);
 		var sea = parseInt(c.substring(4));
@@ -170,6 +178,7 @@ function seasonLevel(d){
 		changeBarChartFocus(getSeriesName(srs),"Season "+(sea+1),"");
 	}
 	
+	// Get all seasons in 
 	function seasonsInAllSeries(){
 		var toReturn = {};
 		for (var i = 0; i < d.children.length; i++) {
@@ -182,6 +191,7 @@ function seasonLevel(d){
 		return toReturn;
 	}
 
+	// Generate y axis data
 	function generateYAxisData(){
 		var result = [];
 		for (var i = 0; i < series.length; i++) {
@@ -196,6 +206,7 @@ function seasonLevel(d){
 		return result;
 	}
 
+	// Generate rating path
 	function path(s) {
 		return line(lineData[s].map(function(p) {
 			// console.log(y[p](getScore(d,s,p)));
@@ -203,6 +214,7 @@ function seasonLevel(d){
 		}));
 	}
 
+	// Go to particular season
 	function seasonNumber(tmp,i){
 		// exit();
 		deleteSVG();
@@ -211,6 +223,7 @@ function seasonLevel(d){
 		episodeLevel(d,i);
 	}
 
+	// Go to particular Series
 	function seriesNo(tmp,i){
 		// exit();
 		changeBarChartFocus(getSeriesName(tmp),"","");
@@ -221,12 +234,12 @@ function seasonLevel(d){
 	}
 }
 
+// Particular Season
 function episodeLevel(d,season){
 	//get all series has that season number
 	var seriesForSeason = seriesHasSeason(d,season);
-console.log('episodelevel');
 	height = (500/seriesForSeason.length) - margin[0] - margin[2];
-	// console.log(d,season);
+	// domain for x axis and y axis
 	for (var i = 0; i < seriesForSeason.length; i++) {
 		x[seriesForSeason[i]] = d3.scale.ordinal().rangePoints([0, width], 1).domain(episodesInSeriesSeason(d,seriesForSeason[i],season));
 		y[seriesForSeason[i]] = d3.scale.linear().range([height, 0]).domain(seriesSeasonMaxMin(d,seriesForSeason[i],season));
@@ -234,6 +247,7 @@ console.log('episodelevel');
 	var xx = d3.scale.ordinal().rangePoints([0, width], 1).domain(longestEpisodes(d,season));
 	var yy = d3.scale.linear().range([height, 0]).domain(seasonMaxMin(d,season));
 
+	// svg
 	svg = d3.select("#linechart").selectAll("svg")
 		.data(seriesForSeason)
 		.enter().append("svg:svg")
@@ -333,6 +347,7 @@ console.log('episodelevel');
 		.delay(duration/2)
 		.style("opacity",1);
 
+	// Set tooptip text
 	function setTooltipText(s){
 		var srs = s.substring(0,3);
 		var epi = parseInt(s.substring(4));
@@ -341,6 +356,7 @@ console.log('episodelevel');
 		return tooltip.style("visibility", "visible");
 	}
 
+	// Set Info Pane
 	function setIPText(c){
 		var srs = c.substring(0,3);
 		var epi = parseInt(c.substring(4));
@@ -349,6 +365,7 @@ console.log('episodelevel');
 		changeBarChartFocus(getSeriesName(srs),"Season "+(season+1),d.children[seriesTrick[srs]].children[season].children[calculatedEpi].name);
 	}
 	
+	// Set rating path
 	function path(s) {
 		return line(x[s].domain().map(function(p) {
 			// console.log(s,p);
@@ -358,6 +375,7 @@ console.log('episodelevel');
 		}));
 	}
 
+	// Set 0 height path
 	function flatPath(s){
 		return line(x[s].domain().map(function(p) {
 			// return [x[s](p), height];
@@ -365,6 +383,7 @@ console.log('episodelevel');
 		}));
 	}
 
+	// Generate Y axis data
 	function generateYAxisData(){
 		var result = {};
 		for (var i = 0; i < seriesForSeason.length; i++) {
@@ -379,6 +398,7 @@ console.log('episodelevel');
 		return result;
 	}
 
+	// Go to Series Level
 	function seriesNo(tmp,i){
 		// exit();
 		changeBarChartFocus(getSeriesName(tmp),"","");
@@ -389,11 +409,12 @@ console.log('episodelevel');
 	}
 }
 
+// Series Level
 function seriesLevel(d,seriesAbr){
 	// get all series has that season number
 	var seasonForSeries = seasonInSeries(d,seriesAbr);
-console.log('seriesLevel');
 	height = (500/seasonForSeries.length) - margin[0] - margin[2];
+	//domain for x and y
 	for (var i = 0; i < seasonForSeries.length; i++) {
 		x[seasonForSeries[i]] = d3.scale.ordinal().rangePoints([0, width], 1).domain(episodesInSeriesSeason(d,seriesAbr,i));
 		y[seasonForSeries[i]] = d3.scale.linear().range([height, 0]).domain(seriesSeasonMaxMin(d,seriesAbr,i));
@@ -501,8 +522,8 @@ console.log('seriesLevel');
 		.style("opacity",1);
 		
 	mysvg = d3.select("#linechart").selectAll("svg").selectAll("circle");
-	console.log(mysvg);
 
+	// Set tooltip
 	function setTooltipText(s){
 		var season = parseInt(s.substring(0,s.indexOf("_")));
 		var epi = parseInt(s.substring(s.indexOf("_")+1));
@@ -511,6 +532,7 @@ console.log('seriesLevel');
 		return tooltip.style("visibility", "visible");
 	}
 
+	// Set Info Pane Text
 	function setIPText(c){
 		var season = parseInt(c.substring(0,c.indexOf("_")));
 		var epi = parseInt(c.substring(c.indexOf("_")+1));
@@ -519,6 +541,7 @@ console.log('seriesLevel');
 		changeBarChartFocus(getSeriesName(seriesAbr),"Season "+(season+1),d.children[seriesTrick[seriesAbr]].children[season].children[calculatedEpi].name);
 	}
 	
+	// Set rating path
 	function path(s) {
 		return line(x[s].domain().map(function(p) {
 			// console.log(s,p);
@@ -528,6 +551,7 @@ console.log('seriesLevel');
 		}));
 	}
 
+	// 0 height path for animation
 	function flatPath(s){
 		return line(x[s].domain().map(function(p) {
 			// return [x[s](p), height];
@@ -535,6 +559,7 @@ console.log('seriesLevel');
 		}));
 	}
 
+	// Y axis data for circle
 	function generateYAxisData(){
 		var result = {};
 		for (var i = 0; i < seasonForSeries.length; i++) {
@@ -549,6 +574,7 @@ console.log('seriesLevel');
 		return result;
 	}
 
+	// Go to particular season level
     function seasonNumber(tmp,i){
 		// exit();
 		deleteSVG();
@@ -557,7 +583,7 @@ console.log('seriesLevel');
 		episodeLevel(d,i);
 	}
 }
-
+// Get seasons in a particular series
 function seasonInSeries(d, seriesAbr){
 	var sis = [];
 	for (var i = 0; i < d.children.length; i++) {
@@ -570,7 +596,7 @@ function seasonInSeries(d, seriesAbr){
 	};
 	return sis;
 }
-
+// Get all series has particular season
 function seriesHasSeason(d,season){
 	var shs = [];
 	for (var i = 0; i < d.children.length; i++) {
@@ -580,7 +606,7 @@ function seriesHasSeason(d,season){
 	}
 	return shs;
 }
-
+// Get max and min for particular series and season
 function seriesSeasonMaxMin(d,series,season){
 	var mi=10, ma = 0;
 	var i;
@@ -602,6 +628,7 @@ function seriesSeasonMaxMin(d,series,season){
 	return result;
 }
 
+// Get max and min for particular season
 function seasonMaxMin(d,season){
 	var mi=10, ma = 0;
 	for (var i = 0; i < d.children.length; i++){
@@ -621,6 +648,7 @@ function seasonMaxMin(d,season){
 	return result;
 }
 
+// Get max and min for particular searies
 function seariesMaxMin(d,seriesAbr){
 	var mi=10, ma = 0;
 	for (var i = 0; i < d.children.length; i++) {
@@ -641,35 +669,36 @@ function seariesMaxMin(d,seriesAbr){
 	var result = [mi,ma];
 	return result
 }
-
+// delete svg
 function deleteSVG(){
 	d3.selectAll(".mc").remove();
 }
+// decarprated
+// function exit(){
+// 	// path exit transition
+// 	foreground.transition()
+//       .duration(duration)
+//       .style("opacity", 0);
+//     // axis transition
+//     g.transition()
+//       .duration(duration)
+//       .delay(duration/2)
+//       .attr("transform", function() {return "translate(" + m[3] + ")"; })
+//       .style("opacity",0);
+//     //remove elements
+//     svg.selectAll(".dimension").remove();
+//     svg.selectAll(".foreground").remove();
+//     svg.selectAll(".sublegend").remove();
+//     svg.selectAll(".legend").remove();
+// }
 
-function exit(){
-	// path exit transition
-	foreground.transition()
-      .duration(duration)
-      .style("opacity", 0);
-    // axis transition
-    g.transition()
-      .duration(duration)
-      .delay(duration/2)
-      .attr("transform", function() {return "translate(" + m[3] + ")"; })
-      .style("opacity",0);
-    //remove elements
-    svg.selectAll(".dimension").remove();
-    svg.selectAll(".foreground").remove();
-    svg.selectAll(".sublegend").remove();
-    svg.selectAll(".legend").remove();
-}
-
+// 0 height path for animation top level
 function flatPath(){
 	return line(dimensions.map(function(p){
 		return [x(p),400];
 	}));
 }
-
+// Get score for particular series&season
 function getScore(d,s,p){
 	//assume d is root
 	for (var i = 0; i < d.children.length; i++) {
@@ -687,7 +716,7 @@ function getScore(d,s,p){
 	}
 	// return 0;
 }
-
+// Get particular episode score
 function getEpisodeScore(d,s,season,p){
 	// if (p==0 && s=="TOS"){
 	// 	return d.children[0].children[season].children[0].value;
@@ -706,7 +735,7 @@ function getEpisodeScore(d,s,season,p){
 		}
 	}
 }
-
+// get all series
 function getSeries(d){
 	// assume d is root
 	var s = [];
@@ -715,7 +744,7 @@ function getSeries(d){
 	}
 	return s;
 }
-
+// get all seasons in a series
 function seasonsInSeries(d,seriesNumber){
 	// assume d is root
 	var result = [];
@@ -724,7 +753,7 @@ function seasonsInSeries(d,seriesNumber){
 	}
 	return result;
 }
-
+// get longest seasons
 function longestSeasons(d){
 	// assume d is root
 	var maxLength = -1,index = -1;
@@ -742,7 +771,7 @@ function longestSeasons(d){
 	}
 	return result;
 }
-
+// get longest episodes for particular season
 function longestEpisodes(d,season){
 	// assume d is root
 	var maxLength = -1;
@@ -769,7 +798,7 @@ function longestEpisodes(d,season){
 	}
 	return result;
 }
-
+// Get longest episodes in series
 function longestEpisodesInSeries(d,seriesAbbr){
 	var maxLength = -1;
 	var result = [];
@@ -799,7 +828,7 @@ function longestEpisodesInSeries(d,seriesAbbr){
 	console.log(result);
 	return result;
 }
-
+// get all episode for particular series and season
 function episodesInSeriesSeason(d,series,season){
 	var i;
 	var result = []
@@ -813,7 +842,7 @@ function episodesInSeriesSeason(d,series,season){
 	}
 	return result;
 }
-
+// calculate average value
 function assignAvgValue(d){
 	var average = 0;
 	if(d.children){
@@ -831,7 +860,7 @@ function assignAvgValue(d){
 	}
 	return average;
 }
-
+// set title for back navigation
 function setTitleTextMC(series, season){
 	if (series!='') {
 		$('#startrek_mc').css({"color":"#0000FF","text-decoration":"underline","cursor": "pointer"});
@@ -849,16 +878,16 @@ function setTitleTextMC(series, season){
 		$('#season_mc').text('');
 	}	
 }
-
+// change line chart level
 function changeLineChartFocus(tmp,i){
-		deleteSVG();
-		setTitleTextMC(getSeriesName(tmp), '');
-		setInfoPaneText(overallData.children[i], "series");
-		seriesLevel(overallData,series[i]);
+	deleteSVG();
+	setTitleTextMC(getSeriesName(tmp), '');
+	setInfoPaneText(overallData.children[i], "series");
+	seriesLevel(overallData,series[i]);
 }
-
+// reset svg
 function resetMC() {
-			deleteSVG();
-			setTitleTextMC('', '');
-			seasonLevel(overallData);
+	deleteSVG();
+	setTitleTextMC('', '');
+	seasonLevel(overallData);
 }
