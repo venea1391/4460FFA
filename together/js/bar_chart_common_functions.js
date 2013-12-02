@@ -80,6 +80,7 @@ function changeBarChartFocus(series, season, episode){
 
 /* Updates bar chart and line graph from series listed in legend */
 function changeFromLegend(abbr, i){
+	render(inData.nodes[i],1);
 	changeLineChartFocus(abbr, i);
 	changeBarChartFocus(getSeriesName(abbr), '', '');
 }

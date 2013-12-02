@@ -284,7 +284,7 @@ function updateByExplore(data,flag){
 		return;
 	}
 	else if(flag==4){
-		director = "<strong>Director:</strong> "+ data[0].name;
+		series = "<strong>Director:</strong> "+ data[0].name;
 		episode = "<strong>Number of episodes directed:</strong> "+data[0].children.length;
 		var temp = james_avg(data[0]);
 		rating = "<strong>Average Rating per Episode:</strong> "+temp.rate.toFixed(1);
@@ -292,7 +292,7 @@ function updateByExplore(data,flag){
 		
 	}
 	else if(flag==5){
-		writer = "<strong>Writer:</strong> "+ data[0].name;
+		series = "<strong>Writer:</strong> "+ data[0].name;
 		episode = "<strong>Number of episodes written:</strong> "+data[0].children.length;
 		var temp = james_avg(data[0]);
 		rating = "<strong>Average Rating per Episode:</strong> "+temp.rate.toFixed(1);
@@ -306,9 +306,9 @@ function updateByExplore(data,flag){
 		});
 		
 		data2.shift();
-		
+		var count = 1;
 		$.each(data2, function(i,d){
-			director+="<a href=\"javascript:james('"+d.name+"',4)\">"+d.name+"</a><br \>";
+			director+="<a href=\"javascript:james('"+d.name+"',4)\">"+(count++)+": "+d.name+"</a><br \>";
 		});
 	}
 	else if(flag==7){
@@ -320,9 +320,9 @@ function updateByExplore(data,flag){
 		});
 		
 		data2.shift();
-		
+		var count = 1;
 		$.each(data2, function(i,d){
-			writer+="<a href=\"javascript:james('"+d.name+"',5)\">"+d.name+"</a><br \>";
+			writer+="<a href=\"javascript:james('"+d.name+"',5)\">"+(count++)+": "+d.name+"</a><br \>";
 		});
 	}
 	
