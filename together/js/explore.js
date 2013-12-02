@@ -54,7 +54,9 @@ d3.csv("data/startrekStrictNoComma.csv",function(data){
         }
     });
 
-
+/*
+	Helper for save state mechanism. 
+*/
 function clear_state(){
 	var temp = [];
 	for(var i =0; i < stateIndex+1; i++){
@@ -62,14 +64,19 @@ function clear_state(){
 	}
 	stateMap = temp;
 }
-	
+
+/*
+	Saves state in array to allow user to go back and forward 
+*/	
 function save_state(data,flag){
 	var state = {"data":data, "flag":flag};
 	stateMap.push(state);
 	stateIndex++;
 }
 
-
+/*
+	Helper for Details on demand, determins what is the proper text to be displayed. 
+*/
 function toolText(data, flag, index){
 	var toReturn = "";
 	if(flag==0){
@@ -117,6 +124,10 @@ function toolText(data, flag, index){
 	return data.name;
 }
 
+
+/*
+	Helper for grabbing the index of the name in the titleArray
+*/
 function seriesIndexFromName(name){
 	if(name=="TOS"){
 		return 0;
@@ -136,7 +147,6 @@ function seriesIndexFromName(name){
 	return 5;
 }
 
-function nodeColor(data, index, flag){
 /*
 	.TOS {stroke:#1f77b4;} cyan
 	.TNG {stroke:#ff7f0e;} burlywood
@@ -147,7 +157,10 @@ function nodeColor(data, index, flag){
 	directors - limegreen
 	go back = RED 
 	done = gray	
+	
+	Determines the color of the node
 */
+function nodeColor(data, index, flag){
 	if(flag==0){
 		if(index==0){
 			return "gray";
@@ -204,6 +217,9 @@ function nodeColor(data, index, flag){
 	}
 }
 
+/*
+	Simple data grabber for help with rendering
+*/
 function getData(flag){
 	if(flag == 0){
 		return inData;
@@ -217,6 +233,9 @@ function getData(flag){
 
 }
 
+/*
+	Simple helper to grab a certain directer out of the node tree
+*/
 function grabPerson(data, flag){
 	if(flag==4){ // directors
 		for(var i=0; i < directors.nodes.length; i++){
@@ -234,11 +253,10 @@ function grabPerson(data, flag){
 	}
 }
 
-
+/*
+	Data regrab for going back. Help for crawing up the tree.
+*/
 function episodeRegrab(episodeNode, flag){
-	//console.log("THIS IS THE EPISODE YOU ARE LOOKING AT (SHOULD BE)");
-	//console.log(episodeNode);
-	//console.log(csvData[episodeNode.exact-1]);
 	var epData = csvData[episodeNode.exact-1];
 	var seriesIndex = seriesIndexFromName(epData.series);
 	if(flag==1){
@@ -248,7 +266,9 @@ function episodeRegrab(episodeNode, flag){
 		return inData.nodes[seriesIndex].children[epData.season-1];
 	}
 }
-
+/*
+	Quick helper for another data regrab
+*/
 function dataRegrab(data,flag){
 	if(flag==0){
 		return inData;
@@ -257,11 +277,16 @@ function dataRegrab(data,flag){
 		return inData.nodes[data.parentIndex-1];
 	}
 }
-
+/*
+	Launch code
+*/
 function test(){
 	render(inData,0);
 }
-//method that takes in data and flag to determin amout of nodes that will be needed (plus 1 to account for root)
+
+/*
+	Method that takes in data and flag to determin amout of nodes that will be needed (plus 1 to account for root)
+*/
 function generateCount(data, flag){
     if(flag==0){
         return data.nodes.length + 3;
@@ -277,7 +302,9 @@ function generateCount(data, flag){
     }
 }
 
-//generates nodes based on inutt data
+/*
+	Generates nodes based on input data 
+*/
 function generateNodes(data, flag){
 	var toRet = [];
 	if(flag==0){ //top level
@@ -320,15 +347,19 @@ function generateNodes(data, flag){
 		return toRet;
 	}
 }
-
+/*
+	Code that I used from D3 website.  Very minimal use, I added a lot to it. 
+*/
 function render(input, flag){
+	//Save state
 	save_state(input,flag);
+	
 	//Mark old nodes and lines as exiting
 	var exitNode = d3.selectAll("#james circle").attr("class","exit");
 	var exitLine = d3.selectAll("#james line").attr("class","exit");
 	var exitText = d3.selectAll("#james text").attr("class","exit");
 	
-	//Exit transition bs
+	//Exit transition stuff
 	var exitTran = exitNode.transition()
 		.duration(750)
 		.style("opacity",1e-6)
@@ -347,7 +378,8 @@ function render(input, flag){
 	d3.select("#james").transition()
 		.duration(750)
 		.style("opacity",1e-6)
-		.remove(); //removes old so you can add new
+		.remove(); 
+	//removes old so you can add new
 		
 	d3.select("tooltiphelp")
 		.remove();
@@ -357,14 +389,10 @@ function render(input, flag){
 		
 	var width = 750,
 		height = 750;
-		
 	
-	
-	var nodes = [], //d3.range(n).map(function() { return {}; }),
-		links = []; //d3.range(n).map(function(d) { return {source: 0, target: (d + input) % n}; });
-	
-	
-	
+	var nodes = [], 
+		links = []; 
+
 	var force = d3.layout.force()
 		.nodes(nodes)
 		.links(links)
@@ -372,14 +400,6 @@ function render(input, flag){
 		.linkDistance(75)
 		.size([width, height]);
 
-	//console.log("nodes before");
-	//console.log(nodes);
-	//will need to check what level we are on, in this case just assuming 0
-	
-	
-	
-	
-	
 	//push nodes into force layout
 	$.each(inputNodes, function(i,d){
 		nodes.push(d);
@@ -388,6 +408,7 @@ function render(input, flag){
 		}
 	});
 	
+	//This is where we will add the nodes in a cirlce around the center node.
 	var incrementN = 0;
 	//seting all the nodes to have specific X's and Y's still needs to be fixed
 	var R =  ((3*5*n)/2*Math.PI);
@@ -405,14 +426,12 @@ function render(input, flag){
 		}
 	});
 	
-	
+	// Update current flag global variable.
 	flagIndex = flag;
 	
+	// Update the info-pabe
 	updateByExplore(nodes,flag);
 	
-	//console.log("nodes after");
-	//console.log(nodes);
-
 	var svg = d3.select(".graph_div").append("svg:svg")
 		.attr("id","james")
 		.attr("width", width)
@@ -476,9 +495,6 @@ function render(input, flag){
 			})
 		  .style("opacity",1e-6) //HERE JAMES
 		.on("mouseover", function(d,i){
-			//console.log("Index: "+i);
-			//console.log(d);
-			//tooltip.text(d.name);
 			tooltip.html(toolText(d,flag,i));
 			return tooltip.style("visibility", "visible");
 		})
@@ -585,7 +601,7 @@ function render(input, flag){
 		var enterL = d3.selectAll("#james line");
 		var enterT = d3.selectAll("#james text");
 	
-		//Exit transition bs
+		//Enter transition bs
 		var enterTran = enterN.transition()
 			.duration(1600)
 			.style("opacity",1);

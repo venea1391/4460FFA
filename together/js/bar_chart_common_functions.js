@@ -77,6 +77,7 @@ function changeBarChartFocus(series, season, episode){
 };*/
 
 function changeFromLegend(abbr, i){
+	render(inData.nodes[i],1);
 	changeLineChartFocus(abbr, i);
 	changeBarChartFocus(getSeriesName(abbr), '', '');
 }
