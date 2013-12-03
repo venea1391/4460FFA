@@ -346,8 +346,11 @@ function episodeLevel(d,season){
 			var score = getEpisodeScore(d,s.substring(0,3),season,s.substring(4));
 			var minmax = seriesSeasonMaxMin(d,s.substring(0,3),season);
 			//console.log('score: '+score+' minmax: '+minmax+' s: '+s);
-			if (score==minmax[0] || score==minmax[1]){
+			if (score==minmax[0]){
 				return 4;
+			}
+			else if (score==minmax[1]){
+				return 5;
 			}
 			else return 3;})
 		.style("opacity",0)
@@ -355,8 +358,11 @@ function episodeLevel(d,season){
 			var score = getEpisodeScore(d,s.substring(0,3),season,s.substring(4));
 			var minmax = seriesSeasonMaxMin(d,s.substring(0,3),season);
 			//console.log('score: '+score+' minmax: '+minmax+' s: '+s);
-			if (score==minmax[0] || score==minmax[1]){
+			if (score==minmax[0]){
 				return "black";
+			}
+			else if (score==minmax[1]){
+				return "white";
 			}
 			else return "rgb(214,214,214)";})
 		.style("stroke","rgb(50,50,50)")
@@ -550,8 +556,11 @@ function seriesLevel(d,seriesAbr){
 			var score = getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1));
 			var minmax = seriesSeasonMaxMin(d,seriesAbr,s.substring(0,s.indexOf("_")));
 			//console.log('score: '+score+' minmax: '+minmax+' s: '+s);
-			if (score==minmax[0] || score==minmax[1]){
+			if (score==minmax[0]){
 				return 4;
+			}
+			else if (score==minmax[1]){
+				return 5;
 			}
 			else return 3;})
 		.style("opacity",0)
@@ -559,8 +568,11 @@ function seriesLevel(d,seriesAbr){
 			var score = getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1));
 			var minmax = seriesSeasonMaxMin(d,seriesAbr,s.substring(0,s.indexOf("_")));
 			//console.log('score: '+score+' minmax: '+minmax+' s: '+s);
-			if (score==minmax[0] || score==minmax[1]){
+			if (score==minmax[0]){
 				return "black";
+			}
+			else if (score==minmax[1]){
+				return "white";
 			}
 			else return "rgb(214,214,214)";})
 		.style("stroke","rgb(50,50,50)")

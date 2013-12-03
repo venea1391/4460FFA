@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html style="height:100%;">
   <head>
-    <title>Hierarchical Bar Chart</title>
+    <title>Star Trek</title>
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
     <!--<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.2"></script>-->
     <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -29,17 +30,17 @@
   <body style="height:100%;">
  
     <div id="info_pane" >
-     <h1>Star Trek</h1>
+     <h1 class="trek_font">STAR TREK</h1> <!--works because of the installed trekbats font -->
      <div id="legend">
      <p><span id="color-swatch" style="background-color: #1f77b4;"></span><a href="javascript:changeFromLegend('TOS', 0)"> The Original Series (TOS)</a><br />
      <span id="color-swatch" style="background-color: #ff7f0e;"></span><a href="javascript:changeFromLegend('TNG', 1)"> The Next Generation (TNG)</a><br />
      <span id="color-swatch" style="background-color: #2ca02c;"></span><a href="javascript:changeFromLegend('DS9', 2)"> Deep Space Nine (DS9)</a><br />
      <span id="color-swatch" style="background-color: #d62728;"></span><a href="javascript:changeFromLegend('VOY', 3)"> Voyager (VOY)</a><br />
-     <span id="color-swatch" style="background-color: #9467bd;"></span><a href="javascript:changeFromLegend('ENT', 4)"> Enterprise (ENT)</a><br />
-     <span id="color-swatch" style="background-color: #8c564b;"></span> Directors<br />
-     <span id="color-swatch" style="background-color: #e377c2;"></span> Writers<br />
-     <span id="color-swatch" style="background-color: #bcbd22;"></span> Back<br />
-     <span id="color-swatch" style="background-color: gray;"></span> Dead<br /></p>
+     <span id="color-swatch" style="background-color: #9467bd;"></span><a href="javascript:changeFromLegend('ENT', 4)"> Enterprise (ENT)</a><br /><br />
+     <span id="color-swatch" style="background-color: #e7cb94;"></span> Directors<br />
+     <span id="color-swatch" style="background-color: #f7b6d2;"></span> Writers<br />
+     <span id="color-swatch" style="background-color: #9edae5;"></span> Back<br />
+     <span id="color-swatch" style="background-color: #cccccc;"></span> Dead<br /></p>
      </div>
   
   <p id="series"></p>
@@ -71,12 +72,12 @@
   	<h4 id="bar_chart_title">Star Trek - <span id="series_from_title"></span> - <span id="season_from_title"></span> - <span id="episode_from_title"></span></h4>
   	<span style="right:auto; left:auto;"><input type="radio" name="mode" id="RB_rating" onclick="changeMode()" checked><label for="RB_rating">Rating</label>
 <input type="radio" name="mode" id="RB_votes" onclick="changeMode()"><label for="RB_votes">Number of Votes</label><button type="button" id="moveUpBars" style="margin-left: 20px;">Travel Up</button></span>
-<div id="barchart" style="width: 700px;">
+<div id="barchart" style="width: 700px; margin-bottom: 60px;">
 </div>
 </div>
       </div>
       <div id="page2" style="display: none;">
-      <p>Explore strange new worlds, seek out new life and new civilizations</p>
+      <p style="font: 14px sans-serif;">Explore strange new worlds, seek out new life and new civilizations <span style="font-family: trekbats_font;">e</span></p>
       <button type="button" id="change_view" onclick="changeView()">View this in the other charts</button> 
       <br />
       <button type="button" id="back_button" title="Go Back" onclick="goBack()">&larr;</button>

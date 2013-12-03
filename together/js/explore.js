@@ -163,26 +163,26 @@ function seriesIndexFromName(name){
 function nodeColor(data, index, flag){
 	if(flag==0){
 		if(index==0){
-			return "gray";
+			return "#cccccc";
 		}
 		if(index==1){
-			return "#8c564b";
+			return "#e7cb94";
 		}
 		if(index==2){
-			return "#e377c2";
+			return "#f7b6d2";
 		}
 		var indexToGo = seriesIndexFromName(data.name);
 		return colorArray[indexToGo];
 	}
 	else if(flag==1){
 		if(index==0){
-			return "#bcbd22";
+			return "#9edae5";
 		}
 		return colorArray[data.parentIndex-1];
 	}
 	else if(flag==2 || flag==4 || flag==5){
 		if(index==0){
-			return "#bcbd22";
+			return "#9edae5";
 		}
 		var episodeInfo = csvData[data.exact-1];
 		var indexToGo = seriesIndexFromName(episodeInfo.series)
@@ -190,30 +190,30 @@ function nodeColor(data, index, flag){
 	}
 	else if(flag==3){
 		if(index==0){
-			return "gray";
+			return "#cccccc";
 		}
 		if(index<3){
 			var indexToGo = seriesIndexFromName(data.s)
 			return colorArray[indexToGo];
 		}
 		if(index==3){
-			return "#8c564b";
+			return "#e7cb94";
 		}
 		if(index==4){
-			return "#e377c2";
+			return "#f7b6d2";
 		}
 	}
 	else if(flag==6){
 		if(index==0){
-			return "#bcbd22";
+			return "#9edae5";
 		}
-		return "#8c564b";
+		return "#e7cb94";
 	}
 	else if(flag==7){
 		if(index==0){
-			return "#bcbd22";
+			return "#9edae5";
 		}
-		return "#e377c2";
+		return "#f7b6d2";
 	}
 }
 

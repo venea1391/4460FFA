@@ -119,3 +119,26 @@ input[type=radio]:checked + label, button:active {
 .mc{
 	margin-top: -15px;
 }
+
+@font-face {
+	font-family: trekbats_font;
+	src: url('Tr.ttf');
+}
+
+@font-face {
+	font-family: trek_font;
+	src: url('Roddenberry.ttf');
+}
+
+
+h1.trek_font{
+	font-family: trek_font;
+	font-size: 3em;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+p.trek_font{
+	font-family: trek_font;
+	font-size: 1.3em;
+}
