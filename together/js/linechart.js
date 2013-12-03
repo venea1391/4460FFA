@@ -497,7 +497,7 @@ function seriesLevel(d,seriesAbr){
 		.data(function(s){return yAxisData[s]})
 		.enter().append("svg:circle")
 		// .attr("cx",function(s){return x[s.substring(0,s.indexOf("_"))](s.substring(s.indexOf("_")+1))})
-		.attr("cx",function(s){var tmp = ((seriesAbr == "TOS") && (s.substring(0,s.indexOf("_")) == "0"))? s.substring(s.indexOf("_")) : s.substring(s.indexOf("_")+1); return xx(tmp);})
+		.attr("cx",function(s){var tmp = ((seriesAbr == "TOS") && (s.substring(s.indexOf("_")) == "0"))? s.substring(s.indexOf("_")) : s.substring(s.indexOf("_")+1); console.log(tmp); console.log(xx(tmp)); return xx(tmp);})
 		// .attr("cy",function(s){return y[s.substring(0,s.indexOf("_"))](getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1)))})
 		.attr("cy",function(s){return yy(getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1)))})
 		.attr("r",3)
@@ -673,6 +673,8 @@ function seariesMaxMin(d,seriesAbr){
 function deleteSVG(){
 	d3.selectAll(".mc").remove();
 }
+
+
 // decarprated
 // function exit(){
 // 	// path exit transition
