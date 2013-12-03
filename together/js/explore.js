@@ -401,8 +401,10 @@ function render(input, flag){
 		.size([width, height]);
 
 	//push nodes into force layout
+	nodes_drawn = [];
 	$.each(inputNodes, function(i,d){
 		nodes.push(d);
+		nodes_drawn.push(d);
 		if(i!=0){
 			links.push({source: 0, target: i});
 		}
