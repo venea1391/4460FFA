@@ -331,7 +331,7 @@ function episodeLevel(d,season){
 			var minmax = seriesSeasonMaxMin(d,s.substring(0,3),season);
 			//console.log('score: '+score+' minmax: '+minmax+' s: '+s);
 			if (score==minmax[0] || score==minmax[1]){
-				return 6;
+				return 4;
 			}
 			else return 3;})
 		.style("opacity",0)
@@ -512,7 +512,7 @@ function seriesLevel(d,seriesAbr){
 			var minmax = seriesSeasonMaxMin(d,seriesAbr,s.substring(0,s.indexOf("_")));
 			//console.log('score: '+score+' minmax: '+minmax+' s: '+s);
 			if (score==minmax[0] || score==minmax[1]){
-				return 6;
+				return 4;
 			}
 			else return 3;})
 		.style("opacity",0)
