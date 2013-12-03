@@ -288,8 +288,24 @@ function episodeLevel(d,season){
 	svg.append("svg:g")
 		.attr("transform", function(s){return "translate(0,"+height+")"})
 		.attr("class","xaxis")
+		.style("display","none")
 		// .each(function(s){d3.select(this).call(axis.scale(x[s]).tickValues(x[s].domain()).orient("bottom"));});
 		.each(function(s){d3.select(this).call(axis.scale(xx).tickValues(xx.domain()).orient("bottom"));});
+
+	// only show the last child
+	xaxis = d3.selectAll('.xaxis');
+	xaxis[0][xaxis[0].length - 1].style.display = "inline";
+
+	// create grid line
+	svg.selectAll("g.gridLine")
+		.data(xx.domain())
+		.enter().append("svg:line")
+		.attr("class",function(s){return "gridline grid"+s})
+		.attr("x1",function(s){return xx(s)})
+		.attr("y1",0)
+		.attr("x2",function(s){return xx(s)})
+		.attr("y2",height + margin[0] + margin[2])
+		.style("display","none");
 
 	// svg.append("svg:line")
 	// 	.attr("class","axis")
@@ -344,15 +360,23 @@ function episodeLevel(d,season){
 			}
 			else return "rgb(214,214,214)";})
 		.style("stroke","rgb(50,50,50)")
-		.on("mouseover", function(s){ setTooltipText(s); })
+		.on("mouseover", function(s){ setTooltipText(s); showGridLine(s);})
 		.on("mousemove", function(){ return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px"); })
-		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); })
+		.on("mouseout", function(){d3.selectAll(".gridline").style("display","none"); return tooltip.style("visibility", "hidden"); })
 		.on("click", function(c){setIPText(c);});
 
 	yAxis.transition()
 		.duration(duration)
 		.delay(duration/2)
 		.style("opacity",1);
+
+
+	// Show Grid Line
+	function showGridLine(s){
+		var epi = parseInt(s.substring(4));
+		var selectorText = ".grid"+epi;
+		d3.selectAll(selectorText).style("display","inline");
+	}
 
 	// Set tooptip text
 	function setTooltipText(s){
@@ -470,9 +494,24 @@ function seriesLevel(d,seriesAbr){
 	svg.append("svg:g")
 		.attr("transform", function(s){return "translate(0,"+height+")"})
 		.attr("class","xaxis")
+		.style("display","none")
 		// .each(function(s){d3.select(this).call(axis.scale(x[s]).tickValues(x[s].domain()).orient("bottom"));});
 		.each(function(s){d3.select(this).call(axis.scale(xx).tickValues(xx.domain()).orient("bottom"));});
 
+	// only show the last child
+	xaxis = d3.selectAll('.xaxis');
+	xaxis[0][xaxis[0].length - 1].style.display = "inline";
+
+	// create grid line
+	svg.selectAll("g.gridLine")
+		.data(xx.domain())
+		.enter().append("svg:line")
+		.attr("class",function(s){return "gridline grid"+s})
+		.attr("x1",function(s){return xx(s)})
+		.attr("y1",0)
+		.attr("x2",function(s){return xx(s)})
+		.attr("y2",height + margin[0] + margin[2])
+		.style("display","none");
 	// svg.append("svg:line")
 	// 	.attr("class","axis")
 	// 	// .attr("x1",function(s){return x[s](x[s].domain()[0])})
@@ -525,9 +564,9 @@ function seriesLevel(d,seriesAbr){
 			}
 			else return "rgb(214,214,214)";})
 		.style("stroke","rgb(50,50,50)")
-		.on("mouseover", function(s){ setTooltipText(s); })
+		.on("mouseover", function(s){ setTooltipText(s); showGridLine(s);})
 		.on("mousemove", function(){ return tooltip.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX+20)+"px"); })
-		.on("mouseout", function(){ return tooltip.style("visibility", "hidden"); })
+		.on("mouseout", function(){d3.selectAll(".gridline").style("display","none"); return tooltip.style("visibility", "hidden"); })
 		.on("click", function(c){setIPText(c);});
 
 	yAxis.transition()
@@ -536,6 +575,13 @@ function seriesLevel(d,seriesAbr){
 		.style("opacity",1);
 		
 	mysvg = d3.select("#linechart").selectAll("svg").selectAll("circle");
+
+	// Show Grid Line
+	function showGridLine(s){
+		var epi = parseInt(s.substring(s.indexOf("_")+1));
+		var selectorText = ".grid"+epi;
+		d3.selectAll(selectorText).style("display","inline");
+	}
 
 	// Set tooltip
 	function setTooltipText(s){
