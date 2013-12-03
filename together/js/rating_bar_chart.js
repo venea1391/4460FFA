@@ -351,7 +351,6 @@ function stack(i) {
   };
 }
 
-console.log(d3.select(".background").data());
 $('#moveUpBars').click(function(){up(d3.select(".background").data()[0])});
 }
 

@@ -326,12 +326,19 @@ function episodeLevel(d,season){
 		.attr("cx",function(s){return xx(s.substring(4))})
 		// .attr("cy",function(s){return y[s.substring(0,3)](getEpisodeScore(d,s.substring(0,3),season,s.substring(4)))})
 		.attr("cy",function(s){return yy(getEpisodeScore(d,s.substring(0,3),season,s.substring(4)))})
-		.attr("r",3)
+		.attr("r",function(s){
+			var score = getEpisodeScore(d,s.substring(0,3),season,s.substring(4));
+			var minmax = seriesSeasonMaxMin(d,s.substring(0,3),season);
+			//console.log('score: '+score+' minmax: '+minmax+' s: '+s);
+			if (score==minmax[0] || score==minmax[1]){
+				return 6;
+			}
+			else return 3;})
 		.style("opacity",0)
 		.style("fill", function(s){
 			var score = getEpisodeScore(d,s.substring(0,3),season,s.substring(4));
 			var minmax = seriesSeasonMaxMin(d,s.substring(0,3),season);
-			console.log('score: '+score+' minmax: '+minmax+' s: '+s);
+			//console.log('score: '+score+' minmax: '+minmax+' s: '+s);
 			if (score==minmax[0] || score==minmax[1]){
 				return "black";
 			}
@@ -497,15 +504,22 @@ function seriesLevel(d,seriesAbr){
 		.data(function(s){return yAxisData[s]})
 		.enter().append("svg:circle")
 		// .attr("cx",function(s){return x[s.substring(0,s.indexOf("_"))](s.substring(s.indexOf("_")+1))})
-		.attr("cx",function(s){var tmp = ((seriesAbr == "TOS") && (s.substring(s.indexOf("_")) == "0"))? s.substring(s.indexOf("_")) : s.substring(s.indexOf("_")+1); console.log(tmp); console.log(xx(tmp)); return xx(tmp);})
+		.attr("cx",function(s){var tmp = ((seriesAbr == "TOS") && (s.substring(s.indexOf("_")) == "0"))? s.substring(s.indexOf("_")) : s.substring(s.indexOf("_")+1); return xx(tmp);})
 		// .attr("cy",function(s){return y[s.substring(0,s.indexOf("_"))](getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1)))})
 		.attr("cy",function(s){return yy(getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1)))})
-		.attr("r",3)
+		.attr("r",function(s){
+			var score = getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1));
+			var minmax = seriesSeasonMaxMin(d,seriesAbr,s.substring(0,s.indexOf("_")));
+			//console.log('score: '+score+' minmax: '+minmax+' s: '+s);
+			if (score==minmax[0] || score==minmax[1]){
+				return 6;
+			}
+			else return 3;})
 		.style("opacity",0)
 		.style("fill", function(s){
 			var score = getEpisodeScore(d,seriesAbr,s.substring(0,s.indexOf("_")),s.substring(s.indexOf("_")+1));
 			var minmax = seriesSeasonMaxMin(d,seriesAbr,s.substring(0,s.indexOf("_")));
-			console.log('score: '+score+' minmax: '+minmax+' s: '+s);
+			//console.log('score: '+score+' minmax: '+minmax+' s: '+s);
 			if (score==minmax[0] || score==minmax[1]){
 				return "black";
 			}
@@ -827,7 +841,7 @@ function longestEpisodesInSeries(d,seriesAbbr){
 			result.push(i);
 		}
 	}
-	console.log(result);
+	//console.log(result);
 	return result;
 }
 // get all episode for particular series and season
